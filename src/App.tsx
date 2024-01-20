@@ -1,17 +1,23 @@
-import Header from "./components/Header";
-import Content from "./components/Content";
-import Footer from "./components/Footer";
+// App.tsx
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./components/pages/HomePage";
+import AboutPage from "./components/pages/AboutPage";
+import WorkPage from "./components/pages/WorkPage";
+import ContactPage from "./components/pages/ContactPage";
+import ProjectPage from "./components/pages/ProjectPage";
 
-import "./App.css";
-
-function App() {
+const App = () => {
   return (
-    <div>
-      <Header />
-      <Content />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/work" element={<WorkPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/project" element={<ProjectPage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

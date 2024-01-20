@@ -36,11 +36,11 @@
     position: absolute;
     top: 15%;
     left: 15%;
-    margin: 10%;
+   
 } 
 
 /* Media query for extra large screens */
-@media (min-width: 1600px) {
+@media (max-width: 1600px) {
     .centered-container {
         width: 50%;
         /* Adjust the width for screens larger than 1600px */
@@ -55,6 +55,7 @@
         top: 15%;
         /* Adjust top position for extra large screens */
         left: 1px;
+     
         /* Adjust left position for extra large screens */
     }
 }
@@ -73,8 +74,9 @@
     .corner {
         top: 15%;
         /* Adjust top position for medium-sized screens */
-        left: 1%;
-    
+        left: 0%;
+        margin: 2px;
+       
         /* Adjust left position for medium-sized screens */
     }
 }
@@ -95,12 +97,13 @@
         top: 15%;
         /* Adjust top position for smaller screens */
         left: 1%;
+        display: none;
         /* Adjust left position for smaller screens */
     }
 }
 
 /* Media query for even smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
     .centered-container {
         width: 80%;
         /* Adjust the width for screens up to 768px */
@@ -115,13 +118,15 @@
         top: 15%;
         /* Further adjust top position for even smaller screens */
         left: 1%;
+        display: none;
         /* Further adjust left position for even smaller screens */
     }
 }
 
-/* Media query for mobile screens */
-@media (max-width: 576px) {
-    .centered-container {
+
+
+@media (max-width: 600px) {
+.centered-container {
         width: 90%;
         /* Further adjust the width for screens up to 576px */
     }
@@ -135,6 +140,7 @@
         top: 15%;
         /* Further adjust top position for mobile screens */
         left: 0%;
+        display: none;
         /* Further adjust left position for mobile screens */
     }
 }

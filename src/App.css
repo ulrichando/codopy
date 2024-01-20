@@ -31,6 +31,8 @@
 }
 .centered-content{
     margin: 20px;
+    transform: scale(1);
+  
 }
  .corner{
     position: absolute;

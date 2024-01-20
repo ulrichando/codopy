@@ -15,12 +15,12 @@ const Footer = () => {
   return (
     <div>
       <footer className="fixed bottom-0 left-0 right-0 flex flex-col text-black p-8 mt-auto [font-family: 'Inter-ExtraBold',Helvetica] font-extrabold text-[14px] tracking-[0] ">
-        <div className=" flex  items-center justify-center gap-x-7">
+        <div className=" flex  items-center justify-center gap-x-8">
           {navFooter.map((item) => (
             <Link
               key={item.name}
               to={item.to}
-              className={`-mx-3 block  px-3 py-2 font-semibold  text-gray-900 hover:bg-gray-50 ${
+              className={`-mx-3 block  px-4 py-2 font-semibold  text-gray-900 hover:bg-gray-50 ${
                 item.name === "Hello"
                   ? "hover:border-b-2 border-black -mx-2"
                   : "" // Add this line

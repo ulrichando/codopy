@@ -1,7 +1,7 @@
 import "../../App.css";
-import img1 from "../../assets/images/Eclipse1.svg";
-import img2 from "../../assets/images/Eclipse2.svg";
-import img3 from "../../assets/images/circle.svg";
+import img1 from "../../assets/images/circle2.svg";
+import img2 from "../../assets/images/circle3.svg";
+import img3 from "../../assets/images/menuCircle.svg";
 import img4 from "../../assets/images/HelloText.svg";
 
 const Content = () => {
@@ -10,8 +10,8 @@ const Content = () => {
       <div className="middle-right">
         <img src={img1} alt="exlipse" />
       </div>
-      <div className="container-middle">
-        <div className="middle-center">
+      <div className="centered-container">
+        <div className="centered-content">
           <img src={img3} alt="exlipse" />
         </div>
         <div className="corner">

@@ -1,6 +1,6 @@
-import img1 from "../assets/Eclipse1.svg";
-import img2 from "../assets/circle.svg";
-import img3 from "../assets/Ellipse2.svg";
+import img1 from "../assets/images/Ellipse1.svg";
+import img2 from "../assets/images/Ellipse2.svg";
+import img3 from "../assets/images/Ellipse3.svg";
 
 import "../App.css";
 

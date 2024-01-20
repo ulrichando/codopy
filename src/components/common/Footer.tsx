@@ -1,7 +1,7 @@
-import icon1 from "../assets/Github.svg";
-import icon2 from "../assets/xTwitter.svg";
-import icon3 from "../assets/linkdln.svg";
-import icon4 from "../assets/instagram.svg";
+import icon1 from "../assets/images/instagram.svg";
+import icon2 from "../assets/images/twitter.svg";
+import icon3 from "../assets/images/linkedin.svg";
+import icon4 from "../assets/images/Github.svg";
 
 const navFooter = [
   { name: "About", href: "#" },
@@ -12,8 +12,8 @@ const navFooter = [
 const Footer = () => {
   return (
     <div>
-      <footer className="fixed bottom-0 left-0 right-0 flex flex-col flex-shrink text-black p-8 mt-auto [font-family: 'Inter-ExtraBold',Helvetica] font-extrabold text-[14px] tracking-[0] leading-[normal]">
-        <div className=" flex flex-wrap items-center justify-center gap-x-7">
+      <footer className="fixed bottom-0 left-0 right-0 flex flex-col text-black p-8 mt-auto [font-family: 'Inter-ExtraBold',Helvetica] font-extrabold text-[14px] tracking-[0] ">
+        <div className=" flex  items-center justify-center gap-x-7">
           {navFooter.map((item) => (
             <a
               key={item.name}

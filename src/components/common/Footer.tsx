@@ -1,7 +1,7 @@
-import icon1 from "../assets/images/instagram.svg";
-import icon2 from "../assets/images/twitter.svg";
-import icon3 from "../assets/images/linkedin.svg";
-import icon4 from "../assets/images/Github.svg";
+import myIcon1 from "../assets/images/1.svg";
+import myIcon2 from "../assets/images/2.svg";
+import myIcon3 from "../assets/images/3.svg";
+import myIcon4 from "../assets/images/4.svg";
 
 const navFooter = [
   { name: "About", href: "#" },
@@ -29,10 +29,10 @@ const Footer = () => {
           ))}
         </div>
         <div className="fixed bottom-0 right-0 flex flex-wrap gap-4 p-8 mt-auto ">
-          <img src={icon1} alt="github" />
-          <img src={icon2} alt="xTwitter" />
-          <img src={icon3} alt="linkdln" />
-          <img src={icon4} alt="instagram" />
+          <img src={myIcon1} alt="github" />
+          <img src={myIcon2} alt="xTwitter" />
+          <img src={myIcon3} alt="linkdln" />
+          <img src={myIcon4} alt="instagram" />
         </div>
         <div className="fixed bottom-0 left-0 flex flex-wrap  gap-4 p-8 mt-auto  font-semibold text-gray-900">
           <p>Ulrich Ando</p>

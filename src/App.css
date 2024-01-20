@@ -26,14 +26,115 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
 }
 .centered-content{
     margin: 20px;
 }
  .corner{
-    position: fixed;
-    top: 20%;
-    left: 30%;
-    margin: 40px;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    margin: 10%;
 } 
+
+/* Media query for extra large screens */
+@media (min-width: 1600px) {
+    .centered-container {
+        width: 50%;
+        /* Adjust the width for screens larger than 1600px */
+    }
+
+    .centered-content {
+        margin: 15px;
+        /* Adjust margin for extra large screens */
+    }
+
+    .corner {
+        top: 15%;
+        /* Adjust top position for extra large screens */
+        left: 1px;
+        /* Adjust left position for extra large screens */
+    }
+}
+/* Media query for medium-sized screens */
+@media (max-width: 1200px) and (max-width: 1599px){
+    .centered-container {
+        width: 50%;
+        /* Adjust the width for screens up to 1200px */
+    }
+
+    .centered-content {
+        margin: 10px;
+        /* Adjust margin for medium-sized screens */
+    }
+
+    .corner {
+        top: 15%;
+        /* Adjust top position for medium-sized screens */
+        left: 1%;
+    
+        /* Adjust left position for medium-sized screens */
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 992px) {
+    .centered-container {
+        width: 70%;
+        /* Adjust the width for screens up to 992px */
+    }
+
+    .centered-content {
+        margin: 8px;
+        /* Adjust margin for smaller screens */
+    }
+
+    .corner {
+        top: 15%;
+        /* Adjust top position for smaller screens */
+        left: 1%;
+        /* Adjust left position for smaller screens */
+    }
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 768px) {
+    .centered-container {
+        width: 80%;
+        /* Adjust the width for screens up to 768px */
+    }
+
+    .centered-content {
+        margin: 5px;
+        /* Further adjust margin for even smaller screens */
+    }
+
+    .corner {
+        top: 15%;
+        /* Further adjust top position for even smaller screens */
+        left: 1%;
+        /* Further adjust left position for even smaller screens */
+    }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 576px) {
+    .centered-container {
+        width: 90%;
+        /* Further adjust the width for screens up to 576px */
+    }
+
+    .centered-content {
+        margin: 3px;
+        /* Further adjust margin for mobile screens */
+    }
+
+    .corner {
+        top: 15%;
+        /* Further adjust top position for mobile screens */
+        left: 0%;
+        /* Further adjust left position for mobile screens */
+    }
+}

@@ -1,6 +1,6 @@
 import myImage1 from "../assets/Eclipse1.svg";
 import myImage2 from "../assets/Eclipse2.svg";
-import myImage3 from "../assets/Eclipse3.svg";
+import myImage3 from "../assets/circle.svg";
 import "../App.css";
 
 const Content = () => {

@@ -1,19 +1,19 @@
-import myImage1 from "../assets/Eclipse1.svg";
-import myImage2 from "../assets/Eclipse2.svg";
-import myImage3 from "../assets/circle.svg";
 import "../App.css";
+import img1 from "../assets/Eclipse1.svg";
+import img2 from "../assets/Eclipse2.svg";
+import img3 from "../assets/circle.svg";
 
 const Content = () => {
   return (
     <div>
       <div className="middle-right">
-        <img src={myImage1} alt="exlipse" />
+        <img src={img1} alt="exlipse" />
       </div>
       <div className="middle-center">
-        <img src={myImage2} alt="exlipse" />
+        <img src={img3} alt="exlipse" />
       </div>
       <div className="middle-left">
-        <img src={myImage3} alt="exlipse" />
+        <img src={img2} alt="exlipse" />
       </div>
     </div>
   );

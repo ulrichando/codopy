@@ -1,6 +1,6 @@
-import Header from "./components/common/Header";
-import Content from "./components/common/Content";
-import Footer from "./components/common/Footer";
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
 
 import "./App.css";
 

@@ -1,7 +1,7 @@
-import myIcon1 from "../assets/1.svg";
-import myIcon2 from "../assets/2.svg";
-import myIcon3 from "../assets/3.svg";
-import myIcon4 from "../assets/4.svg";
+import myIcon1 from "../../assets/1.svg";
+import myIcon2 from "../../assets/2.svg";
+import myIcon3 from "../../assets/3.svg";
+import myIcon4 from "../../assets/4.svg";
 
 const navFooter = [
   { name: "About", href: "#" },

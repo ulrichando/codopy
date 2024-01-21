@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import "../../App.css";
 
 const navigation = [
   { name: "Projects", to: "/project" },
@@ -26,11 +27,16 @@ export default function Example() {
   return (
     <div className={`bg-white ${blurEffect ? "overflow-hidden" : ""}`}>
       <div
-        className={`fixed inset-0 z-50 ${
+        className={`fixed inset-0  z-50  ${
           blurEffect ? "backdrop-blur-md backdrop-filter" : ""
         }`}
       />
-      <header className="absolute inset-x-0 top-0 z-50">
+
+      <header
+        className={`absolute inset-x-0 top-0 z-50 ${
+          mobileMenuOpen ? "menu-transition" : ""
+        }`}
+      >
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
@@ -38,11 +44,7 @@ export default function Example() {
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
+              <img className="h-8 w-auto" src="#" alt="" />
             </Link>
           </div>
           <div className="flex lg">
@@ -66,7 +68,7 @@ export default function Example() {
           onClose={closeMobileMenu}
         >
           <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#000000e2]  px-6 py-6 sm:max-w-6xl sm:ring-1 sm:ring-gray-900/10 backdrop-blur-md backdrop-filter ">
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#000000e2]  px-6 py-6 sm:max-w-2xl sm:ring-1 sm:ring-gray-900/10 backdrop-blur-md backdrop-filter ">
             <div className="flex items-center justify-between">
               <Link to="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
@@ -87,7 +89,7 @@ export default function Example() {
                     <Link
                       key={item.name}
                       to={item.to}
-                      className="-mx-3 block rounded-lg px-3 py-20 text-8xl gab-10 font-semibold leading-7 text-white  tracking-wide space-y-11 "
+                      className="-mx-3 block rounded-lg px-3 py-10 text-6xl gab-10 font-semibold leading-7 text-white  tracking-wide space-y-11 "
                     >
                       {item.name}
                     </Link>

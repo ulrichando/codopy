@@ -18,6 +18,14 @@
     left: 0;
 }
 
+/* YourComponent.css */
+
+/* Add a class for the transition effect */
+.menu-transition {
+    transition: transform 6.5s ease-in-out;
+    /* You can adjust the duration and timing function */
+}
+
 .centered-container {
     position: relative;
     width: 50%;

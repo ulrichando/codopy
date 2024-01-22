@@ -15,7 +15,7 @@ function HomePage() {
         innerScale={1}
         outerScale={2}
         outerAlpha={0}
-        hasBlendMode={true}
+        hasBlendMode={true} // to review this
         innerStyle={{
           backgroundColor: "var(--cursor-color)",
         }}

@@ -7,6 +7,9 @@ import img4 from "../../assets/images/HelloText.svg";
 const Content = () => {
   return (
     <div>
+      <div className="middle-left">
+        <img src={img2} alt="exlipse" />
+      </div>
       <div className="middle-right">
         <img src={img1} alt="exlipse" />
       </div>
@@ -17,9 +20,6 @@ const Content = () => {
         <div className="corner">
           <img src={img4} alt="exlipse" />
         </div>
-      </div>
-      <div className="middle-left">
-        <img src={img2} alt="exlipse" />
       </div>
     </div>
   );

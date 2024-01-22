@@ -14,7 +14,7 @@ const navFooter = [
 const Footer = () => {
   return (
     <div>
-      <footer className="fixed bottom-0 left-0 right-0 flex flex-col text-black p-8 mt-auto z-9999 cursor-pointer [font-family: 'Inter-ExtraBold',Helvetica] font-extrabold text-[14px] tracking-[0] ">
+      <footer className="fixed bottom-0 left-0 right-0 flex flex-col text-black p-8 mt-auto z-20 cursor-pointer [font-family: 'Inter-ExtraBold',Helvetica] font-extrabold text-[14px] tracking-[0] ">
         <div className=" flex  items-center justify-center gap-x-8">
           {navFooter.map((item) => (
             <Link

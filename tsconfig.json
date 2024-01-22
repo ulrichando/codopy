@@ -25,7 +25,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.svg"
+    "src/**/*.svg",
+    "src/components/common/CustomCursor.tsx"
   ],
   "references": [
     {

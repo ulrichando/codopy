@@ -6,6 +6,8 @@ import WorkPage from "./components/pages/WorkPage";
 import ContactPage from "./components/pages/ContactPage";
 import ProjectPage from "./components/pages/ProjectPage";
 
+import "./App.css";
+
 const App = () => {
   return (
     <Router>

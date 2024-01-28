@@ -6,7 +6,7 @@ import "../../App.css";
 const ContactPage = () => {
   // Your component logic
   return (
-    <div className="App">
+    <div className="container">
       <Header />
       <Footer />
     </div>

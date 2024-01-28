@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
-import "../../App.css";
+import "../../styles/Footer.css";
 
 import myIcon1 from "../../assets/images/1.svg";
 import myIcon2 from "../../assets/images/2.svg";

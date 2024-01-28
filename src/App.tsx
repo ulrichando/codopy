@@ -21,11 +21,11 @@ const App = () => {
       </Routes>
       <AnimatedCursor
         innerSize={8}
-        outerSize={50}
+        outerSize={35}
         innerScale={1}
         outerScale={2}
         outerAlpha={0}
-        hasBlendMode={true}
+        // hasBlendMode={true}
         innerStyle={{
           backgroundColor: "var(--cursor-color)",
         }}

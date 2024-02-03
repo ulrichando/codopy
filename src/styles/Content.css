@@ -1,0 +1,18 @@
+.circle-1{
+    height: 400px;
+    width: 400px;
+    border: 5px solid #080707;
+    border-radius: 5000px;
+    background-color: #080707;
+  }
+  .circle-2{
+    height: 280px;
+    width: 280px;
+    border: 5px solid #080707;
+    border-radius: 5000px;
+    background-color: #080707;
+  }
+
+  .Content-Hello{
+    background-color: #080707;
+  }

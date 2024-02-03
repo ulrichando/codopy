@@ -2,11 +2,9 @@ import "../../styles/Content.css";
 
 const Content = () => {
   <div>
-    <section className="Content-Hello"></section>
-
-    <section className="Content-Work"></section>
-
-    <section className="Content-About"></section>
+    <div className="circle-1">
+      <div className="circle-2"></div>
+    </div>
   </div>;
 };
 

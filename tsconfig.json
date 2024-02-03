@@ -25,6 +25,10 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
+    "src/**/*.jsx",
+    "src/**/*.json",
+    "src/**/*.css",
+    "src/**/*.scss",
     "src/**/*.svg",
     "src/components/common/CustomCursor.tsx"
   ],

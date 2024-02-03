@@ -21,9 +21,7 @@ const Footer = () => {
             <NavLink
               key={item.name}
               to={item.to}
-              exact // Add the exact prop
-              activeClassName="active-link"
-              className=" px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50 hover:border-b-2 border-black -mx-2"
+              className=" px-4 py-2 font-semibold text-gray-900 -mx-2"
             >
               {item.name}
             </NavLink>

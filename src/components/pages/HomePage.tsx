@@ -1,13 +1,13 @@
 import Header from "../../components/common/Header";
-import Content from "../../components/common/Content";
-import Footer from "../common/Footer";
+import Footer from "../../components/common/Footer";
+import Comp from "../common/Comp";
 import "../../App.css";
 
 function HomePage() {
   return (
     <div>
       <Header />
-      <Content />
+      <Comp />
       <Footer />
     </div>
   );

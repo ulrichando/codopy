@@ -1,4 +1,8 @@
 
+
+*{
+    box-sizing: border-box;
+}
 .container {
     display: flex;
     justify-content: space-between;
@@ -60,5 +64,20 @@
     background-color: #555556;
 }
 
+/* 
+.wrapper{
+    display: flex;
+    flex-wrap: nowrap;
+
+}
 
 
+.slide-one {
+    width: 100vw;
+    height: vh;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-around;
+
+} */

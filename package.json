@@ -13,11 +13,15 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
+    "@types/gsap": "^3.0.0",
     "@types/react-router-dom": "^5.3.3",
+    "gsap": "^3.12.5",
     "react": "^18.2.0",
     "react-animated-cursor": "^2.11.2",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.3"
+    "react-router-dom": "^6.21.3",
+    "react-scroll-trigger": "^0.6.14",
+    "sass": "^1.70.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

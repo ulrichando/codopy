@@ -13,14 +13,14 @@ const navFooter = [
 const Footer = () => {
   return (
     <div>
-      <footer className="fixed flex justify-between items-center bottom-0 w-full py-10">
-        <div className="flex justify-center items-center">
+      <footer className="fixed flex justify-between items-center bottom-0 w-full py-10 ">
+        <div className="flex justify-center items-center ">
           <div className="absolute flex justify-center items-center gap-4 transform -translate-x-1/2 left-1/2">
             {navFooter.map((item) => (
               <NavLink
                 key={item.name}
                 to={item.to}
-                className="px-4 py-2 font-semibold text-gray-900 -mx-2"
+                className="px-4 py-2 font-semibold text-gray-900 -mx-2 "
               >
                 {item.name}
               </NavLink>

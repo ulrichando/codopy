@@ -33,7 +33,7 @@ export default function Example() {
       />
 
       <header
-        className={`fixed inset-x-0 top-0 z-50 ${
+        className={`fixed inset-x-0 top-0  z-50 ${
           mobileMenuOpen ? "menu-transition" : ""
         }`}
       >

@@ -1,19 +1,20 @@
 // App.tsx
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./components/pages/HomePage";
 import AnimatedCursor from "react-animated-cursor";
-
+import Header from "./components/common/Header";
+import Footer from "./components/common/Footer";
 import "./App.css";
+import AnimatedRoutes from "./components/common/AnimatedRoutes";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
+      <Header />
+      <Footer />
+      <AnimatedRoutes />
       <AnimatedCursor
-        innerSize={10}
-        outerSize={65}
+        innerSize={8}
+        outerSize={35}
         innerScale={1}
         outerScale={2}
         outerAlpha={0}

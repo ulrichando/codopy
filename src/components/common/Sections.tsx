@@ -19,7 +19,7 @@ const Sections: React.FC<SectionsProps> = ({ aboutRef, helloRef, workRef }) => {
 
   return (
     <div className="wrapper" ref={wrapperRef} onScroll={handleScroll}>
-      <div className="divisions">
+      <div className="divisions flex">
         <section ref={aboutRef} className="section about">
           Section 1 Content
         </section>

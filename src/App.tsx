@@ -6,28 +6,30 @@ import "./App.css";
 import AnimatedRoutes from "./components/common/AnimatedRoutes";
 import { BrowserRouter as Router } from "react-router-dom";
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Header />
-      <Footer />
-      <AnimatedRoutes />
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={35}
-        innerScale={1}
-        outerScale={2}
-        outerAlpha={0}
-        // hasBlendMode={true}
-        innerStyle={{
-          backgroundColor: "var(--cursor-color)",
-        }}
-        outerStyle={{
-          border: "3px solid var(--cursor-color)",
-        }}
-      />
-    </Router>
+    <div className="App">
+      <Router>
+        <Header />
+        <AnimatedRoutes />
+        <AnimatedCursor
+          innerSize={10}
+          outerSize={65}
+          innerScale={1}
+          outerScale={2}
+          outerAlpha={0}
+          // hasBlendMode={true}
+          innerStyle={{
+            backgroundColor: "var(--cursor-color)",
+          }}
+          outerStyle={{
+            border: "3px solid var(--cursor-color)",
+          }}
+        />
+        <Footer />
+      </Router>
+    </div>
   );
-};
+}
 
 export default App;

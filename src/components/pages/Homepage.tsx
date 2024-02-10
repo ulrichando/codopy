@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import "../../styles/pages.css";
 
-function ContactPage() {
+function Homepage() {
   return (
     <div
       className="page-wrapper"
-      style={{ background: "#FF8911", height: "100vh", width: "100vw" }}
+      style={{ background: "#ff343f", height: "100vh", width: "100vw" }}
     >
       <motion.div
         className="home"
@@ -19,4 +20,5 @@ function ContactPage() {
     </div>
   );
 }
-export default ContactPage;
+
+export default Homepage;

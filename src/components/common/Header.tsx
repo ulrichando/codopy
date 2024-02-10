@@ -7,7 +7,7 @@ import "../../App.css";
 const navigation = [
   { name: "Projects", to: "/project" },
   { name: "About", to: "/about" },
-  { name: "Hello", to: "/home" },
+  { name: "Hello", to: "/" },
   { name: "Get in touch", to: "/contact" },
 ];
 

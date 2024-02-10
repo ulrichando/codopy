@@ -9,11 +9,13 @@
 }
 
 html {
-    --cursor-color: #333
+    --cursor-color: #333;
+    overflow-y: hidden;
 }
 
 html.dark-mode {
-    --cursor-color: #fff
+    --cursor-color: #fff;
+    overflow-y: hidden;
 }
 
 .menu-transition {

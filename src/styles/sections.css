@@ -1,0 +1,35 @@
+.wrapper {
+    width: 100vw;
+    overflow-x: auto;
+    /* Hide vertical scrollbar */
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.divisions {
+    display: flex;
+    /* Hide vertical scrollbar */
+}
+
+.section {
+    flex: 0 0 100%;
+    /* Each section occupies 100% of the viewport width */
+    min-height: 100vh;
+    /* Adjust height as needed */
+    transition: transform 0.5s ease;
+}
+
+.about {
+    background-color: #ffcccc;
+    /* Adjust color as needed */
+}
+
+.hello {
+    background-color: #ccffcc;
+    /* Adjust color as needed */
+}
+
+.work {
+    background-color: #ccccff;
+    /* Adjust color as needed */
+}

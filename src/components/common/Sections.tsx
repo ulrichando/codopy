@@ -1,19 +1,33 @@
+import React, { useRef } from "react";
 import "../../styles/sections.css";
-import "../../styles/play.css";
 
-const Sections = () => {
+interface SectionsProps {
+  aboutRef: React.RefObject<HTMLDivElement>;
+  helloRef: React.RefObject<HTMLDivElement>;
+  workRef: React.RefObject<HTMLDivElement>;
+}
+
+const Sections: React.FC<SectionsProps> = ({ aboutRef, helloRef, workRef }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const scrollLeft = e.currentTarget.scrollLeft;
+    if (wrapperRef.current !== null) {
+      wrapperRef.current.scrollLeft = scrollLeft;
+    }
+  };
+
   return (
-    <div className="wrapper">
+    <div className="wrapper" ref={wrapperRef} onScroll={handleScroll}>
       <div className="divisions">
-        <section></section>
-        <section></section>
-
-        <section className="section-3">
-          <div className="section-3-content absolute w-full h-full">
-            <div className="flex justify-center items-center h-full w-full  ">
-              <div className="menu w-40 h-40  rounded-full border-2 border-[#4f4c4c]"></div>
-            </div>
-          </div>
+        <section ref={aboutRef} className="section about">
+          Section 1 Content
+        </section>
+        <section ref={helloRef} className="section hello">
+          Section 2 Content
+        </section>
+        <section ref={workRef} className="section work">
+          Section 3 Content
         </section>
       </div>
     </div>

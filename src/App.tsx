@@ -12,8 +12,8 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
       </Routes>
       <AnimatedCursor
-        innerSize={8}
-        outerSize={35}
+        innerSize={10}
+        outerSize={65}
         innerScale={1}
         outerScale={2}
         outerAlpha={0}

@@ -5,7 +5,12 @@ function Homepage() {
   return (
     <div
       className="page-wrapper"
-      style={{ background: "#ff343f", height: "100vh", width: "100vw" }}
+      style={{
+        background: "#ff343f",
+        height: "100vh",
+        width: "100vw",
+        overflow: "hidden",
+      }}
     >
       <motion.div
         className="home"

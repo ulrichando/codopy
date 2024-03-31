@@ -4,7 +4,12 @@ function WorkPage() {
   return (
     <div
       className="page-wrapper"
-      style={{ background: "#59B4C3", height: "100vh", width: "100vw" }}
+      style={{
+        background: "#59B4C3",
+        height: "100vh",
+        width: "100vw",
+        overflow: "hidden",
+      }}
     >
       <motion.div
         className="home"

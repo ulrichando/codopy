@@ -36,7 +36,7 @@ const Footer = () => {
               {
                 icon: myIcon2,
                 alt: "twitter",
-                to: "https://twitter.com/yourusername",
+                to: "https://instagram.com/yourusername",
               },
               {
                 icon: myIcon3,
@@ -46,7 +46,7 @@ const Footer = () => {
               {
                 icon: myIcon4,
                 alt: "instagram",
-                to: "https://instagram.com/yourusername",
+                to: "https://twitter.com/yourusername",
               },
             ].map((social) => (
               <a

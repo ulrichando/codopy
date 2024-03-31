@@ -4,7 +4,12 @@ function ContactPage() {
   return (
     <div
       className="page-wrapper"
-      style={{ background: "#FF8911", height: "100vh", width: "100vw" }}
+      style={{
+        background: "#FF8911",
+        height: "100vh",
+        width: "100vw",
+        overflow: "hidden",
+      }}
     >
       <motion.div
         className="home"

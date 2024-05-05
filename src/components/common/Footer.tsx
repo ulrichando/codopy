@@ -60,7 +60,9 @@ const Footer = () => {
             ))}
           </div>
           <div className="absolute flex left-0 gap-4 py-2 px-10">
-            <p className="font-semibold text-gray-900">Ulrich Ando</p>
+            <a>
+              <p className="font-semibold text-gray-900">Ulrich Ando</p>
+            </a>
           </div>
         </div>
       </footer>

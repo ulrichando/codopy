@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       width: {
-        128: "40rem",
+        128: "38rem",
       },
       height: {
-        128: "40rem",
+        128: "38rem",
       },
     },
   },

@@ -10,6 +10,8 @@ import "../../App.css";
 //   { name: "Hello", to: "/" },
 //   { name: "Get in touch", to: "/contact" },
 // ];
+
+// this is a test
 const navigation = [
   {
     name: "Projects",

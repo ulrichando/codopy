@@ -2,15 +2,6 @@ import { motion } from "framer-motion";
 
 function Homepage() {
   return (
-    // <div
-    //   className="page-wrapper"
-    //   style={{
-    //     background: "#ffffff",
-    //     height: "100vh",
-    //     width: "100vw",
-    //     overflow: "hidden",
-    //   }}
-    // ></div>
     <div
       className="page-wrapper"
       style={{
@@ -30,7 +21,7 @@ function Homepage() {
         exit={{ x: window.innerWidth, transition: { duration: 1 } }}
       >
         {/* container */}
-        <div className="relative w-screen h-screen flex items-center justify-center">
+        <div className="relative w-screen h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
             {/* Text Hello */}
             <div className="absolute top-1/3 right-full transform -translate-x-full translate-x-2">
@@ -100,6 +91,25 @@ function Homepage() {
           {/* End of Reel button  */}
         </div>
         {/* End of container  */}
+
+        {/* Container two  */}
+
+        <div className="absolute top-1/2 transform  -translate-y-1/2 ">
+          <div className="Circle w-60 h-60 rounded-full border-4 border-gray-400 flex justify-center items-center">
+            <div className="Mini flex justify-center  w-20 h-20 rounded-full bg-gray-500"></div>
+          </div>
+        </div>
+        {/* End of Contianer two  */}
+
+        {/* Container Three */}
+
+        <div className="absolute right-0 top-1/2 transform  -translate-y-1/2">
+          <div className="Circle w-60 h-60 rounded-full border-4 border-gray-400 flex justify-center items-center">
+            <div className="Mini flex justify-center  w-20 h-20 rounded-full bg-gray-500"></div>
+          </div>
+        </div>
+
+        {/*End of Container Three */}
       </motion.div>
     </div>
   );

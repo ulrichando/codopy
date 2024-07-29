@@ -4,8 +4,21 @@ import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import "../../App.css";
 
+// const navigation = [
+//   { name: "Projects", to: "/project" },
+//   { name: "About", to: "/about" },
+//   { name: "Hello", to: "/" },
+//   { name: "Get in touch", to: "/contact" },
+// ];
 const navigation = [
-  { name: "Projects", to: "/project" },
+  {
+    name: "Projects",
+    to: "/project",
+    submenu: [
+      { name: "Project A", to: "/project/a" },
+      { name: "Project B", to: "/project/b" },
+    ],
+  },
   { name: "About", to: "/about" },
   { name: "Hello", to: "/" },
   { name: "Get in touch", to: "/contact" },

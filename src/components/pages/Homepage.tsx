@@ -94,7 +94,7 @@ function Homepage() {
 
         {/* Container two  */}
 
-        <div className="absolute top-1/2 transform  -translate-y-1/2 ">
+        <div className="absolute left-0 top-1/2 transform  -translate-y-1/2 ">
           <div className="Circle w-60 h-60 rounded-full border-4 border-gray-400 flex justify-center items-center">
             <div className="Mini flex justify-center  w-20 h-20 rounded-full bg-gray-500"></div>
           </div>

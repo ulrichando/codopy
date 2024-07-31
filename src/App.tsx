@@ -14,10 +14,11 @@ function App() {
         <AnimatedRoutes />
         <AnimatedCursor
           innerSize={10}
-          outerSize={65}
+          outerSize={40}
           innerScale={1}
           outerScale={2}
           outerAlpha={0}
+          speed={0.2}
           // hasBlendMode={true}
           innerStyle={{
             backgroundColor: "var(--cursor-color)",

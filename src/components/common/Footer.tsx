@@ -94,13 +94,13 @@ function Footer() {
               <NavLink
                 key={item.name}
                 to={item.to}
-                className="px-4 py-2 font-semibold text-gray-900 -mx-2"
+                className="px-4 py-2 font-medium text-xl -mx-2"
               >
                 {item.name}
               </NavLink>
             ))}
           </div>
-          <div className="absolute flex gap-2 right-0 py-2 px-10">
+          <div className="absolute flex gap-2 right-0 py-2 px-10 font-medium">
             {[
               {
                 icon: myIcon1,
@@ -135,7 +135,7 @@ function Footer() {
           </div>
           <div className="absolute flex left-0 gap-4 py-2 px-10">
             <a>
-              <p className="font-semibold text-gray-900">Ulrich Ando</p>
+              <p className="font-medium text-xl">Ulrich Ando</p>
             </a>
           </div>
         </div>

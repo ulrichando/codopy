@@ -24,10 +24,10 @@ function Homepage() {
         <div className="relative w-screen h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
             {/* Text Hello */}
-            <div className="absolute top-1/3 right-full transform -translate-x-full translate-x-2">
+            <div className="absolute top-1/3 right-full transform  translate-x-2">
               <div className=" top-20 left-10">
                 <h1 className="text-7xl font-bold">Hello.</h1>
-                <p className="mt-4 text-xl">
+                <p className="mt-4 text-xl font-medium">
                   Welcome to <br />
                   my portfolio, <br />
                   explore and discover
@@ -37,12 +37,12 @@ function Homepage() {
             {/* End of Text Hello */}
 
             {/* Circle */}
-            <div className="Circle w-128 h-128 rounded-full border-4 border-gray-400 flex justify-center items-center">
+            <div className="Circle w-128 h-128 rounded-full border-4 border-black flex justify-center items-center">
               <div className="Mini flex justify-center  w-60 h-60 rounded-full bg-gray-500"></div>
             </div>
 
             {/* Circle menu */}
-            <div className="absolute flex flex-col space-y-2 top-1/3 left-full transform -translate-x-full translate-x-2">
+            <div className="absolute flex flex-col space-y-2 top-1/3 left-full transform  translate-x-2 font-med">
               <a
                 href="https://example.com/page1"
                 className=" text-#000000 px-4 py-2 "
@@ -72,7 +72,7 @@ function Homepage() {
             {/* End of Circle  */}
 
             {/* Reel button  */}
-            <div className="absolute bottom-1/4 left-full  transform -translate-x-full translate-x-5 translate-y-20 ">
+            <div className="absolute bottom-1/4 left-full  transform  translate-x-5 translate-y-20 ">
               <button className="reel-button bg-transparent border-none cursor-pointer flex items-center">
                 <div className="rounded-full border-4 border-black w-12 h-12 flex items-center justify-center mr-2">
                   <svg
@@ -93,19 +93,25 @@ function Homepage() {
         {/* End of container  */}
 
         {/* Container two  */}
-
-        <div className="absolute left-0 top-1/2 transform  -translate-y-1/2 ">
-          <div className="Circle w-60 h-60 rounded-full border-4 border-gray-400 flex justify-center items-center">
-            <div className="Mini flex justify-center  w-20 h-20 rounded-full bg-gray-500"></div>
+        <div className="absolute left-/12 top-1/2 transform -translate-y-1/2">
+          <div className="flex justify-center items-center rounded-full bg-gray-800 h-64 w-64">
+            <div className="flex justify-center items-center rounded-full bg-gray-600 h-48 w-48">
+              <div className="flex justify-center items-center rounded-full bg-gray-400 h-32 w-32">
+                <div className="rounded-full bg-gray-200 h-16 w-16"></div>
+              </div>
+            </div>
           </div>
         </div>
         {/* End of Contianer two  */}
 
         {/* Container Three */}
-
-        <div className="absolute right-0 top-1/2 transform  -translate-y-1/2">
-          <div className="Circle w-60 h-60 rounded-full border-4 border-gray-400 flex justify-center items-center">
-            <div className="Mini flex justify-center  w-20 h-20 rounded-full bg-gray-500"></div>
+        <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
+          <div className="flex justify-center items-center rounded-full bg-gray-800 h-64 w-64">
+            <div className="flex justify-center items-center rounded-full bg-gray-600 h-48 w-48">
+              <div className="flex justify-center items-center rounded-full bg-gray-400 h-32 w-32">
+                <div className="rounded-full bg-gray-200 h-16 w-16"></div>
+              </div>
+            </div>
           </div>
         </div>
 

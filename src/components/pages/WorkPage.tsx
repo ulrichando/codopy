@@ -2,15 +2,6 @@ import { motion } from "framer-motion";
 
 function WorkPage() {
   return (
-    // <div
-    //   className="page-wrapper"
-    //   style={{
-    //     background: "#ffffff",
-    //     height: "100vh",
-    //     width: "100vw",
-    //     overflow: "hidden",
-    //   }}
-    // >
     <div
       className="page-wrapper"
       style={{

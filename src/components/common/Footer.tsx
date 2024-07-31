@@ -84,7 +84,7 @@ const navFooter = [
   { name: "Work", to: "/work" },
 ];
 
-function Footer({}) {
+function Footer() {
   return (
     <div>
       <footer className="fixed flex justify-between items-center bottom-0 w-full py-10 z-50">

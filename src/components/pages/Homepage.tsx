@@ -26,7 +26,7 @@ function Homepage() {
         transition={{ duration: 0, yoyo: Infinity }}
       >
         {/* container */}
-        <div className="relative w-screen h-screen overflow-hidden">
+        <div className="relative w-screen h-screen">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
             {/* Text Hello */}
             <div className="absolute top-1/3 right-full transform  translate-x-2">
@@ -94,33 +94,35 @@ function Homepage() {
             </div>
           </div>
           {/* End of Reel button  */}
+          {/* Container two  */}
+
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+            <div className="flex justify-center items-center rounded-full bg-gray-800 h-64 w-64">
+              <div className="flex justify-center items-center rounded-full bg-gray-600 h-48 w-48">
+                <div className="flex justify-center items-center rounded-full bg-gray-400 h-32 w-32">
+                  <div className="rounded-full bg-gray-200 h-16 w-16"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* End of Contianer two  */}
+
+          {/* Container Three */}
+
+          <div className="absolute right-[-15%] top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+            <div className="flex justify-center items-center rounded-full bg-gray-800 h-64 w-64">
+              <div className="flex justify-center items-center rounded-full bg-gray-600 h-48 w-48">
+                <div className="flex justify-center items-center rounded-full bg-gray-400 h-32 w-32">
+                  <div className="rounded-full bg-gray-200 h-16 w-16"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/*End of Container Three */}
         </div>
         {/* End of container  */}
-
-        {/* Container two  */}
-        <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
-          <div className="flex justify-center items-center rounded-full bg-gray-800 h-64 w-64">
-            <div className="flex justify-center items-center rounded-full bg-gray-600 h-48 w-48">
-              <div className="flex justify-center items-center rounded-full bg-gray-400 h-32 w-32">
-                <div className="rounded-full bg-gray-200 h-16 w-16"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* End of Contianer two  */}
-
-        {/* Container Three */}
-        <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-          <div className="flex justify-center items-center rounded-full bg-gray-800 h-64 w-64">
-            <div className="flex justify-center items-center rounded-full bg-gray-600 h-48 w-48">
-              <div className="flex justify-center items-center rounded-full bg-gray-400 h-32 w-32">
-                <div className="rounded-full bg-gray-200 h-16 w-16"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/*End of Container Three */}
       </motion.div>
     </div>
   );

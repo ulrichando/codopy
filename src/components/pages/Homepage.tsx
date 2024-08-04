@@ -14,11 +14,16 @@ function Homepage() {
         overflow: "hidden",
       }}
     >
-      <motion.div
+      {/* <motion.div
         className="home"
         initial={{ width: 0 }}
         animate={{ width: "100%" }}
         exit={{ x: window.innerWidth, transition: { duration: 1 } }}
+      > */}
+      <motion.div
+        initial={{ x: "100vw" }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1, yoyo: Infinity }}
       >
         {/* container */}
         <div className="relative w-screen h-screen overflow-hidden">

@@ -16,9 +16,10 @@ const WorkPage = () => {
     >
       <motion.div
         className="home"
-        initial={{ width: 0 }}
-        animate={{ width: "100vw" }}
-        exit={{ x: window.innerWidth, transition: { duration: 1 } }}
+        initial={{ x: window.innerWidth, width: "100vw" }} // Initial state with position set to off-screen right
+        animate={{ x: 0, width: "100vw" }} // Final state with position set to on-screen
+        exit={{ x: window.innerWidth, transition: { duration: 1 } }} // Exit state with position set to off-screen left
+        transition={{ duration: 1 }} // Transition time set to 1 second
       >
         {/* Container */}
         <div className="relative w-screen h-screen ">

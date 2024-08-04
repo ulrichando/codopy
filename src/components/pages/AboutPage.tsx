@@ -16,9 +16,10 @@ const AboutPage = () => {
     >
       <motion.div
         className="home"
-        initial={{ width: "100vw" }} // Initial state with width set to 100vw
-        animate={{ width: "100vw" }} // Final state with width set to 100vw
+        initial={{ x: -window.innerWidth, width: "100vw" }} // Initial state with position set to off-screen left
+        animate={{ x: 0, width: "100vw" }} // Final state with position set to on-screen
         exit={{ x: -window.innerWidth, transition: { duration: 1 } }}
+        transition={{ duration: 1 }} // Transition time set to 1 second
       >
         {/* Container */}
         <div className="relative w-screen h-screen">

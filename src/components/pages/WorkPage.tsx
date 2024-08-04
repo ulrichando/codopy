@@ -17,7 +17,7 @@ const WorkPage = () => {
       <motion.div
         className="home"
         initial={{ width: 0 }}
-        animate={{ width: "100%" }}
+        animate={{ width: "100vw" }}
         exit={{ x: window.innerWidth, transition: { duration: 1 } }}
       >
         {/* Container */}
@@ -30,7 +30,7 @@ const WorkPage = () => {
             {/* End Circle */}
 
             {/* Circle menu */}
-            <div className="absolute flex flex-col space-y-2 top-1/3 left-full transform translate-x-2 font-med">
+            <div className="absolute flex flex-col space-y-2 top-1/3 left-full transform translate-x-0 font-med">
               <a
                 href="https://example.com/page1"
                 className="text-#000000 px-4 py-2"

@@ -23,7 +23,7 @@ function Homepage() {
       <motion.div
         initial={{ x: "100vw" }}
         animate={{ x: 0 }}
-        transition={{ duration: 1, yoyo: Infinity }}
+        transition={{ duration: 0, yoyo: Infinity }}
       >
         {/* container */}
         <div className="relative w-screen h-screen overflow-hidden">

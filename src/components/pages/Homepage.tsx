@@ -110,7 +110,7 @@ function Homepage() {
 
           {/* Container Three */}
 
-          <div className="absolute right-[-19%] top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2">
             <div className="flex justify-center items-center rounded-full bg-gray-800 h-80 w-80">
               <div className="flex justify-center items-center rounded-full bg-gray-600 h-48 w-48">
                 <div className="flex justify-center items-center rounded-full bg-gray-400 h-32 w-32">

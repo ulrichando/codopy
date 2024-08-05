@@ -61,7 +61,7 @@ const WorkPage = () => {
           </div>
 
           {/* Text Hello */}
-          <div className="absolute left-1/3 top-1/4 transform -translate-y-full -translate-x-1/2">
+          <div className="fixed left-1/3 top-1/4 transform -translate-y-full -translate-x-1/2">
             <div className="top-20 left-10">
               <h1 className="text-7xl font-bold">Work.</h1>
               <p className="mt-4 text-xl font-medium">

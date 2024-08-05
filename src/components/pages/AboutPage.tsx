@@ -61,7 +61,7 @@ const AboutPage = () => {
           </div>
 
           {/* Text Hello */}
-          <div className="absolute right-[20%] top-1/4 transform -translate-y-full -translate-x-1/2">
+          <div className="absolute right-1/3 top-1/4 transform -translate-y-full translate-x-1/2">
             <div className="top-20 left-10">
               <h1 className="text-7xl font-bold">About.</h1>
               <p className="mt-4 text-xl font-medium">

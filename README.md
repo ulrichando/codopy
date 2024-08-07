@@ -12,4 +12,6 @@ This website contains all my projects hosted on a website,
   
  and much more.
 
+ Here is the link of my Figma designe, 
+
  https://www.figma.com/design/WZIkd3hrKY0jkBhvci6zKR/Techpenguin?m=auto&t=Beuc091J5qkDDPyB-1

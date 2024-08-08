@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Element } from "react-scroll";
 
 const WorkPage = () => {
   return (
@@ -74,9 +75,24 @@ const WorkPage = () => {
           {/* End of Text Hello */}
 
           {/* Project menu */}
-
-          <div className="relative w-screen h-screen"></div>
-
+          <div className="absolute flex items-center justify-center w-1/4 border border-black right-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-40 overflow-y-auto">
+            <div className="flex flex-col items-center justify-center h-full">
+              {[...Array(6)].map((_, index) => (
+                <Element
+                  key={index}
+                  name={`section${index}`}
+                  className="flex w-full"
+                >
+                  <div className="flex-1 border border-gray-300 p-40">
+                    &nbsp;
+                  </div>
+                  <div className="flex-1 border border-gray-300 p-40">
+                    &nbsp;
+                  </div>
+                </Element>
+              ))}
+            </div>
+          </div>
           {/* Project menu End */}
         </div>
       </motion.div>

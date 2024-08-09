@@ -1,6 +1,5 @@
-// App.tsx
 import AnimatedCursor from "react-animated-cursor";
-// import Header from "./components/common/Header";
+import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import "./App.css";
 import AnimatedRoutes from "./components/common/AnimatedRoutes";
@@ -10,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Header /> */}
+        <Header />
         <AnimatedRoutes />
         <AnimatedCursor
           innerSize={10}

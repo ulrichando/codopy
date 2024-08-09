@@ -125,7 +125,10 @@ const WorkPage = () => {
             onTouchMove={handleMouseMove}
             onTouchEnd={() => setIsDown(false)}
           >
-            <div ref={itemsContainer} className="ItemsContainer">
+            <div
+              ref={itemsContainer}
+              className="ItemsContainer  absolute right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2  "
+            >
               {/* Adjusted width and height */}
               <div className="table border-collapse border-1 border-black">
                 <div className="item">

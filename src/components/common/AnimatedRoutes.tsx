@@ -5,6 +5,7 @@ import ProjectPage from "../pages/ProjectPage";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Homepage from "../pages/Homepage";
+import DragPage from "../pages/DragPage";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -16,6 +17,7 @@ function AnimatedRoutes() {
         <Route path="/work" element={<WorkPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/projecct" element={<ProjectPage />} />
+        <Route path="/drag" element={<DragPage />} />
       </Routes>
     </AnimatePresence>
   );

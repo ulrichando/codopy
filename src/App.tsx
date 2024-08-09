@@ -1,5 +1,5 @@
 // App.tsx
-import AnimatedCursor from "react-animated-cursor";
+// import AnimatedCursor from "react-animated-cursor";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import "./App.css";
@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Header />
         <AnimatedRoutes />
-        <AnimatedCursor
+        {/* <AnimatedCursor
           innerSize={10}
           outerSize={40}
           innerScale={1}
@@ -25,7 +25,7 @@ function App() {
           outerStyle={{
             border: "3px solid var(--cursor-color)",
           }}
-        />
+        /> */}
         <Footer />
       </Router>
     </div>

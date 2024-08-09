@@ -9,6 +9,7 @@ const navFooter = [
   { name: "About", to: "/about" },
   { name: "Hello", to: "/" },
   { name: "Work", to: "/work" },
+  { name: "Drag", to: "/drag" },
 ];
 
 function Footer() {
@@ -18,13 +19,6 @@ function Footer() {
         <div className="flex justify-center items-center">
           <div className="absolute flex justify-center items-center gap-4 transform -translate-x-1/2 left-1/2">
             {navFooter.map((item) => (
-              // <NavLink
-              //   key={item.name}
-              //   to={item.to}
-              //   className="px-4 py-2 font-medium text-xl -mx-2"
-              // >
-              //   {item.name}
-              // </NavLink>
               <NavLink
                 key={item.name}
                 to={item.to}

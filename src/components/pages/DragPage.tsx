@@ -1,9 +1,9 @@
 // import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "../../styles/draggablescroll.css";
 import classNames from "classnames";
 
-const WorkPage = () => {
+const DragPage = () => {
   // Draggable scroll
   const [isDown, setIsDown] = useState(false); // Set isDown to false
   const [startX, setStartX] = useState(0); // Set startX to 0
@@ -20,7 +20,9 @@ const WorkPage = () => {
   }
 
   function handleMouseMove(e) {
-    if (!isDown) return;
+    if (!isDown) {
+      return;
+    }
   }
   return (
     <div className="MainContainer">
@@ -92,4 +94,4 @@ const WorkPage = () => {
   );
 };
 
-export default WorkPage;
+export default DragPage;

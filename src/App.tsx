@@ -1,6 +1,6 @@
 // App.tsx
-// import AnimatedCursor from "react-animated-cursor";
-import Header from "./components/common/Header";
+import AnimatedCursor from "react-animated-cursor";
+// import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import "./App.css";
 import AnimatedRoutes from "./components/common/AnimatedRoutes";
@@ -10,22 +10,21 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        {/* <Header /> */}
         <AnimatedRoutes />
-        {/* <AnimatedCursor
+        <AnimatedCursor
           innerSize={10}
           outerSize={40}
           innerScale={1}
           outerScale={2}
           outerAlpha={0}
-          // hasBlendMode={true}
           innerStyle={{
             backgroundColor: "var(--cursor-color)",
           }}
           outerStyle={{
             border: "3px solid var(--cursor-color)",
           }}
-        /> */}
+        />
         <Footer />
       </Router>
     </div>

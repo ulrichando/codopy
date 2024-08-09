@@ -1,44 +1,60 @@
-// import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import "../../styles/draggablescroll.css";
-import classNames from "classnames";
 
 const DragPage = () => {
   // Draggable scroll
   const [isDown, setIsDown] = useState(false); // Set isDown to false
-  const [startX, setStartX] = useState(0); // Set startX to 0
-  const [scrollLeftState, setScrollLeftState] = useState(null); // Set scrollLeftState to 0
-  const [mouseMoved, setMouseMoved] = useState(0); // Set mouseMoved to false
+  const [startY, setStartY] = useState(0); // Set startY to 0
+  const [scrollTopState, setScrollTopState] = useState<number | null>(0); // Set scrollTopState to 0
+  const [mouseMoved, setStateMouseMoved] = useState(0); // Set mouseMoved to false
 
-  const itemsContainer = useRef(); // Select the ItemsContainer
+  const itemsContainer = useRef<HTMLDivElement | null>(null); // Select the ItemsContainer
 
-  function handleMouseDown(e) {
+  function handleMouseDown(e: React.MouseEvent | React.TouchEvent) {
     setIsDown(true);
-    setStartX(e.pageX - itemsContainer.current.offsetLeft);
-    setScrollLeftState(itemsContainer.current.scrollLeft);
-    setStateMouseMoved(0);
-  }
-
-  function handleMouseMove(e) {
-    if (!isDown) {
-      return;
+    if (itemsContainer.current) {
+      if ("touches" in e) {
+        setStartY(e.touches[0].pageY - itemsContainer.current.offsetTop);
+      } else {
+        setStartY(e.pageY - itemsContainer.current.offsetTop);
+      }
+      setScrollTopState(itemsContainer.current.scrollTop);
+      setStateMouseMoved(0);
     }
   }
-  return (
-    <div className="MainContainer">
-      <h1>Draggable</h1>
 
-      <div
-        className={classNames("ItemsContainer", {
-          activeClass: isDown,
-        })}
-        ref={itemsContainer}
-        // mouse events
-        onMouseDown={(e) => handleMouseDown(e)}
-        onMouseup={() => setIsDown(false)}
-        onMouseLeave={() => setIsDown(false)}
-        onMouseMove={(e) => handleMouseMove(e)}
-      >
+  function handleMouseMove(e: React.MouseEvent | React.TouchEvent) {
+    if (!isDown || !itemsContainer.current) {
+      return;
+    }
+
+    const currentMousePositionInsideContainer =
+      "touches" in e
+        ? e.touches[0].pageY - itemsContainer.current.offsetTop
+        : e.pageY - itemsContainer.current.offsetTop;
+
+    setStateMouseMoved(currentMousePositionInsideContainer - startY);
+  }
+
+  useEffect(() => {
+    if (itemsContainer.current && scrollTopState !== null) {
+      itemsContainer.current.scrollTop = scrollTopState - mouseMoved;
+    }
+  }, [mouseMoved, scrollTopState]);
+
+  return (
+    <div
+      className="MainContainer"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={() => setIsDown(false)}
+      onMouseLeave={() => setIsDown(false)}
+      onTouchStart={handleMouseDown}
+      onTouchMove={handleMouseMove}
+      onTouchEnd={() => setIsDown(false)}
+    >
+      <div ref={itemsContainer} className="ItemsContainer">
+        {/* Your content here */}
         <div className="item">Item 1</div>
         <div className="item">Item 2</div>
         <div className="item">Item 3</div>
@@ -68,27 +84,6 @@ const DragPage = () => {
         <div className="item">Item 27</div>
         <div className="item">Item 28</div>
         <div className="item">Item 29</div>
-        <div className="item">Item 30</div>
-        <div className="item">Item 31</div>
-        <div className="item">Item 32</div>
-        <div className="item">Item 33</div>
-        <div className="item">Item 34</div>
-        <div className="item">Item 35</div>
-        <div className="item">Item 36</div>
-        <div className="item">Item 37</div>
-        <div className="item">Item 38</div>
-        <div className="item">Item 39</div>
-        <div className="item">Item 40</div>
-        <div className="item">Item 41</div>
-        <div className="item">Item 42</div>
-        <div className="item">Item 43</div>
-        <div className="item">Item 44</div>
-        <div className="item">Item 45</div>
-        <div className="item">Item 46</div>
-        <div className="item">Item 47</div>
-        <div className="item">Item 48</div>
-        <div className="item">Item 49</div>
-        <div className="item">Item 50</div>
       </div>
     </div>
   );

@@ -14,12 +14,6 @@ function Homepage() {
         overflow: "hidden",
       }}
     >
-      {/* <motion.div
-        className="home"
-        initial={{ width: 0 }}
-        animate={{ width: "100%" }}
-        exit={{ x: window.innerWidth, transition: { duration: 1 } }}
-      > */}
       <motion.div
         initial={{ x: "100vw" }}
         animate={{ x: 0 }}

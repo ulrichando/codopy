@@ -1,7 +1,48 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import "../../styles/draggablescroll.css";
 
 const WorkPage = () => {
+  // Draggable scroll
+  const [isDown, setIsDown] = useState(false); // Set isDown to false
+  const [startY, setStartY] = useState(0); // Set startY to 0
+  const [scrollTopState, setScrollTopState] = useState<number | null>(0); // Set scrollTopState to 0
+  const [mouseMoved, setStateMouseMoved] = useState(0); // Set mouseMoved to false
+
+  const itemsContainer = useRef<HTMLDivElement | null>(null); // Select the ItemsContainer
+
+  function handleMouseDown(e: React.MouseEvent | React.TouchEvent) {
+    setIsDown(true);
+    if (itemsContainer.current) {
+      if ("touches" in e) {
+        setStartY(e.touches[0].pageY - itemsContainer.current.offsetTop);
+      } else {
+        setStartY(e.pageY - itemsContainer.current.offsetTop);
+      }
+      setScrollTopState(itemsContainer.current.scrollTop);
+      setStateMouseMoved(0);
+    }
+  }
+
+  function handleMouseMove(e: React.MouseEvent | React.TouchEvent) {
+    if (!isDown || !itemsContainer.current) {
+      return;
+    }
+
+    const currentMousePositionInsideContainer =
+      "touches" in e
+        ? e.touches[0].pageY - itemsContainer.current.offsetTop
+        : e.pageY - itemsContainer.current.offsetTop;
+
+    setStateMouseMoved(currentMousePositionInsideContainer - startY);
+  }
+
+  useEffect(() => {
+    if (itemsContainer.current && scrollTopState !== null) {
+      itemsContainer.current.scrollTop = scrollTopState - mouseMoved;
+    }
+  }, [mouseMoved, scrollTopState]);
+
   return (
     <div
       className="page-wrapper"
@@ -60,7 +101,6 @@ const WorkPage = () => {
             </div>
             {/* End of Circle menu */}
           </div>
-
           {/* Text Hello */}
           <div className="fixed left-1/3 top-1/4 transform -translate-y-full -translate-x-1/2">
             <div className="top-20 left-10">
@@ -73,9 +113,64 @@ const WorkPage = () => {
             </div>
           </div>
           {/* End of Text Hello */}
+          {/* /* Project menu */}
 
-          {/* Project menu */}
-
+          <div
+            className="MainContainer"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={() => setIsDown(false)}
+            onMouseLeave={() => setIsDown(false)}
+            onTouchStart={handleMouseDown}
+            onTouchMove={handleMouseMove}
+            onTouchEnd={() => setIsDown(false)}
+          >
+            <div ref={itemsContainer} className="ItemsContainer">
+              {/* Adjusted width and height */}
+              <div className="table border-collapse border-1 border-black">
+                <div className="item">
+                  {/* Increased row height */}
+                  <div className="item2  ">1</div>
+                  <div className="item2  ">2</div>
+                </div>
+                <div className="item ">
+                  {/* Increased row height */}
+                  <div className="item2 ">3</div>
+                  <div className="item2 ">4</div>
+                </div>
+                <div className="item ">
+                  {/* Increased row height */}
+                  <div className="item2 ">5</div>
+                  <div className="item2 ">6</div>
+                </div>
+                <div className="item ">
+                  {/* Increased row height */}
+                  <div className="item2 ">7</div>
+                  <div className="item2 ">8</div>
+                </div>
+                <div className="item ">
+                  {/* Increased row height */}
+                  <div className="item2 ">9</div>
+                  <div className="item2 ">10</div>
+                </div>
+                <div className="item ">
+                  {/* Increased row height */}
+                  <div className="item2 ">11</div>
+                  <div className="item2 ">12</div>
+                </div>
+                <div className="item ">
+                  {/* Increased row height */}
+                  <div className="item2  ">13</div>
+                  <div className="item2  ">14</div>
+                </div>
+                <div className="item ">
+                  {/* Increased row height */}
+                  <div className="item2 ">15</div>
+                  <div className="item2 ">16</div>
+                </div>
+              </div>
+            </div>
+          </div>
           {/* Project menu End */}
         </div>
       </motion.div>

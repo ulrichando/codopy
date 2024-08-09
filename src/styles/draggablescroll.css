@@ -1,9 +1,9 @@
-
+/* 
 
 .MainContainer {
     border: 1px solid red;
     height:100vh;
-    width: 500px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +15,7 @@
 
 .ItemsContainer {
     border: 1px solid blue;
-    width: 300px;
+    width: 600px;
     height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -23,15 +23,75 @@
     
 }
 
-.item {
+.item  {
+    display: table-row;
+    flex-direction: column;
+    height: 200px;
+    width: 300px;
+    background-color: gray;
+    border: 1px solid black;
+    
+}
+
+.item2 {
+
+    display: table-cell;
+    flex-direction: column;
+    height: 200px;
+    width: 300px;
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+.activeClass {
+    background-color: lightblue;
+    cursor: grabbing;
+}
+ */
+
+
+.MainContainer {
+    border: 1px solid red;
+    height: 100vh;
+    width: 600px;
     display: flex;
     flex-direction: column;
-    width: 200px;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    float: right;
+}
+
+
+.ItemsContainer {
+    border: 1px solid blue;
+    width: 600px;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    cursor: grabbing;
+
+}
+
+
+.item {
+    display: table-row;
+    flex-direction: column;
     height: 200px;
-    border: 2px solid black;
+    width: 300px;
     background-color: gray;
+    border: 1px solid black;
 
+}
 
+.item2 {
+
+    display: table-cell;
+    flex-direction: column;
+    height: 200px;
+    width: 300px;
+    background-color: lightgray;
+    border: 1px solid black;
 }
 
 .activeClass {

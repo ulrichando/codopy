@@ -9,7 +9,6 @@ const navFooter = [
   { name: "About", to: "/about" },
   { name: "Hello", to: "/" },
   { name: "Work", to: "/work" },
-  { name: "Drag", to: "/drag" },
 ];
 
 function Footer() {

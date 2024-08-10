@@ -116,7 +116,7 @@ const WorkPage = () => {
           {/* /* Project menu */}
 
           <div
-            className="MainContainer"
+            className="MainContainer absolute right-[25%]"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={() => setIsDown(false)}
@@ -127,7 +127,7 @@ const WorkPage = () => {
           >
             <div
               ref={itemsContainer}
-              className="ItemsContainer  absolute right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2  "
+              className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2  "
             >
               {/* Adjusted width and height */}
               <div className="table border-collapse border-1 border-black">

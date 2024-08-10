@@ -19,7 +19,7 @@ const navigation = [
   },
   { name: "About", to: "/about" },
   { name: "Hello", to: "/" },
-  { name: "Get in touch", to: "/contact" },
+  { name: "Get In Touch", to: "/contact" },
 ];
 
 export default function Example() {

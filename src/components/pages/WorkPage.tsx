@@ -64,7 +64,7 @@ function WorkPage() {
         transition={{ duration: 1 }} // Transition time set to 1 second
       >
         {/* Container */}
-        <div className="relative w-screen h-screen ">
+        <div className="relative w-screen h-screen p-0 m-0 ">
           <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 p-2">
             {/* Circle */}
             <div className="Circle w-128 h-128 rounded-full border-4 bg-gray-800 flex justify-center items-center">
@@ -130,12 +130,54 @@ function WorkPage() {
               className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2  "
             >
               {/* Adjusted width and height */}
-              <div className="table border-collapse">
+              <div className="table border-collapse ">
                 <div className="item">
                   {/* Increased row height */}
-                  <div className="item2">1</div>
+                  <div className="item2"></div>
                   <div className="card">
-                    <img src="images/PreImage.jpg" alt="" className="img" />
+                    <img src="images/img1.jpg" alt="" className="img" />
+                  </div>
+                </div>
+                <div className="item">
+                  {/* Increased row height */}
+                  <div className="card">
+                    <img src="images/img2.jpg" alt="" className="img" />
+                  </div>
+                  <div className="item2"></div>
+                </div>
+                <div className="item">
+                  {/* Increased row height */}
+                  <div className="item2"></div>
+                  <div className="card">
+                    <img src="images/img3.jpg" alt="" className="img" />
+                  </div>
+                </div>
+                <div className="item">
+                  {/* Increased row height */}
+                  <div className="card">
+                    <img src="images/img4.jpg" alt="" className="img" />
+                  </div>
+                  <div className="item2"></div>
+                </div>
+                <div className="item">
+                  {/* Increased row height */}
+                  <div className="item2"></div>
+                  <div className="card">
+                    <img src="images/img5.jpg" alt="" className="img" />
+                  </div>
+                </div>
+                <div className="item">
+                  {/* Increased row height */}
+                  <div className="card">
+                    <img src="images/img6.jpg" alt="" className="img" />
+                  </div>
+                  <div className="item2"></div>
+                </div>
+                <div className="item">
+                  {/* Increased row height */}
+                  <div className="item2"></div>
+                  <div className="card">
+                    <img src="images/img7.jpg" alt="" className="img" />
                   </div>
                 </div>
                 <div className="item">
@@ -143,49 +185,7 @@ function WorkPage() {
                   <div className="card">
                     <img src="images/PreImage.jpg" alt="" className="img" />
                   </div>
-                  <div className="item2">2</div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="item2">3</div>
-                  <div className="card">
-                    <img src="images/PreImage.jpg" alt="" className="img" />
-                  </div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="card">
-                    <img src="images/PreImage.jpg" alt="" className="img" />
-                  </div>
-                  <div className="item2">4</div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="item2">5</div>
-                  <div className="card">
-                    <img src="images/PreImage.jpg" alt="" className="img" />
-                  </div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="card">
-                    <img src="images/PreImage.jpg" alt="" className="img" />
-                  </div>
-                  <div className="item2">6</div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="item2">7</div>
-                  <div className="card">
-                    <img src="images/PreImage.jpg" alt="" className="img" />
-                  </div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="card">
-                    <img src="images/PreImage.jpg" alt="" className="img" />
-                  </div>
-                  <div className="item2">8</div>
+                  <div className="item2"></div>
                 </div>
               </div>
             </div>

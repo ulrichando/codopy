@@ -129,3 +129,163 @@
     user-select: none ;
     pointer-events: none;
 }
+
+.number{
+    position: absolute;
+    padding: 10px;
+    font-size: 24px;
+    color: white;
+    user-select: none;
+    font-weight: bold;
+}
+
+
+ .one{
+    left: 2px;
+    float: left;
+    top: 13%;
+}
+
+.two{
+    top: 32%;
+    right: 2px;
+    float: right;
+}
+
+.three{
+    left: 2px;
+    top: 51%;
+    float: left;
+}
+
+.four{
+    right: 2px;
+    top: 70%;
+    float: right;
+}
+
+.five{
+    left: 2px;
+    top: 89%;
+    float: left;
+}
+
+.six{
+    right: 2px;
+    top: 108%;
+    float: right;
+}
+
+.seven{
+    left: 2px;
+    top: 127%;
+    float: left;
+}
+
+.eight{
+    right: 2px;
+    top: 146%;
+    float: right;
+}
+
+.nine{
+    left: 2px;
+    top: 164%;
+    float: left;
+}
+
+.text1 {
+    position: absolute;
+    color: black;
+    user-select: none;
+    font-weight: bold;
+    padding: 10px;
+    left:29%;
+    top: 14%;
+}
+
+.text2 {
+    position: absolute;
+    color: black;
+    user-select: none;
+    font-weight: bold;
+    padding: 10px;
+    left:50%;
+    top: 33%;
+}
+
+.text3 {
+    position: absolute;
+    color: black;
+    user-select: none;
+    font-weight: bold;
+    padding: 10px;
+    left:30%;
+    top: 52%;
+}
+
+.text4 {
+    position: absolute;
+    color: black;
+    user-select: none;
+    font-weight: bold;
+    padding: 10px;
+    left:50%;
+    top: 71%;
+}
+
+.text5 {
+    position: absolute;
+    color: black;
+    user-select: none;
+    font-weight: bold;
+    padding: 10px;
+    left:30%;
+    top: 90%;
+}
+
+.text6 {
+    position: absolute;
+    color: black;
+    user-select: none;
+    font-weight: bold;
+    padding: 10px;
+    left:50%;
+    top: 109%;
+}
+
+.text7 {
+    position: absolute;
+    color: black;
+    user-select: none;
+    font-weight: bold;
+    padding: 10px;
+    left:30%;
+    top: 128%;
+}
+
+.text8 {
+    position: absolute;
+    color: black;
+    user-select: none;
+    font-weight: bold;
+    padding: 10px;
+    left:50%;
+    top: 147%;
+}
+
+.text9 {
+    position: absolute;
+    color: black;
+    user-select: none;
+    font-weight: bold;
+    padding: 10px;
+    left:30%;
+    top: 165%;
+}
+
+a {
+    text-decoration: none;
+    user-select: none;
+    pointer-events: auto ;
+}

@@ -129,19 +129,33 @@ function WorkPage() {
               ref={itemsContainer}
               className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2  "
             >
-              {/* Adjusted width and height */}
+              {/* beginning of container  */}
               <div className="table border-collapse ">
                 <div className="item">
                   {/* Increased row height */}
                   <div className="item2"></div>
+                  <div className="number one">01</div>
+                  <div className="text1">Project Name</div>
                   <div className="card">
-                    <img src="images/img1.jpg" alt="" className="img" />
+                    <a
+                      href="https://vercel.com/ulrich-andos-projects"
+                      target="_blank"
+                    >
+                      <img src="images/img1.jpg" alt="" className="img" />
+                    </a>
                   </div>
                 </div>
                 <div className="item">
                   {/* Increased row height */}
                   <div className="card">
-                    <img src="images/img2.jpg" alt="" className="img" />
+                    <a
+                      href="https://vercel.com/ulrich-andos-projects "
+                      target="_blank"
+                    >
+                      <img src="images/img2.jpg" alt="" className="img" />
+                    </a>
+                    <div className="number two ">02</div>
+                    <div className="text2">Project Name</div>
                   </div>
                   <div className="item2"></div>
                 </div>
@@ -149,13 +163,27 @@ function WorkPage() {
                   {/* Increased row height */}
                   <div className="item2"></div>
                   <div className="card">
-                    <img src="images/img3.jpg" alt="" className="img" />
+                    <a
+                      href="https://vercel.com/ulrich-andos-projects"
+                      target="_blank"
+                    >
+                      <img src="images/img3.jpg" alt="" className="img" />
+                    </a>
+                    <div className="number three">03</div>
+                    <div className="text3">Project Name</div>
                   </div>
                 </div>
                 <div className="item">
                   {/* Increased row height */}
                   <div className="card">
-                    <img src="images/img4.jpg" alt="" className="img" />
+                    <a
+                      href="https://vercel.com/ulrich-andos-projects"
+                      target="_blank"
+                    >
+                      <img src="images/img4.jpg" alt="" className="img" />
+                    </a>
+                    <div className="number four">04</div>
+                    <div className="text4">Project Name</div>
                   </div>
                   <div className="item2"></div>
                 </div>
@@ -163,13 +191,27 @@ function WorkPage() {
                   {/* Increased row height */}
                   <div className="item2"></div>
                   <div className="card">
-                    <img src="images/img5.jpg" alt="" className="img" />
+                    <a
+                      href="https://vercel.com/ulrich-andos-projects"
+                      target="_blank"
+                    >
+                      <img src="images/img5.jpg" alt="" className="img" />
+                    </a>
+                    <div className="number five">05</div>
+                    <div className="text5">Project Name</div>
                   </div>
                 </div>
                 <div className="item">
                   {/* Increased row height */}
                   <div className="card">
-                    <img src="images/img6.jpg" alt="" className="img" />
+                    <a
+                      href="https://vercel.com/ulrich-andos-projects"
+                      target="_blank"
+                    >
+                      <img src="images/img6.jpg" alt="" className="img" />
+                    </a>
+                    <div className="number six">06</div>
+                    <div className="text6">Project Name</div>
                   </div>
                   <div className="item2"></div>
                 </div>
@@ -177,17 +219,46 @@ function WorkPage() {
                   {/* Increased row height */}
                   <div className="item2"></div>
                   <div className="card">
-                    <img src="images/img7.jpg" alt="" className="img" />
+                    <a
+                      href="https://vercel.com/ulrich-andos-projects"
+                      target="_blank"
+                    >
+                      <img src="images/img7.jpg" alt="" className="img" />
+                    </a>
+                    <div className="number seven">07</div>
+                    <div className="text7">Project Name</div>
                   </div>
                 </div>
                 <div className="item">
                   {/* Increased row height */}
                   <div className="card">
-                    <img src="images/PreImage.jpg" alt="" className="img" />
+                    <a
+                      href="https://vercel.com/ulrich-andos-projects"
+                      target="_blank"
+                    >
+                      <img src="images/PreImage.jpg" alt="" className="img" />
+                    </a>
+                    <div className="number eight">08</div>
+                    <div className="text8">Project Name</div>
                   </div>
                   <div className="item2"></div>
+                </div>
+                <div className="item">
+                  {/* Increased row height */}
+                  <div className="item2"></div>
+                  <div className="card">
+                    <a
+                      href="https://vercel.com/ulrich-andos-projects"
+                      target="_blank"
+                    >
+                      <img src="images/img8.jpg" alt="" className="img" />
+                    </a>
+                    <div className="number nine">09</div>
+                    <div className="text9">Project Name</div>
+                  </div>
                 </div>
               </div>
+              {/* End of container */}
             </div>
           </div>
           {/* Project menu End */}

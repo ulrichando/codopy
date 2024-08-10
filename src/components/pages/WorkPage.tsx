@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "../../styles/draggablescroll.css";
 
-const WorkPage = () => {
+function WorkPage() {
   // Draggable scroll
   const [isDown, setIsDown] = useState(false); // Set isDown to false
   const [startY, setStartY] = useState(0); // Set startY to 0
@@ -130,46 +130,62 @@ const WorkPage = () => {
               className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2  "
             >
               {/* Adjusted width and height */}
-              <div className="table border-collapse border-1 border-black">
+              <div className="table border-collapse">
                 <div className="item">
                   {/* Increased row height */}
-                  <div className="item2  ">1</div>
-                  <div className="item2  ">2</div>
+                  <div className="item2">1</div>
+                  <div className="card">
+                    <img src="images/PreImage.jpg" alt="" className="img" />
+                  </div>
                 </div>
-                <div className="item ">
+                <div className="item">
                   {/* Increased row height */}
-                  <div className="item2 ">3</div>
-                  <div className="item2 ">4</div>
+                  <div className="card">
+                    <img src="images/PreImage.jpg" alt="" className="img" />
+                  </div>
+                  <div className="item2">2</div>
                 </div>
-                <div className="item ">
+                <div className="item">
                   {/* Increased row height */}
-                  <div className="item2 ">5</div>
-                  <div className="item2 ">6</div>
+                  <div className="item2">3</div>
+                  <div className="card">
+                    <img src="images/PreImage.jpg" alt="" className="img" />
+                  </div>
                 </div>
-                <div className="item ">
+                <div className="item">
                   {/* Increased row height */}
-                  <div className="item2 ">7</div>
-                  <div className="item2 ">8</div>
+                  <div className="card">
+                    <img src="images/PreImage.jpg" alt="" className="img" />
+                  </div>
+                  <div className="item2">4</div>
                 </div>
-                <div className="item ">
+                <div className="item">
                   {/* Increased row height */}
-                  <div className="item2 ">9</div>
-                  <div className="item2 ">10</div>
+                  <div className="item2">5</div>
+                  <div className="card">
+                    <img src="images/PreImage.jpg" alt="" className="img" />
+                  </div>
                 </div>
-                <div className="item ">
+                <div className="item">
                   {/* Increased row height */}
-                  <div className="item2 ">11</div>
-                  <div className="item2 ">12</div>
+                  <div className="card">
+                    <img src="images/PreImage.jpg" alt="" className="img" />
+                  </div>
+                  <div className="item2">6</div>
                 </div>
-                <div className="item ">
+                <div className="item">
                   {/* Increased row height */}
-                  <div className="item2  ">13</div>
-                  <div className="item2  ">14</div>
+                  <div className="item2">7</div>
+                  <div className="card">
+                    <img src="images/PreImage.jpg" alt="" className="img" />
+                  </div>
                 </div>
-                <div className="item ">
+                <div className="item">
                   {/* Increased row height */}
-                  <div className="item2 ">15</div>
-                  <div className="item2 ">16</div>
+                  <div className="card">
+                    <img src="images/PreImage.jpg" alt="" className="img" />
+                  </div>
+                  <div className="item2">8</div>
                 </div>
               </div>
             </div>
@@ -179,6 +195,6 @@ const WorkPage = () => {
       </motion.div>
     </div>
   );
-};
+}
 
 export default WorkPage;

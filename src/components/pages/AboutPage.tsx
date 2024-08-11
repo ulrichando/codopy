@@ -25,16 +25,16 @@ const AboutPage = () => {
         <div className="relative w-screen h-screen">
           <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
             {/* Circle */}
-            <div className="Circle w-128 h-128 rounded-full border-4 bg-gray-800 flex justify-center items-center">
+            <div className="Circle w-160 h-160 rounded-full border-4 bg-gray-800 flex justify-center items-center">
               <div className="Mini flex justify-center w-60 h-60 rounded-full bg-gray-500"></div>
             </div>
 
             {/* End Circle */}
             {/* Circle menu */}
-            <div className="absolute flex flex-col space-y-2 top-1/3 right-full  font-med">
+            <div className="absolute flex flex-col space-y-2 top-1/3 right-full translate-x-0">
               <a
                 href="https://example.com/page1"
-                className="text-#000000 px-4 py-2"
+                className="text-1xl font-medium px-4 py-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -42,7 +42,7 @@ const AboutPage = () => {
               </a>
               <a
                 href="https://example.com/page2"
-                className="text-#000000 px-4 py-2"
+                className="text-1xl font-medium px-4 py-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -50,7 +50,7 @@ const AboutPage = () => {
               </a>
               <a
                 href="https://example.com/page3"
-                className="text-#000000 px-4 py-2"
+                className="text-1xl font-medium px-4 py-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -63,7 +63,7 @@ const AboutPage = () => {
           {/* Text Hello */}
           <div className="absolute right-1/3 top-1/4 transform -translate-y-full translate-x-1/2">
             <div className="top-20 left-10">
-              <h1 className="text-7xl font-bold">About.</h1>
+              <h1 className="text-8xl font-bold">About.</h1>
               <p className="mt-4 text-xl font-medium">
                 Welcome to <br />
                 my portfolio, <br />

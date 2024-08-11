@@ -3,5 +3,10 @@
 @import 'tailwindcss/utilities';
 
 /* Your other CSS styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* responsiveness */

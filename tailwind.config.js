@@ -20,10 +20,24 @@ export default {
   theme: {
     extend: {
       width: {
+        112: "25rem",
         128: "38rem",
+        144: "43rem",
+        160: "45rem",
+        176: "53rem",
+        192: "58rem",
+        224: "68rem",
+        256: "78rem",
       },
       height: {
+        112: "25rem",
         128: "38rem",
+        144: "43rem",
+        160: "45rem",
+        176: "53rem",
+        192: "58rem",
+        224: "68rem",
+        256: "78rem",
       },
       backgroundImage: {
         "custom-image": "url('/path/to/your/image.jpg')",

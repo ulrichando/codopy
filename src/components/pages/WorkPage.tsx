@@ -402,132 +402,91 @@ function WorkPage() {
               className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2  "
             >
               {/* beginning of container  */}
-              <div className="table border-collapse ">
+              <div className="table ">
                 <div className="item">
                   {/* Increased row height */}
-                  <div className="item2"></div>
-                  <div className="number one">01</div>
-                  <div className="text1">Project Name</div>
-                  <div className="card image-container">
-                    <a
-                      href="https://vercel.com/ulrich-andos-projects"
-                      target="_blank"
-                    >
-                      <img src="images/img1.jpg" alt="" className="img" />
-                      <div className="overlay"></div>
-                    </a>
+                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
+                      <p className="text-left text-lg">Left Text</p>
+                      <p className="text-right text-lg">Right Text</p>
+                    </div>
+                    <div className="w-[300px] h-[200px]">
+                      <img
+                        src="images/img1.jpg"
+                        alt="Card Image"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="card">
-                    <a
-                      href="https://vercel.com/ulrich-andos-projects "
-                      target="_blank"
-                    >
-                      <img src="images/img2.jpg" alt="" className="img" />
-                    </a>
-                    <div className="number two ">02</div>
-                    <div className="text2">Project Name</div>
+
+                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
+                    <div className="w-[300px] h-[200px]">
+                      <img
+                        src="images/img2.jpg"
+                        alt="Card Image"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
+                      <p className="text-left text-lg">Left Text</p>
+                      <p className="text-right text-lg">Right Text</p>
+                    </div>
                   </div>
-                  <div className="item2"></div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="item2"></div>
-                  <div className="card">
-                    <a
-                      href="https://vercel.com/ulrich-andos-projects"
-                      target="_blank"
-                    >
-                      <img src="images/img3.jpg" alt="" className="img" />
-                    </a>
-                    <div className="number three">03</div>
-                    <div className="text3">Project Name</div>
+
+                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
+                      <p className="text-left text-lg">Left Text</p>
+                      <p className="text-right text-lg">Right Text</p>
+                    </div>
+                    <div className="w-[300px] h-[200px]">
+                      <img
+                        src="images/img3.jpg"
+                        alt="Card Image"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="card">
-                    <a
-                      href="https://vercel.com/ulrich-andos-projects"
-                      target="_blank"
-                    >
-                      <img src="images/img4.jpg" alt="" className="img" />
-                    </a>
-                    <div className="number four">04</div>
-                    <div className="text4">Project Name</div>
+
+                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
+                    <div className="w-[300px] h-[200px]">
+                      <img
+                        src="images/img4.jpg"
+                        alt="Card Image"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
+                      <p className="text-left text-lg">Left Text</p>
+                      <p className="text-right text-lg">Right Text</p>
+                    </div>
                   </div>
-                  <div className="item2"></div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="item2"></div>
-                  <div className="card">
-                    <a
-                      href="https://vercel.com/ulrich-andos-projects"
-                      target="_blank"
-                    >
-                      <img src="images/img5.jpg" alt="" className="img" />
-                    </a>
-                    <div className="number five">05</div>
-                    <div className="text5">Project Name</div>
+
+                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
+                      <p className="text-left text-lg">Left Text</p>
+                      <p className="text-right text-lg">Right Text</p>
+                    </div>
+                    <div className="w-[300px] h-[200px]">
+                      <img
+                        src="images/img5.jpg"
+                        alt="Card Image"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="card">
-                    <a
-                      href="https://vercel.com/ulrich-andos-projects"
-                      target="_blank"
-                    >
-                      <img src="images/img6.jpg" alt="" className="img" />
-                    </a>
-                    <div className="number six">06</div>
-                    <div className="text6">Project Name</div>
-                  </div>
-                  <div className="item2"></div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="item2"></div>
-                  <div className="card">
-                    <a
-                      href="https://vercel.com/ulrich-andos-projects"
-                      target="_blank"
-                    >
-                      <img src="images/img7.jpg" alt="" className="img" />
-                    </a>
-                    <div className="number seven">07</div>
-                    <div className="text7">Project Name</div>
-                  </div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="card">
-                    <a
-                      href="https://vercel.com/ulrich-andos-projects"
-                      target="_blank"
-                    >
-                      <img src="images/PreImage.jpg" alt="" className="img" />
-                    </a>
-                    <div className="number eight">08</div>
-                    <div className="text8">Project Name</div>
-                  </div>
-                  <div className="item2"></div>
-                </div>
-                <div className="item">
-                  {/* Increased row height */}
-                  <div className="item2"></div>
-                  <div className="card">
-                    <a
-                      href="https://vercel.com/ulrich-andos-projects"
-                      target="_blank"
-                    >
-                      <img src="images/img8.jpg" alt="" className="img" />
-                    </a>
-                    <div className="number nine">09</div>
-                    <div className="text9">Project Name</div>
+
+                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
+                    <div className="w-[300px] h-[200px]">
+                      <img
+                        src="images/img6.jpg"
+                        alt="Card Image"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
+                      <p className="text-left text-lg">Left Text</p>
+                      <p className="text-right text-lg">Right Text</p>
+                    </div>
                   </div>
                 </div>
               </div>

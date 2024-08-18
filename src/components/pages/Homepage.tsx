@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import profile from "/profile1.svg";
+import "../../App.css";
 
 function Homepage() {
   return (
@@ -36,8 +38,16 @@ function Homepage() {
             {/* End of Text Hello */}
 
             {/* Circle */}
-            <div className="Circle w-160 h-160 rounded-full border-4 bg-gray-800 flex justify-center items-center">
-              <div className="Mini flex justify-center  w-60 h-60 rounded-full bg-gray-500"></div>
+            <div className="Circle w-160 h-160 rounded-full border-4 bg-black flex justify-center items-center overflow-auto">
+              {/* <div className="Mini flex justify-center  w-60 h-60 rounded-full bg-gray-500"> */}
+              <img
+                src={profile}
+                alt="mini"
+                width={600}
+                height={600}
+                className="profile  "
+              />
+              {/* </div> */}
             </div>
 
             {/* Circle menu */}
@@ -91,9 +101,9 @@ function Homepage() {
           {/* Container two  */}
 
           <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
-            <div className="flex justify-center items-center rounded-full bg-gray-800 h-112 w-112">
-              <div className="flex justify-center items-center rounded-full bg-gray-600 h-48 w-48">
-                <div className="flex justify-center items-center rounded-full bg-gray-400 h-32 w-32">
+            <div className="flex justify-center items-center rounded-full bg-black h-112 w-112">
+              <div className="flex justify-center items-center rounded-full bg-gray-600 h-38 w-38">
+                <div className="flex justify-center items-center rounded-full bg-gray-600 h-32 w-32">
                   <div className="rounded-full bg-gray-200 h-16 w-16"></div>
                 </div>
               </div>
@@ -105,9 +115,9 @@ function Homepage() {
           {/* Container Three */}
 
           <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2">
-            <div className="flex justify-center items-center rounded-full bg-gray-800 h-112 w-112">
-              <div className="flex justify-center items-center rounded-full bg-gray-600 h-48 w-48">
-                <div className="flex justify-center items-center rounded-full bg-gray-400 h-32 w-32">
+            <div className="flex justify-center items-center rounded-full bg-black h-112 w-112">
+              <div className="profile flex justify-center items-center rounded-full bg-gray-600 h-38 w-38">
+                <div className="flex justify-center items-center rounded-full bg-gray-600 h-32 w-32">
                   <div className="rounded-full bg-gray-200 h-16 w-16"></div>
                 </div>
               </div>

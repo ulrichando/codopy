@@ -56,3 +56,16 @@ html.dark-mode {
     text-underline-offset: 8px;
     text-decoration-thickness: 5px;
 }
+
+
+/* cursor */
+
+.profile {
+    content: " '";
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff,
+                 0 0 40px #fff,
+                 0 0 80px #fff,
+                 0 0 160px #fff;
+}

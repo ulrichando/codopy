@@ -22,7 +22,7 @@ function Homepage() {
         transition={{ duration: 0, yoyo: Infinity }}
       >
         {/* container */}
-        <div className="relative w-screen h-screen">
+        <div className="relative w-screen h-screen ">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
             {/* Text Hello */}
             <div className="absolute top-1/3 right-full transform  translate-x-2">

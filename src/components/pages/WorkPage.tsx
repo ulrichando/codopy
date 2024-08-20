@@ -64,7 +64,9 @@ function WorkPage() {
         transition={{ duration: 1 }} // Transition time set to 1 second
       >
         {/* Container */}
-        <div className="relative w-screen h-screen p-0 m-0 ">
+
+        {/* bg-dot-pattern bg-dot-pattern-size add dotes to the home page */}
+        <div className="relative w-screen h-screen  ">
           <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 p-2">
             {/* Circle */}
             <div className="Circle w-160 h-160 rounded-full border-4 bg-black flex justify-center items-center">

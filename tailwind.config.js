@@ -1,19 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-//   theme: {
-//     extend: {
-//       width: {
-//         128: "38rem",
-//       },
-//       height: {
-//         128: "38rem",
-//       },
-//     },
-//   },
-//   plugins: [],
-// };
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -41,6 +25,10 @@ export default {
       },
       backgroundImage: {
         "custom-image": "url('/path/to/your/image.jpg')",
+        "dot-pattern": "radial-gradient(circle, black 1px, transparent 1px)",
+      },
+      backgroundSize: {
+        "dot-pattern": "50px 50px",
       },
     },
   },

@@ -43,6 +43,39 @@ function WorkPage() {
     }
   }, [mouseMoved, scrollTopState]);
 
+  const menu = [
+    {
+      name: "FRONTEND",
+      img: "images/img1.jpg",
+      id: 1,
+    },
+    {
+      name: "BACKEND",
+      img: "images/img2.jpg",
+      id: 2,
+    },
+    {
+      name: "DATABASE",
+      img: "images/img3.jpg",
+      id: 3,
+    },
+    {
+      name: "CLOUD",
+      img: "images/img4.jpg",
+      id: 4,
+    },
+    {
+      name: "SERVER",
+      img: "images/img5.jpg",
+      id: 5,
+    },
+    {
+      name: "SECURITY",
+      img: "images/img6.jpg",
+      id: 6,
+    },
+  ];
+
   return (
     <div
       className="page-wrapper"
@@ -78,30 +111,16 @@ function WorkPage() {
 
             {/* Circle menu */}
             <div className="absolute flex flex-col space-y-2 top-1/3 left-full transform translate-x-0 ">
-              <a
-                href="https://example.com/page1"
-                className="text-1xl font-medium px-4 py-2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                APP
-              </a>
-              <a
-                href="https://example.com/page2"
-                className="text-1xl font-medium px-4 py-2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WEB
-              </a>
-              <a
-                href="https://example.com/page3"
-                className="text-1xl font-medium px-4 py-2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                MISC
-              </a>
+              {menu.map((item) => (
+                <div key={item.id} className="flex flex-col">
+                  <a
+                    href={`#${item.name}`}
+                    className=" text-1xl font-medium px-4 py-2 "
+                  >
+                    {item.name}
+                  </a>
+                </div>
+              ))}
             </div>
             {/* End of Circle menu */}
           </div>

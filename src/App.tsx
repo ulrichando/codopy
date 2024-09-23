@@ -1,5 +1,5 @@
 import AnimatedCursor from "react-animated-cursor";
-// import Header from "./components/common/Header";
+import Header from "./components/common/Header";
 import Logo from "./components/common/logo";
 import Footer from "./components/common/Footer";
 import "./App.css";
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App ">
       <Router>
-        {/* <Header /> */}
+        <Header />
         <Logo />
         <AnimatedRoutes />
         <AnimatedCursor

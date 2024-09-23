@@ -2,6 +2,29 @@ import { motion } from "framer-motion";
 import profile from "/profile1.svg";
 import "../../App.css";
 
+const menu = [
+  {
+    name: "FRONTEND",
+    href: "#frontend",
+  },
+  {
+    name: "BACKEND",
+    href: "#backend",
+  },
+  {
+    name: "DATABASE",
+    href: "#database",
+  },
+  {
+    name: "CLOUD",
+    href: "#cloud",
+  },
+  {
+    name: "SERVER",
+    href: "#server",
+  },
+];
+
 function Homepage() {
   return (
     <div
@@ -52,30 +75,16 @@ function Homepage() {
 
             {/* Circle menu */}
             <div className="absolute flex flex-col space-y-2 top-1/3 left-full transform  translate-x-2 ">
-              <a
-                href="https://example.com/page1"
-                className=" text-1xl font-medium px-4 py-2 "
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                APP
-              </a>
-              <a
-                href="https://example.com/page2"
-                className=" text-1xl font-medium px-4 py-2 "
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WEB
-              </a>
-              <a
-                href="https://example.com/page3"
-                className=" text-1xl font-medium px-4 py-2 "
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                MISC
-              </a>
+              {menu.map((item) => (
+                <div key={item.href} className="flex flex-col">
+                  <a
+                    href={`#${item.name}`}
+                    className="text-1xl font-medium px-4 py-2"
+                  >
+                    {item.name}
+                  </a>
+                </div>
+              ))}
             </div>
             {/* End of Circle menu */}
             {/* End of Circle  */}

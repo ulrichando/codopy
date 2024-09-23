@@ -32,7 +32,8 @@
     "src/**/*.svg",
     "src/components/common/CustomCursor.tsx",
     "src/components/common/Footer copy",
-    "src/components/common/DraggableSroll.js"
+    "src/components/common/DraggableSroll.js",
+    "src/components/common/CircularMenu.js"
   ],
   "references": [
     {

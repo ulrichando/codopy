@@ -8,7 +8,7 @@ import "../../App.css";
 const navigation = [
   {
     name: "Projects",
-    to: "/project",
+    to: "/",
     subcategories: [
       { name: "Web", to: "/project/web" },
       { name: "Apps", to: "/project/apps" },

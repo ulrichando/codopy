@@ -21,7 +21,10 @@ function ContactPage() {
         transition={{ duration: 0, yoyo: Infinity }}
       >
         {/* Contact Form */}
-        <ContactForm />
+        <div className="flex gap-4 h-50 w-50 ">
+          <ContactForm />
+        </div>
+        {/* End of Contact Form */}
       </motion.div>
     </div>
   );

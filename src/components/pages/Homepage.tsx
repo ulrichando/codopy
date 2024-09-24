@@ -27,7 +27,7 @@ const menu = [
 
 function Homepage() {
   return (
-    <div
+    <section
       className="page-wrapper"
       style={{
         background: "#ffffffff",
@@ -137,7 +137,7 @@ function Homepage() {
         </div>
         {/* End of container  */}
       </motion.div>
-    </div>
+    </section>
   );
 }
 

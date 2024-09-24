@@ -63,7 +63,7 @@ function AboutPage() {
   ];
 
   return (
-    <div
+    <section
       className="page-wrapper"
       style={{
         background: "#ffffff",
@@ -232,7 +232,7 @@ function AboutPage() {
           {/* Project menu End */}
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 

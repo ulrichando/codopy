@@ -150,7 +150,7 @@ function WorkPage() {
           >
             <div
               ref={itemsContainer}
-              className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2  "
+              className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2 overflow-auto"
             >
               {/* beginning of container  */}
               <div className="table ">

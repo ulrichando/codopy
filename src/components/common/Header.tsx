@@ -41,16 +41,15 @@ export default function Example() {
   return (
     <div className={`bg-white ${blurEffect ? "overflow-hidden" : ""}`}>
       {/* Background blur effect */}
-      <div
+      {/* <div
         className={`fixed inset-0 z-50 ${
           blurEffect ? "backdrop-blur-md backdrop-filter" : ""
         }`}
-      />
+      /> */}
 
       <header
-        className={`fixed inset-x-0 top-0 z-50 ${
-          mobileMenuOpen ? "menu-transition" : ""
-        }`}
+        className={`fixed inset-x-0 top-0 z-50 ${mobileMenuOpen ? "menu-transition" : ""
+          }`}
       >
         <nav
           className="flex items-center justify-between p-6 lg:px-8"

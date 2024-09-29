@@ -1,0 +1,36 @@
+$margin: 0px;
+$padding: 0px;
+$background-color: #757575;
+
+
+@mixin resize {
+    margin:$margin;
+    padding:$padding;
+
+}
+
+.Images {
+    @include resize;
+}
+
+// imagesSize.scss
+.image-class-1 {
+    max-width: 100px;
+    max-height: 100px;
+    border: 2px solid red;
+    @include resize;
+}
+
+.image-class-2 {
+    max-width: 150px;
+    max-height: 150px;
+    border: 2px solid blue;
+    @include resize;
+}
+
+.image-class-3 {
+    max-width: 200px;
+    max-height: 200px;
+    border: 2px solid green;
+    @include resize;
+}

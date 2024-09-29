@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import Input from "../ui/input";
 import Textarea from "../ui/textarea";
 import SendButton from "../ui/SendButton";
+import "../ui/imagesSize.scss";
+// importing images locally
+import image1 from "../../assets/images/Arrow.png";
+import image2 from "../../assets/images/contactpageimage.svg";
+import image3 from "../../assets/images/contact.png";
 
 const HorizontalImageBoxWithForm: React.FC = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
     // Simulating an API call
@@ -18,20 +23,20 @@ const HorizontalImageBoxWithForm: React.FC = () => {
   };
 
   const images = [
-    "/api/placeholder/300/200",
-    "/api/placeholder/300/200",
-    "/api/placeholder/300/200",
+    { src: image1, className: "image-class-1" },
+    { src: image2, className: "image-class-2" },
+    { src: image3, className: "image-class-3" },
   ];
 
   return (
     <div className="max-w-full mx-auto p-4 bg-gray-100 rounded-lg shadow-md overflow-x-auto">
-      <div className="flex space-x-4 min-w-max">
-        {images.map((src, index) => (
+      <div className="flex space-x-1 min-w-max">
+        {images.map((image, index) => (
           <div key={index} className="w-72 flex-shrink-0">
             <img
-              src={src}
+              src={image.src}
               alt={`Placeholder ${index + 1}`}
-              className="w-full h-auto object-cover rounded"
+              className={`object-cover rounded ${image.className}`}
             />
           </div>
         ))}

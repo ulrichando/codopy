@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
 
+import img1 from "../assets/images/img1.jpg";
+import img2 from "../assets/images/img2.jpg";
+import img3 from "../assets/images/img3.jpg";
+import img4 from "../assets/images/img4.jpg";
+import img5 from "../assets/images/img5.jpg";
+import img6 from "../assets/images/img6.jpg";
+
 function WorkPage() {
   // Draggable scroll
   const [isDown, setIsDown] = useState(false); // Set isDown to false
@@ -163,7 +170,7 @@ function WorkPage() {
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src="images/img1.jpg"
+                        src={img1}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />
@@ -173,35 +180,7 @@ function WorkPage() {
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src="images/img2.jpg"
-                        alt="Card Image"
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
-                    </div>
-                  </div>
-
-                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
-                    </div>
-                    <div className="w-[300px] h-[200px]">
-                      <img
-                        src="images/img3.jpg"
-                        alt="Card Image"
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px]">
-                      <img
-                        src="images/img4.jpg"
+                        src={img2}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />
@@ -219,7 +198,7 @@ function WorkPage() {
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src="images/img5.jpg"
+                        src={img3}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />
@@ -229,7 +208,35 @@ function WorkPage() {
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src="images/img6.jpg"
+                        src={img4}
+                        alt="Card Image"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
+                      <p className="text-left text-lg">Left Text</p>
+                      <p className="text-right text-lg">Right Text</p>
+                    </div>
+                  </div>
+
+                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
+                      <p className="text-left text-lg">Left Text</p>
+                      <p className="text-right text-lg">Right Text</p>
+                    </div>
+                    <div className="w-[300px] h-[200px]">
+                      <img
+                        src={img5}
+                        alt="Card Image"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
+                    <div className="w-[300px] h-[200px]">
+                      <img
+                        src={img6}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />

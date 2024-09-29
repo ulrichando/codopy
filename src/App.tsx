@@ -1,16 +1,16 @@
 import AnimatedCursor from "react-animated-cursor";
-import Header from "./components/common/Header";
-import Logo from "./components/common/logo";
-import Footer from "./components/common/Footer";
+import Header from "./layouts/Header";
+import Logo from "./layouts/logo";
+import Footer from "./components/Footer";
 import "./App.css";
-import AnimatedRoutes from "./components/common/AnimatedRoutes";
+import AnimatedRoutes from "./utils/AnimatedRoutes";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
     <div className="App ">
       <Router>
-       <Header />
+        <Header />
         <Logo />
         <AnimatedRoutes />
         <AnimatedCursor

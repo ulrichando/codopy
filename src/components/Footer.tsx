@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Instagram, Github, Linkedin, X } from "lucide-react";
-import "../../App.css";
+import "../App.css";
 
 const navFooter = [
   { name: "About", to: "/about" },

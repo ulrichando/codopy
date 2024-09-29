@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import profile from "/profile1.svg";
-import "../../App.css";
+import profile from "../assets/images/profile1.svg";
+import "../App.css";
 
 const menu = [
   {

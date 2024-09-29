@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import "../../styles/draggablescroll.css";
+import "../components/draggablescroll.css";
 
-function WorkPage() {
+function AboutPage() {
   // Draggable scroll
   const [isDown, setIsDown] = useState(false); // Set isDown to false
   const [startY, setStartY] = useState(0); // Set startY to 0
@@ -46,38 +46,24 @@ function WorkPage() {
   const menu = [
     {
       name: "FRONTEND",
-      img: "images/img1.jpg",
-      id: 1,
+      href: "#frontend",
     },
     {
       name: "BACKEND",
-      img: "images/img2.jpg",
-      id: 2,
+      href: "#backend",
     },
     {
       name: "DATABASE",
-      img: "images/img3.jpg",
-      id: 3,
+      href: "#database",
     },
     {
-      name: "CLOUD",
-      img: "images/img4.jpg",
-      id: 4,
-    },
-    {
-      name: "SERVER",
-      img: "images/img5.jpg",
-      id: 5,
-    },
-    {
-      name: "SECURITY",
-      img: "images/img6.jpg",
-      id: 6,
+      name: "TOOLS",
+      href: "#tools",
     },
   ];
 
   return (
-    <div
+    <section
       className="page-wrapper"
       style={{
         background: "#ffffff",
@@ -91,31 +77,29 @@ function WorkPage() {
     >
       <motion.div
         className="home"
-        initial={{ x: window.innerWidth, width: "100vw" }} // Initial state with position set to off-screen right
+        initial={{ x: -window.innerWidth, width: "100vw" }} // Initial state with position set to off-screen left
         animate={{ x: 0, width: "100vw" }} // Final state with position set to on-screen
-        exit={{ x: window.innerWidth, transition: { duration: 1 } }} // Exit state with position set to off-screen left
+        exit={{ x: -window.innerWidth, transition: { duration: 1 } }}
         transition={{ duration: 1 }} // Transition time set to 1 second
       >
         {/* Container */}
-
-        {/* bg-dot-pattern bg-dot-pattern-size add dotes to the home page */}
-        <div className="relative w-screen h-screen  ">
-          <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 p-2">
+        <div className="relative w-screen h-screen">
+          <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
             {/* Circle */}
             <div className="Circle w-160 h-160 rounded-full border-4 bg-black flex justify-center items-center">
               <div className=" flex justify-center items-center Mini w-60 h-60 rounded-full bg-gray-500">
                 <div className="rounded-full bg-gray-200 h-40 w-40"></div>
               </div>
             </div>
-            {/* End Circle */}
 
+            {/* End Circle */}
             {/* Circle menu */}
-            <div className="absolute flex flex-col space-y-2 top-1/3 left-full transform translate-x-0 ">
+            <div className="absolute flex flex-col space-y-2 top-1/3 right-full translate-x-0">
               {menu.map((item) => (
-                <div key={item.id} className="flex flex-col">
+                <div key={item.href} className="flex flex-col">
                   <a
                     href={`#${item.name}`}
-                    className=" text-1xl font-medium px-4 py-2 "
+                    className="text-1xl font-medium px-4 py-2"
                   >
                     {item.name}
                   </a>
@@ -124,10 +108,11 @@ function WorkPage() {
             </div>
             {/* End of Circle menu */}
           </div>
+
           {/* Text Hello */}
-          <div className="fixed left-1/3 top-1/4 transform -translate-y-full -translate-x-1/2">
+          <div className="absolute right-1/3 top-1/4 transform -translate-y-full translate-x-1/2">
             <div className="top-20 left-10">
-              <h1 className="text-8xl font-bold">Work.</h1>
+              <h1 className="text-8xl font-bold">About.</h1>
               <p className="mt-4 text-xl font-medium">
                 Welcome to <br />
                 my portfolio, <br />
@@ -136,8 +121,8 @@ function WorkPage() {
             </div>
           </div>
           {/* End of Text Hello */}
-          {/* /* Project menu */}
 
+          {/* Project menu */}
           <div
             className="MainContainer absolute right-[25%]"
             onMouseDown={handleMouseDown}
@@ -150,7 +135,7 @@ function WorkPage() {
           >
             <div
               ref={itemsContainer}
-              className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2 overflow-auto"
+              className="ItemsContainer fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2  "
             >
               {/* beginning of container  */}
               <div className="table ">
@@ -158,8 +143,8 @@ function WorkPage() {
                   {/* Increased row height */}
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                      <p className="text-left text-lg">FRONTEND</p>
+                      <p className="text-right text-lg">1</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
@@ -179,15 +164,15 @@ function WorkPage() {
                       />
                     </div>
                     <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                      <p className="text-left text-lg">BACKEND</p>
+                      <p className="text-right text-lg">2</p>
                     </div>
                   </div>
 
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                      <p className="text-left text-lg">DATABASE</p>
+                      <p className="text-right text-lg">3</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
@@ -207,8 +192,8 @@ function WorkPage() {
                       />
                     </div>
                     <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                      <p className="text-left text-lg">TOOLS</p>
+                      <p className="text-right text-lg">4</p>
                     </div>
                   </div>
 
@@ -247,8 +232,8 @@ function WorkPage() {
           {/* Project menu End */}
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 
-export default WorkPage;
+export default AboutPage;

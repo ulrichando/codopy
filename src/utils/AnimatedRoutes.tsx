@@ -1,10 +1,11 @@
+import Homepage from "../pages/Homepage";
 import AboutPage from "../pages/AboutPage";
 import WorkPage from "../pages/WorkPage";
 import ContactPage from "../pages/ContactPage";
 import ProjectPage from "../pages/ProjectPage";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import Homepage from "../pages/Homepage";
+
 function AnimatedRoutes() {
   const location = useLocation();
   return (

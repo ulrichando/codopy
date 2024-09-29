@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import "../../App.css";
+import "../App.css";
 
 // Navigation items with subcategories
 const navigation = [
@@ -42,13 +42,15 @@ export default function Example() {
     <div className={`bg-white ${blurEffect ? "overflow-hidden" : ""}`}>
       {/* Background blur effect */}
       <div
-        className={`${mobileMenuOpen ? 'fixed' : ''} inset-0 z-50 ${blurEffect ? "backdrop-blur-md backdrop-filter" : ""
-          }`}
+        className={`${mobileMenuOpen ? "fixed" : ""} inset-0 z-50 ${
+          blurEffect ? "backdrop-blur-md backdrop-filter" : ""
+        }`}
       />
 
       <header
-        className={`fixed inset-x-0 top-0 z-50 ${mobileMenuOpen ? "menu-transition" : ""
-          }`}
+        className={`fixed inset-x-0 top-0 z-50 ${
+          mobileMenuOpen ? "menu-transition" : ""
+        }`}
       >
         <nav
           className="flex items-center justify-between p-6 lg:px-8"

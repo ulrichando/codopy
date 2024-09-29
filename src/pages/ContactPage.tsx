@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ContactForm from "../common/ContactForm";
+import ContactForm from "../components/form/ContactForm";
 
 function ContactPage() {
   return (

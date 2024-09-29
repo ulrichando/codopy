@@ -4,7 +4,7 @@ import image from "../../assets/images/contactpageimage.svg";
 const ContactForm = () => {
   return (
     <section className="px-8 py-8 lg:py-16 ">
-      <div className="container mx-auto">
+      <div className="container mx-auto bg-[#636161] p-5 rounded">
         <div className="absolute left-1/4 top-1/3 transform -translate-y-full -translate-x-1/2 grid gab-8 md:grid-cols-1 md:items-center">
           <Typography
             variant="h1"

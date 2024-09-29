@@ -29,8 +29,8 @@ const HorizontalImageBoxWithForm: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-full mx-auto p-4 bg-gray-100 rounded-lg shadow-md overflow-x-auto">
-      <div className="flex space-x-1 min-w-max">
+    <div className="max-w-full mx-auto p-24 bg-gray-100 rounded-lg shadow-md overflow-x-auto">
+      <div className="flex gap-1 ">
         {images.map((image, index) => (
           <div key={index} className="w-72 flex-shrink-0">
             <img

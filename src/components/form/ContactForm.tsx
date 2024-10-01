@@ -3,6 +3,7 @@ import Input from "../ui/input";
 import Textarea from "../ui/textarea";
 import SendButton from "../ui/SendButton";
 import "../ui/imagesSize.scss";
+import { X } from "lucide-react";
 // importing images locally
 import image1 from "../../assets/images/Arrow.png";
 import image2 from "../../assets/images/contactpageimage.svg";
@@ -30,9 +31,15 @@ const HorizontalImageBoxWithForm: React.FC = () => {
 
   return (
     <div className="max-w-full mx-auto p-24 bg-gray-100 rounded-lg shadow-md overflow-x-auto">
-      <div className="flex gap-1 ">
+      <div className="flex relative ">
+        <X
+          className="absolute inset-0 m-auto transform translate-x-[1300%] translate-y-[-220%]"
+          style={{ top: "50%", left: "50%" }}
+        />
+      </div>
+      <div className="flex gap-2 ">
         {images.map((image, index) => (
-          <div key={index} className="w-72 flex-shrink-0">
+          <div key={index} className="w-50  flex-shrink-0 ">
             <img
               src={image.src}
               alt={`Placeholder ${index + 1}`}

@@ -18,6 +18,8 @@ $background-color: #757575;
     max-width: 300px;
     max-height: 300px;
     @include resize;
+    margin-right: auto;
+    padding: 20px;
 }
 
 .image-class-2 {
@@ -26,6 +28,7 @@ $background-color: #757575;
     @include resize;
     float: left;
     margin-left: auto;
+   
 }
 
 .image-class-3 {

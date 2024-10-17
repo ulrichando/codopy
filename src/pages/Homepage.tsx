@@ -48,7 +48,7 @@ function Homepage() {
         <div className="relative w-screen h-screen ">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
             {/* Text Hello */}
-            <div className="absolute top-1/3 right-full transform  translate-x-2">
+            <div className="absolute top-1/3 right-full transform  translate-x-6">
               <div className=" top-20 left-10">
                 <h1 className="text-8xl font-bold ">Hello.</h1>
                 <p className="mt-4 text-xl font-medium">

@@ -9,6 +9,12 @@ import img4 from "../assets/images/img4.jpg";
 import img5 from "../assets/images/img5.jpg";
 import img6 from "../assets/images/img6.jpg";
 
+const [showPopup, setShowPopup] = useState(false);
+
+const togglePopup = () => {
+  setShowPopup(!showPopup);
+};
+
 function AboutPage() {
   // Draggable scroll
   const [isDown, setIsDown] = useState(false); // Set isDown to false
@@ -150,7 +156,10 @@ function AboutPage() {
                   {/* Increased row height */}
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">FRONTEND</p>
+                      <p className="text-left text-lg" onClick={togglePopup}>
+                        FRONTEND
+                      </p>
+
                       <p className="text-right text-lg">1</p>
                     </div>
                     <div className="w-[300px] h-[200px]">

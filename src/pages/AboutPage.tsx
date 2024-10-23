@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
 
-import img1 from "../assets/images/img1.jpg";
-import img2 from "../assets/images/img2.jpg";
-import img3 from "../assets/images/img3.jpg";
-import img4 from "../assets/images/img4.jpg";
-import img5 from "../assets/images/img5.jpg";
 import img6 from "../assets/images/img6.jpg";
+import img7 from "../assets/images/img7.jpg";
+import img8 from "../assets/images/img8.jpg";
+import img9 from "../assets/images/img9.jpg";
+import img10 from "../assets/images/img10.jpg";
+import img11 from "../assets/images/img11.jpg";
 
 function AboutPage() {
   // Draggable scroll
@@ -167,7 +167,7 @@ function AboutPage() {
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src={img1}
+                        src={img6}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />
@@ -177,7 +177,7 @@ function AboutPage() {
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src={img2}
+                        src={img7}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />
@@ -195,7 +195,7 @@ function AboutPage() {
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src={img3}
+                        src={img8}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />
@@ -205,7 +205,7 @@ function AboutPage() {
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src={img4}
+                        src={img9}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />
@@ -223,7 +223,7 @@ function AboutPage() {
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src={img5}
+                        src={img10}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />
@@ -233,7 +233,7 @@ function AboutPage() {
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="w-[300px] h-[200px]">
                       <img
-                        src={img6}
+                        src={img11}
                         alt="Card Image"
                         className="h-full w-full object-cover"
                       />

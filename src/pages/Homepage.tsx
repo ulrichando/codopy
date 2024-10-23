@@ -4,24 +4,28 @@ import "../App.css";
 
 const menu = [
   {
-    name: "FRONTEND",
+    name: "Frontend",
     href: "#frontend",
   },
   {
-    name: "BACKEND",
+    name: "Backend",
     href: "#backend",
   },
   {
-    name: "DATABASE",
+    name: "Database",
     href: "#database",
   },
   {
-    name: "CLOUD",
+    name: "Cloud",
     href: "#cloud",
   },
   {
-    name: "SERVER",
+    name: "Server",
     href: "#server",
+  },
+  {
+    name: "Security",
+    hred: "#server",
   },
 ];
 
@@ -51,11 +55,14 @@ function Homepage() {
             <div className="absolute top-1/3 right-full transform  translate-x-6">
               <div className=" top-20 left-10">
                 <h1 className="text-8xl font-bold ">Hello.</h1>
-                <p className="mt-4 text-xl font-medium">
-                  Welcome to <br />
-                  my portfolio, <br />
-                  explore and discover
-                </p>
+                <div className="flex">
+                  <div className="h-2 w-10 bg-black m-6"></div>
+                  <p className="mt-4 text-1xl font-medium">
+                    Welcome to <br />
+                    my portfolio, <br />
+                    explore and discover
+                  </p>
+                </div>
               </div>
             </div>
             {/* End of Text Hello */}

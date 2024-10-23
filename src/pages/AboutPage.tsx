@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
-import { Card } from "flowbite-react";
 
 import img1 from "../assets/images/img1.jpg";
 import img2 from "../assets/images/img2.jpg";
@@ -16,7 +15,6 @@ function AboutPage() {
   const [startY, setStartY] = useState(0); // Set startY to 0
   const [scrollTopState, setScrollTopState] = useState<number | null>(0); // Set scrollTopState to 0
   const [mouseMoved, setStateMouseMoved] = useState(0); // Set mouseMoved to false
-  const [showCard, setShowCard] = useState(false);
 
   const itemsContainer = useRef<HTMLDivElement | null>(null); // Select the ItemsContainer
 
@@ -54,19 +52,27 @@ function AboutPage() {
 
   const menu = [
     {
-      name: "FRONTEND",
+      name: "Frontend",
       href: "#frontend",
     },
     {
-      name: "BACKEND",
+      name: "Backend",
       href: "#backend",
     },
     {
-      name: "DATABASE",
+      name: "Database",
       href: "#database",
     },
     {
-      name: "TOOLS",
+      name: "Tools",
+      href: "#tools",
+    },
+    {
+      name: "Test",
+      href: "#tools",
+    },
+    {
+      name: "Test",
       href: "#tools",
     },
   ];
@@ -122,11 +128,14 @@ function AboutPage() {
           <div className="absolute right-1/3 top-1/4 transform -translate-y-full translate-x-1/2">
             <div className="top-20 left-10">
               <h1 className="text-8xl font-bold">About.</h1>
-              <p className="mt-4 text-xl font-medium">
-                Welcome to <br />
-                my portfolio, <br />
-                explore and discover
-              </p>
+              <div className="flex">
+                <div className="h-2 w-10 bg-black m-6"></div>
+                <p className="mt-4 text-1xl font-medium">
+                  Welcome to <br />
+                  my portfolio, <br />
+                  explore and discover
+                </p>
+              </div>
             </div>
           </div>
           {/* End of Text Hello */}
@@ -151,38 +160,17 @@ function AboutPage() {
                 <div className="item">
                   {/* Increased row height */}
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">FRONTEND</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Frontend</p>
 
-                      <p className="text-right text-lg">1</p>
+                      <p className="text-right text-8xl">1</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
                         src={img1}
                         alt="Card Image"
                         className="h-full w-full object-cover"
-                        onTouchMove={() => setShowCard(true)}
-                        onMouseLeave={() => setShowCard(false)}
                       />
-                      {showCard && (
-                        <div className="absolute top-0 right-20 ">
-                          <Card className="max-w-sm">
-                            <img
-                              src={img1}
-                              alt="image 1"
-                              style={{ width: "400px", height: "300px" }}
-                            />
-                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-#000000">
-                              Noteworthy technology acquisitions 2021
-                            </h5>
-                            <p className="font-normal text-gray-700 dark:text-gray-400">
-                              Here are the biggest enterprise technology
-                              acquisitions of 2021 so far, in reverse
-                              chronological order.
-                            </p>
-                          </Card>
-                        </div>
-                      )}
                     </div>
                   </div>
 
@@ -194,16 +182,16 @@ function AboutPage() {
                         className="h-full w-full object-cover"
                       />
                     </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">BACKEND</p>
-                      <p className="text-right text-lg">2</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Backend</p>
+                      <p className="text-right text-8xl">2</p>
                     </div>
                   </div>
 
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">DATABASE</p>
-                      <p className="text-right text-lg">3</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Database</p>
+                      <p className="text-right text-8xl">3</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
@@ -222,16 +210,16 @@ function AboutPage() {
                         className="h-full w-full object-cover"
                       />
                     </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">TOOLS</p>
-                      <p className="text-right text-lg">4</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Tools</p>
+                      <p className="text-right text-8xl">4</p>
                     </div>
                   </div>
 
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Test</p>
+                      <p className="text-right text-8xl">5</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
@@ -250,9 +238,9 @@ function AboutPage() {
                         className="h-full w-full object-cover"
                       />
                     </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Test</p>
+                      <p className="text-right text-8xl">6</p>
                     </div>
                   </div>
                 </div>

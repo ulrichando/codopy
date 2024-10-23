@@ -53,44 +53,36 @@ function WorkPage() {
 
   const menu = [
     {
-      name: "FRONTEND",
+      name: "Frontend",
       img: "images/img1.jpg",
       id: 1,
     },
     {
-      name: "BACKEND",
+      name: "Backend",
       img: "images/img2.jpg",
       id: 2,
     },
     {
-      name: "DATABASE",
+      name: "Database",
       img: "images/img3.jpg",
       id: 3,
     },
     {
-      name: "CLOUD",
+      name: "Cloud",
       img: "images/img4.jpg",
       id: 4,
     },
     {
-      name: "SERVER",
+      name: "Server",
       img: "images/img5.jpg",
       id: 5,
     },
     {
-      name: "SECURITY",
+      name: "Security",
       img: "images/img6.jpg",
       id: 6,
     },
   ];
-
-  const sectionRefs = {
-    frontend: useRef<HTMLDivElement>(null),
-    backend: useRef<HTMLDivElement>(null),
-    database: useRef<HTMLDivElement>(null),
-    cloud: useRef<HTMLDivElement>(null),
-  };
-
 
   return (
     <div
@@ -144,11 +136,14 @@ function WorkPage() {
           <div className="absolute left-1/3 top-1/4 transform -translate-y-full -translate-x-1/2">
             <div className="top-20 left-10">
               <h1 className="text-8xl font-bold">Work.</h1>
-              <p className="mt-4 text-xl font-medium">
-                Welcome to <br />
-                my portfolio, <br />
-                explore and discover
-              </p>
+              <div className="flex">
+                <div className="h-2 w-10 bg-black m-6"></div>
+                <p className="mt-4 text-1xl font-medium">
+                  Welcome to <br />
+                  my portfolio, <br />
+                  explore and discover
+                </p>
+              </div>
             </div>
           </div>
           {/* End of Text Hello */}
@@ -173,9 +168,9 @@ function WorkPage() {
                 <div className="item">
                   {/* Increased row height */}
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Frontend</p>
+                      <p className="text-right text-8xl">1</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
@@ -183,7 +178,6 @@ function WorkPage() {
                         alt="Card Image"
                         className="h-full w-full object-cover"
                         id="frontend"
-                        onClick={()=> scrollToSection('frontend')}
                       />
                     </div>
                   </div>
@@ -194,28 +188,27 @@ function WorkPage() {
                         src={img2}
                         alt="Card Image"
                         className="h-full w-full object-cover"
-                         id="backend"
-                        onClick={()=> scrollToSection('backend')}
+                        id="backend"
                       />
                     </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Backend</p>
+                      <p className="text-right text-8xl">2</p>
                     </div>
                   </div>
 
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Database</p>
+                      <p className="text-right text-8xl">3</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
                         src={img3}
                         alt="Card Image"
                         className="h-full w-full object-cover"
-                         id="cloud"
-                        onClick={()=> scrollToSection('cloud')}
+                        id="cloud"
+                        onClick={() => scrollToSection("cloud")}
                       />
                     </div>
                   </div>
@@ -226,28 +219,28 @@ function WorkPage() {
                         src={img4}
                         alt="Card Image"
                         className="h-full w-full object-cover"
-                         id="database"
-                        onClick={()=> scrollToSection('database')}
+                        id="database"
+                        onClick={() => scrollToSection("database")}
                       />
                     </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Cloud</p>
+                      <p className="text-right text-8xl">4</p>
                     </div>
                   </div>
 
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Server</p>
+                      <p className="text-right text-8xl">5</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
                         src={img5}
                         alt="Card Image"
                         className="h-full w-full object-cover"
-                         id="frontend"
-                        onClick={()=> scrollToSection('frontend')}
+                        id="frontend"
+                        onClick={() => scrollToSection("frontend")}
                       />
                     </div>
                   </div>
@@ -258,13 +251,13 @@ function WorkPage() {
                         src={img6}
                         alt="Card Image"
                         className="h-full w-full object-cover"
-                         id="frontend"
-                        onClick={()=> scrollToSection('frontend')}
+                        id="frontend"
+                        onClick={() => scrollToSection("frontend")}
                       />
                     </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg">Left Text</p>
-                      <p className="text-right text-lg">Right Text</p>
+                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
+                      <p className="text-left text-lg">Security</p>
+                      <p className="text-right text-8xl">6</p>
                     </div>
                   </div>
                 </div>

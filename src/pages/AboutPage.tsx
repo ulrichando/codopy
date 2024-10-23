@@ -131,8 +131,8 @@ function AboutPage() {
               <div className="flex">
                 <div className="h-2 w-10 bg-black m-6"></div>
                 <p className="mt-4 text-1xl font-medium">
-                  Welcome to <br />
-                  my portfolio, <br />
+                  All about me <br />
+                  and geek stuff <br />
                   explore and discover
                 </p>
               </div>

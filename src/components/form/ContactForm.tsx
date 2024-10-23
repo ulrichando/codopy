@@ -3,7 +3,7 @@ import Input from "../ui/input";
 import Textarea from "../ui/textarea";
 import SendButton from "../ui/SendButton";
 import "../ui/imagesSize.scss";
-import { X } from "lucide-react";
+// import { X } from "lucide-react";
 
 import image2 from "../../assets/images/contactpageimage.svg";
 import image3 from "../../assets/images/contact.png";
@@ -28,20 +28,12 @@ const ContactForm: React.FC = () => {
 
   return (
     <>
-      <div className="absolute top-40 left-40 transform translate-y-1 translate-x-1">
-        <h1 className="text-8xl font-bold">Work.</h1>
-        <p className="mt-4 text-xl font-medium">
-          Welcome to <br />
-          my portfolio, <br />
-          explore and discover
-        </p>
-      </div>
       <div className="max-w-full mx-auto p-28 bg-gray-100 rounded-lg shadow-md overflow-x-auto">
         <div className="flex relative ">
-          <X
+          {/* <X
             className="absolute inset-0 m-auto transform translate-x-[1100%] translate-y-[-220%]"
             style={{ top: "50%", left: "50%" }}
-          />
+          /> */}
         </div>
         <div className="flex gap-2 ">
           {images.map((image, index) => (

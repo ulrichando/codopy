@@ -6,20 +6,9 @@ import "../App.css";
 
 // Navigation items with subcategories
 const navigation = [
-  {
-    name: "Projects",
-    to: "#",
-    subcategories: [
-      { name: "Web", to: "/project/web" },
-      { name: "Apps", to: "/project/apps" },
-      { name: "Design", to: "/project/design" },
-      { name: "Cloud", to: "/project/cloud" },
-      { name: "Server", to: "/project/server" },
-    ],
-  },
+  { name: "Work", to: "/work" },
   { name: "About", to: "/about" },
   { name: "Hello", to: "/" },
-  { name: "Work", to: "/work" },
   { name: "Get In Touch", to: "/contact" },
 ];
 
@@ -106,28 +95,27 @@ export default function Example() {
                         to={item.to}
                         className="-mx-0 block rounded-lg px-3 py-10 text-6xl font-semibold leading-7 text-white tracking-wide"
                         onClick={() =>
-                          item.name === "Projects" &&
-                          setSubmenuOpen(!submenuOpen)
+                          item.name === "Work" && setSubmenuOpen(!submenuOpen)
                         } // Toggle submenu on click
                       >
                         {item.name}
                       </Link>
-                      {item.subcategories && submenuOpen && (
+                      {/* adding toggle if necessary    {item.subcategories && submenuOpen && (
                         // Add margin to push submenus to the left or right
                         <div className="ml-0 space-y-2">
                           {" "}
                           {/* Change 'ml-0' to 'ml-6' to push submenus to the right */}
-                          {item.subcategories.map((sub) => (
-                            <Link
+                      {/* {item.subcategories.map((sub) => ( */}
+                      {/* <Link
                               key={sub.name}
                               to={sub.to}
                               className="block rounded-lg px-3 py-2 text-4xl font-medium leading-6 text-white"
-                            >
-                              {sub.name}
+                            > */}
+                      {/* {sub.name}
                             </Link>
                           ))}
                         </div>
-                      )}
+                      )} */}
                     </div>
                   ))}
                 </div>

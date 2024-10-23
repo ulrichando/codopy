@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
+import { scrollToSection } from "../utils/scrollTosection";
 
 import img1 from "../assets/images/img1.jpg";
 import img2 from "../assets/images/img2.jpg";
@@ -83,6 +84,14 @@ function WorkPage() {
     },
   ];
 
+  const sectionRefs = {
+    frontend: useRef<HTMLDivElement>(null),
+    backend: useRef<HTMLDivElement>(null),
+    database: useRef<HTMLDivElement>(null),
+    cloud: useRef<HTMLDivElement>(null),
+  };
+
+
   return (
     <div
       className="page-wrapper"
@@ -132,7 +141,7 @@ function WorkPage() {
             {/* End of Circle menu */}
           </div>
           {/* Text Hello */}
-          <div className="fixed left-1/3 top-1/4 transform -translate-y-full -translate-x-1/2">
+          <div className="absolute left-1/3 top-1/4 transform -translate-y-full -translate-x-1/2">
             <div className="top-20 left-10">
               <h1 className="text-8xl font-bold">Work.</h1>
               <p className="mt-4 text-xl font-medium">
@@ -173,6 +182,8 @@ function WorkPage() {
                         src={img1}
                         alt="Card Image"
                         className="h-full w-full object-cover"
+                        id="frontend"
+                        onClick={()=> scrollToSection('frontend')}
                       />
                     </div>
                   </div>
@@ -183,6 +194,8 @@ function WorkPage() {
                         src={img2}
                         alt="Card Image"
                         className="h-full w-full object-cover"
+                         id="backend"
+                        onClick={()=> scrollToSection('backend')}
                       />
                     </div>
                     <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
@@ -201,6 +214,8 @@ function WorkPage() {
                         src={img3}
                         alt="Card Image"
                         className="h-full w-full object-cover"
+                         id="cloud"
+                        onClick={()=> scrollToSection('cloud')}
                       />
                     </div>
                   </div>
@@ -211,6 +226,8 @@ function WorkPage() {
                         src={img4}
                         alt="Card Image"
                         className="h-full w-full object-cover"
+                         id="database"
+                        onClick={()=> scrollToSection('database')}
                       />
                     </div>
                     <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
@@ -229,6 +246,8 @@ function WorkPage() {
                         src={img5}
                         alt="Card Image"
                         className="h-full w-full object-cover"
+                         id="frontend"
+                        onClick={()=> scrollToSection('frontend')}
                       />
                     </div>
                   </div>
@@ -239,6 +258,8 @@ function WorkPage() {
                         src={img6}
                         alt="Card Image"
                         className="h-full w-full object-cover"
+                         id="frontend"
+                        onClick={()=> scrollToSection('frontend')}
                       />
                     </div>
                     <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">

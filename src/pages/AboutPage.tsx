@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
+import { Card } from "flowbite-react";
 
 import img1 from "../assets/images/img1.jpg";
 import img2 from "../assets/images/img2.jpg";
@@ -9,18 +10,13 @@ import img4 from "../assets/images/img4.jpg";
 import img5 from "../assets/images/img5.jpg";
 import img6 from "../assets/images/img6.jpg";
 
-const [showPopup, setShowPopup] = useState(false);
-
-const togglePopup = () => {
-  setShowPopup(!showPopup);
-};
-
 function AboutPage() {
   // Draggable scroll
   const [isDown, setIsDown] = useState(false); // Set isDown to false
   const [startY, setStartY] = useState(0); // Set startY to 0
   const [scrollTopState, setScrollTopState] = useState<number | null>(0); // Set scrollTopState to 0
   const [mouseMoved, setStateMouseMoved] = useState(0); // Set mouseMoved to false
+  const [showCard, setShowCard] = useState(false);
 
   const itemsContainer = useRef<HTMLDivElement | null>(null); // Select the ItemsContainer
 
@@ -156,9 +152,7 @@ function AboutPage() {
                   {/* Increased row height */}
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-gray-100 px-4">
-                      <p className="text-left text-lg" onClick={togglePopup}>
-                        FRONTEND
-                      </p>
+                      <p className="text-left text-lg">FRONTEND</p>
 
                       <p className="text-right text-lg">1</p>
                     </div>
@@ -167,7 +161,28 @@ function AboutPage() {
                         src={img1}
                         alt="Card Image"
                         className="h-full w-full object-cover"
+                        onTouchMove={() => setShowCard(true)}
+                        onMouseLeave={() => setShowCard(false)}
                       />
+                      {showCard && (
+                        <div className="absolute top-0 right-20 ">
+                          <Card className="max-w-sm">
+                            <img
+                              src={img1}
+                              alt="image 1"
+                              style={{ width: "400px", height: "300px" }}
+                            />
+                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-#000000">
+                              Noteworthy technology acquisitions 2021
+                            </h5>
+                            <p className="font-normal text-gray-700 dark:text-gray-400">
+                              Here are the biggest enterprise technology
+                              acquisitions of 2021 so far, in reverse
+                              chronological order.
+                            </p>
+                          </Card>
+                        </div>
+                      )}
                     </div>
                   </div>
 

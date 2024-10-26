@@ -88,7 +88,6 @@ function WorkPage() {
     <div
       className="page-wrapper"
       style={{
-        background: "#ffffff",
         height: "100vh",
         width: "100vw",
         display: "flex",

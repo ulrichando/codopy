@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import profile from "../assets/images/profile1.svg";
-import "../App.css";
+import "../App.scss";
 
 const menu = [
   {
@@ -34,7 +34,6 @@ function Homepage() {
     <section
       className="page-wrapper"
       style={{
-        background: "#ffffffff",
         height: "100vh",
         width: "100vw",
         display: "flex",

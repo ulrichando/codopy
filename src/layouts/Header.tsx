@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import "../App.css";
+import "../App.scss";
 
 // Navigation items with subcategories
 const navigation = [

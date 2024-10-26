@@ -1,8 +1,9 @@
 import AnimatedCursor from "react-animated-cursor";
 import Header from "./layouts/Header";
 import Logo from "./layouts/logo";
+import DarkmodeButton from "./components/ui/DarkmodeButton";
 import Footer from "./components/Footer";
-import "./App.css";
+import "./App.scss";
 import AnimatedRoutes from "./utils/AnimatedRoutes";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -11,6 +12,7 @@ function App() {
     <div className="App ">
       <Router>
         <Header />
+        <DarkmodeButton />
         <Logo />
         <AnimatedRoutes />
         <AnimatedCursor

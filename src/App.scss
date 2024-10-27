@@ -1,24 +1,22 @@
-/* Default setup */
 :root {
     --base-color: white;
-    --base-variant: #e8e9ed;
+    --base-variant: #000000;
     --text-color: #111528;
     --secondary-text: #232738;
-    --primary-color: #3a435d;
-    --accent-color: #0071ff;
-}
-
-.darkmode {
-    --base-color: #808dc9;
-    --base-variant: #101425;
-    --text-color: #ffffff;
-    --secondary-text: #a4a5b8;
     --primary-color: #ffffff;
     --accent-color: #0071ff;
 }
 
+.darkmode {
+    --base-color: #101112dc;
+    --base-variant: #fdfdfd;
+    --text-color: #ffffff;
+    --secondary-text: #a4a5b8;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+}
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -30,13 +28,13 @@ html {
     --cursor-color: #333;
     overflow-y: hidden;
 }
+html .darkmode {
+    --cursor-color: #fff;
+    overflow-y: hidden;
+}
 
 body {
     background-color: var(--base-color);
-}
-html.darkmode {
-    --cursor-color: var(--text-color);
-    overflow-y: hidden;
 }
 
 .menu-transition {
@@ -92,6 +90,8 @@ html.darkmode {
 
 /* DarkMode*/
 
+
+
 #theme-switch {
     height: 50px;
     width: 50px;
@@ -111,7 +111,7 @@ html.darkmode {
 }
 
 #theme-switch svg:last-child {
-    display: none;
+    display: block;
 }
 
 .darkmode #theme-switch svg:first-child {

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import profile from "../assets/images/profile1.svg";
 import "../App.scss";
+import PlayButton from "../components/ui/PlayButton";
 
 const menu = [
   {
@@ -29,6 +30,7 @@ const menu = [
   },
 ];
 
+const videos = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];
 function Homepage() {
   return (
     <section
@@ -55,7 +57,7 @@ function Homepage() {
               <div className=" top-20 left-10">
                 <h1 className="text-8xl font-bold ">Hello.</h1>
                 <div className="flex">
-                  <div className="h-2 w-10 bg-black m-6"></div>
+                  <div className="line h-2 w-10 m-6"></div>
                   <p className="mt-4 text-1xl font-medium">
                     Welcome to <br />
                     my portfolio, <br />
@@ -67,14 +69,14 @@ function Homepage() {
             {/* End of Text Hello */}
 
             {/* Circle */}
-            <div className="Circle w-160 h-160 rounded-full border-4 bg-black flex justify-center items-center overflow-auto">
+            <div className="Circle w-160 h-160 rounded-full border-4  flex justify-center items-center overflow-auto">
               {/* <div className="Mini flex justify-center  w-60 h-60 rounded-full bg-gray-500"> */}
               <img
                 src={profile}
                 alt="mini"
                 width={600}
                 height={600}
-                className="profile  "
+                className="profile"
               />
               {/* </div> */}
             </div>
@@ -97,7 +99,7 @@ function Homepage() {
 
             {/* Reel button  */}
             <div className="absolute bottom-1/4 left-full  transform  translate-x-5 translate-y-20 ">
-              <button className="reel-button bg-transparent border-none cursor-pointer flex items-center">
+              {/* <button className="reel-button bg-transparent border-none cursor-pointer flex items-center">
                 <div className="rounded-full border-4 border-black w-12 h-12 flex items-center justify-center mr-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +111,24 @@ function Homepage() {
                   </svg>
                 </div>
                 <span className="text-xl font-medium">Reel</span>
-              </button>
+              </button> */}
+              {/* <div className="play-button-container">
+                <a
+                  className="play-button"
+                  href="https://youtu.be/dQw4w9WgXcQ"
+                  data-video-id="dQw4w9WgXcQ"
+                >
+                  <div className="play-button__triangle">
+                    <div id="video-container"></div>
+                    <span className="close-button">&#x2715;</span>
+                  </div>
+                </a>
+              </div> */}
+              <div>
+                {videos.map((video) => (
+                  <PlayButton key={video.id} videoId={video.id} />
+                ))}
+              </div>
             </div>
           </div>
           {/* End of Reel button  */}

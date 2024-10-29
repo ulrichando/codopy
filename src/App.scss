@@ -1,19 +1,19 @@
 :root {
     --base-color: white;
     --base-variant: #000000;
-    --text-color: #111528;
+    --text-color: #000000;
     --secondary-text: #232738;
     --primary-color: #ffffff;
-    --accent-color: #0071ff;
+    --accent-color: #000000;
 }
 
 .darkmode {
-    --base-color: #101112dc;
+    --base-color: #000000;
     --base-variant: #fdfdfd;
     --text-color: #ffffff;
     --secondary-text: #a4a5b8;
     --primary-color: #090909;
-    --accent-color: #0071ff;
+    --accent-color: #000000;
 }
 
 * {
@@ -35,6 +35,7 @@ html .darkmode {
 
 body {
     background-color: var(--base-color);
+    color: var(--text-color)
 }
 
 .menu-transition {
@@ -55,7 +56,8 @@ body {
 }
 
 .reel-button svg {
-    fill: #000;
+    fill: var(--text-color);
+   
     /* Set the color of the play icon */
 }
 
@@ -63,14 +65,14 @@ body {
 
 .active-underline {
     text-decoration: underline;
-    text-decoration-color: #1F2937;
+    text-decoration-color: var(--text-color);
     text-underline-offset: 8px;
     text-decoration-thickness: 5px;
 }
 
 .hover-underline:hover {
     text-decoration: underline;
-    text-decoration-color: #1F2937;
+    text-decoration-color: var(--text-color);
     text-underline-offset: 8px;
     text-decoration-thickness: 5px;
 }
@@ -80,7 +82,7 @@ body {
 
 .profile {
     content: " '";
-    color: #fff;
+    color: var(--text-color);
     text-shadow: 0 0 10px #fff,
                  0 0 20px #fff,
                  0 0 40px #fff,
@@ -120,4 +122,124 @@ body {
 
 .darkmode #theme-switch svg:last-child {
     display: block;
+}
+
+/* DarkMode settings */
+
+/* Define default styles */
+.cls-1 {
+    fill: var(--text-color);
+    stroke-width: 0px;
+}
+
+.menu {
+    color: var(--text-color);
+}
+.Circle {
+    background-color: var(--accent-color);
+}
+
+.line {
+    background-color: var(--text-color);
+}
+
+// .menuUnderline  {
+//     text-decoration-color: var(--text-color);
+// }
+
+
+.scroller{
+    background-color: var(--base-color);
+}
+.scroller-1 {
+    color: var(--text-color);
+}
+
+
+/* Reel button */
+
+.play-button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.play-button {
+    position: relative;
+    display: block;
+    height: 70px;
+    width: 70px;
+    box-shadow: 0 0 0 3px  var(--text-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.play-button__triangle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-30%, -50%);
+    transform: translate(-30%, -50%);
+    z-index: 0;
+    border: solid var(--text-color);
+    border-right-width: 0;
+    border-left-width: 24.5px;
+    border-top-width: 16.1px;
+    border-bottom-width: 16.1px;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    height: 0;
+    width: 0;
+    transition: 0.6s, 0s border-color;
+}
+
+.close-button {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    text-align: center;
+    padding: 3px;
+    top: -15px;
+    left: 15px;
+    border: 2px solid black;
+    opacity: 0;
+    transition: 0.3s;
+    cursor: pointer;
+    color: black;
+}
+
+.-clicked .close-button {
+    opacity: 1;
+}
+
+iframe {
+    position: absolute;
+    left: -100%;
+    width: 500px;
+    height: 281.25px;
+    opacity: 0;
+    transition: 0s;
+    background: black;
+}
+
+.play-button-container.-clicked .play-button__triangle {
+    width: 500px;
+    height: 281.25px;
+    -webkit-transform: translate(-25%, -50%);
+    transform: translate(-25%, -50%);
+    border-left-width: 500px;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.play-button-container.-clicked iframe {
+    opacity: 1;
+    transition: 0.3s 0.4s;
+}
+
+
+.play-button-container+.play-button-container {
+    left: 80%;
 }

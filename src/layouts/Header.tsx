@@ -61,7 +61,10 @@ export default function Example() {
               }}
             >
               <span className="sr-only">Open main menu</span>
-              <Bars3BottomRightIcon className="h-6 w-6" aria-hidden="true" />
+              <Bars3BottomRightIcon
+                className="menu h-6 w-6"
+                aria-hidden="true"
+              />
             </button>
           </div>
         </nav>
@@ -79,7 +82,7 @@ export default function Example() {
               </Link>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-white"
+                className="menu -m-2.5 rounded-md p-2.5 text-white"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>

@@ -7,6 +7,10 @@
       "DOM",
       "DOM.Iterable"
     ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types" // Make sure this line is present
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
@@ -34,7 +38,8 @@
     "src/components/common/Footer copy",
     "src/components/common/DraggableSroll.js",
     "src/components/common/CircularMenu.js",
-    "src/utils/DarkMode.tsx"
+    "src/utils/DarkMode.tsx",
+    "src/utils/videoPlayer.tsx"
   ],
   "references": [
     {

@@ -136,7 +136,7 @@ function WorkPage() {
             <div className="top-20 left-10">
               <h1 className="text-8xl font-bold">Work.</h1>
               <div className="flex">
-                <div className="h-2 w-10 bg-black m-6"></div>
+                <div className="line h-2 w-10 m-6"></div>
                 <p className="mt-4 text-1xl font-medium">
                   Here are some <br />
                   of my projects <br />
@@ -167,9 +167,9 @@ function WorkPage() {
                 <div className="item">
                   {/* Increased row height */}
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
-                      <p className="text-left text-lg">Frontend</p>
-                      <p className="text-right text-8xl">1</p>
+                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4 px-4">
+                      <p className="scroller-1 text-left text-lg">Frontend</p>
+                      <p className="scroller-1 text-right text-8xl">1</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
@@ -190,16 +190,16 @@ function WorkPage() {
                         id="backend"
                       />
                     </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
-                      <p className="text-left text-lg">Backend</p>
-                      <p className="text-right text-8xl">2</p>
+                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4  px-4">
+                      <p className="scroller-1 text-left text-lg">Backend</p>
+                      <p className="scroller-1 text-right text-8xl">2</p>
                     </div>
                   </div>
 
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
-                      <p className="text-left text-lg">Database</p>
-                      <p className="text-right text-8xl">3</p>
+                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4  px-4">
+                      <p className="scroller-1 text-left text-lg">Database</p>
+                      <p className="scroller-1 text-right text-8xl">3</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
@@ -222,16 +222,16 @@ function WorkPage() {
                         onClick={() => scrollToSection("database")}
                       />
                     </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
-                      <p className="text-left text-lg">Cloud</p>
-                      <p className="text-right text-8xl">4</p>
+                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4 px-4">
+                      <p className="scroller-1 text-left text-lg">Cloud</p>
+                      <p className="scroller-1 text-right text-8xl">4</p>
                     </div>
                   </div>
 
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
-                      <p className="text-left text-lg">Server</p>
-                      <p className="text-right text-8xl">5</p>
+                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4  px-4">
+                      <p className="scroller-1 text-left text-lg">Server</p>
+                      <p className="scroller-1 text-right text-8xl">5</p>
                     </div>
                     <div className="w-[300px] h-[200px]">
                       <img
@@ -254,9 +254,9 @@ function WorkPage() {
                         onClick={() => scrollToSection("frontend")}
                       />
                     </div>
-                    <div className="w-[300px] h-[200px] flex items-end justify-between pb-4 bg-[#ffffffff] px-4">
-                      <p className="text-left text-lg">Security</p>
-                      <p className="text-right text-8xl">6</p>
+                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4  px-4">
+                      <p className="scroller-1 text-left text-lg">Security</p>
+                      <p className="scroller-1 text-right text-8xl">6</p>
                     </div>
                   </div>
                 </div>

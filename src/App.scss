@@ -215,13 +215,13 @@ body {
 }
 
 iframe {
-    position: absolute;
-    left: -100%;
-    width: 500px;
+    position: fixed;
+    left: 2rem;
+    width: 2rem;
     height: 281.25px;
     opacity: 0;
     transition: 0s;
-    background: black;
+    background: white;
 }
 
 .play-button-container.-clicked .play-button__triangle {

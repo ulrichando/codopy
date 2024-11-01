@@ -248,6 +248,24 @@ iframe {
  background-color: var(--text-color);
 }
 
-.left-circle {
-background-color: var(--text-color);
+
+
+/* styles.css */
+.circle-outer {
+   background-color: var(--text-color);
+    /* Black */
+}
+
+.circle-middle {
+    background-color: #4d5562;
+    /* Slate gray */
+}
+
+.circle-inner {
+    background-color: #E5E7EB;
+    /* Light gray */
+}
+
+.circle-inner-1 {
+    background-color: #080808;
 }

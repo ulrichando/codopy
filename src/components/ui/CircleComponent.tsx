@@ -1,24 +1,45 @@
-import React from "react";
+// CircleComponent.tsx
+import { ReactNode } from "react";
 
-interface CircleComponentProps {
-  numberOfCircles: number;
+interface CircleProps {
+  radius?: number;
+  color?: string;
+  to?: string;
+  borderWidth?: number;
+  children?: ReactNode;
+  className?: string;
+  onClick?: () => void;
+  style?: React.CSSProperties;
 }
 
-const CircleComponent: React.FC<CircleComponentProps> = ({
-  numberOfCircles,
+export const Circle: React.FC<CircleProps> = ({
+  radius = 50,
+  // color = "lightblue",
+  borderWidth = 2,
+  children,
+  className = "",
+  onClick,
+  style = {},
 }) => {
+  const diameter = radius * 2;
+  const circleStyle: React.CSSProperties = {
+    width: `${diameter}px`,
+    height: `${diameter}px`,
+    borderRadius: "50%",
+    borderWidth: `${borderWidth}px`,
+    borderStyle: "none",
+    borderColor: "black",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    ...style,
+  };
+
   return (
-    <div className="flex justify-center items-center flex-wrap">
-      {Array.from({ length: numberOfCircles }).map((_, index) => (
-        <div
-          key={index}
-          className="m-4 bg-blue-500 rounded-full h-24 w-24 flex justify-center items-center animate-spin"
-        >
-          {/* Add content inside the circle if needed */}
-        </div>
-      ))}
+    <div style={circleStyle} className={className} onClick={onClick}>
+      {children}
     </div>
   );
 };
 
-export default CircleComponent;
+export default Circle;

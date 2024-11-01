@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import profile from "../assets/images/profile1.svg";
 import "../App.scss";
 import PlayButton from "../components/ui/PlayButton";
+import { Circle } from "../components/ui/CircleComponent";
+import { NavLink } from "react-router-dom";
 
 const menu = [
   {
@@ -32,6 +34,8 @@ const menu = [
 
 const videos = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];
 function Homepage() {
+  const navAbout = [{ name: "About", to: "/about" }];
+  const navWork = [{ name: "Work", to: "/work" }];
   return (
     <section
       className="page-wrapper"
@@ -99,31 +103,6 @@ function Homepage() {
 
             {/* Reel button  */}
             <div className="absolute bottom-1/4 left-full  transform  translate-x-5 translate-y-20 ">
-              {/* <button className="reel-button bg-transparent border-none cursor-pointer flex items-center">
-                <div className="rounded-full border-4 border-black w-12 h-12 flex items-center justify-center mr-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="black"
-                    className="w-6 h-6"
-                  >
-                    <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm1.5 17.25V6.75l6 5.25-6 5.25z" />
-                  </svg>
-                </div>
-                <span className="text-xl font-medium">Reel</span>
-              </button> */}
-              {/* <div className="play-button-container">
-                <a
-                  className="play-button"
-                  href="https://youtu.be/dQw4w9WgXcQ"
-                  data-video-id="dQw4w9WgXcQ"
-                >
-                  <div className="play-button__triangle">
-                    <div id="video-container"></div>
-                    <span className="close-button">&#x2715;</span>
-                  </div>
-                </a>
-              </div> */}
               <div>
                 {videos.map((video) => (
                   <PlayButton key={video.id} videoId={video.id} />
@@ -136,13 +115,18 @@ function Homepage() {
           {/* Container two  */}
 
           <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
-            <div className="right-circle flex justify-center items-center rounded-full h-112 w-112">
-              <div className="flex justify-center items-center rounded-full bg-gray-600 h-38 w-38">
-                <div className="flex justify-center items-center rounded-full bg-gray-600 h-32 w-32">
-                  <div className="rounded-full bg-gray-200 h-16 w-16"></div>
-                </div>
-              </div>
-            </div>
+            {navAbout.map((item) => (
+              <NavLink key={item.to} to={item.to}>
+                <Circle
+                  radius={200}
+                  className="circle-outer transition-all duration-300"
+                >
+                  <Circle radius={70} className="circle-middle">
+                    <Circle radius={30} className="circle-inner"></Circle>
+                  </Circle>
+                </Circle>
+              </NavLink>
+            ))}
           </div>
 
           {/* End of Contianer two  */}
@@ -150,13 +134,18 @@ function Homepage() {
           {/* Container Three */}
 
           <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2">
-            <div className="left-circle flex justify-center items-center rounded-full  h-112 w-112">
-              <div className="profile flex justify-center items-center rounded-full bg-gray-600 h-38 w-38">
-                <div className="flex justify-center items-center rounded-full bg-gray-600 h-32 w-32">
-                  <div className="rounded-full bg-gray-200 h-16 w-16"></div>
-                </div>
-              </div>
-            </div>
+            {navWork.map((item) => (
+              <NavLink key={item.to} to={item.to}>
+                <Circle
+                  radius={200}
+                  className="circle-outer transition-all duration-300"
+                >
+                  <Circle radius={70} className="circle-middle">
+                    <Circle radius={30} className="circle-inner"></Circle>
+                  </Circle>
+                </Circle>
+              </NavLink>
+            ))}
           </div>
 
           {/*End of Container Three */}

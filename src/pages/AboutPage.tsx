@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
+import { NavLink } from "react-router-dom";
+import { Circle } from "../components/ui/CircleComponent";
 
 import img6 from "../assets/images/img6.jpg";
 import img7 from "../assets/images/img7.jpg";
@@ -76,7 +78,7 @@ function AboutPage() {
       href: "#tools",
     },
   ];
-
+  const navHome = [{ name: "Hello", to: "/" }];
   return (
     <section
       className="page-wrapper"
@@ -100,11 +102,20 @@ function AboutPage() {
         <div className="relative w-screen h-screen">
           <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
             {/* Circle */}
-            <div className="Circle w-160 h-160 rounded-full border-4 bg-black flex justify-center items-center">
-              <div className=" flex justify-center items-center Mini w-60 h-60 rounded-full bg-gray-500">
-                <div className="rounded-full bg-gray-200 h-40 w-40"></div>
-              </div>
-            </div>
+            {navHome.map((item) => (
+              <NavLink key={item.to} to={item.to}>
+                <Circle
+                  radius={350}
+                  className="circle-outer transition-all duration-300"
+                >
+                  <Circle radius={200} className="circle-middle">
+                    <Circle radius={180} className="circle-inner">
+                      <Circle radius={100} className="circle-inner-1"></Circle>
+                    </Circle>
+                  </Circle>
+                </Circle>
+              </NavLink>
+            ))}
 
             {/* End Circle */}
             {/* Circle menu */}

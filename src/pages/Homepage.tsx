@@ -132,10 +132,11 @@ function Homepage() {
             </div>
           </div>
           {/* End of Reel button  */}
+
           {/* Container two  */}
 
           <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
-            <div className="flex justify-center items-center rounded-full bg-black h-112 w-112">
+            <div className="right-circle flex justify-center items-center rounded-full h-112 w-112">
               <div className="flex justify-center items-center rounded-full bg-gray-600 h-38 w-38">
                 <div className="flex justify-center items-center rounded-full bg-gray-600 h-32 w-32">
                   <div className="rounded-full bg-gray-200 h-16 w-16"></div>
@@ -149,7 +150,7 @@ function Homepage() {
           {/* Container Three */}
 
           <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2">
-            <div className="flex justify-center items-center rounded-full bg-black h-112 w-112">
+            <div className="left-circle flex justify-center items-center rounded-full  h-112 w-112">
               <div className="profile flex justify-center items-center rounded-full bg-gray-600 h-38 w-38">
                 <div className="flex justify-center items-center rounded-full bg-gray-600 h-32 w-32">
                   <div className="rounded-full bg-gray-200 h-16 w-16"></div>

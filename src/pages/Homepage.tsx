@@ -108,6 +108,9 @@ function Homepage() {
                   <PlayButton key={video.id} videoId={video.id} />
                 ))}
               </div>
+              <div className="absolute justify-center items-center left-12 -top-4">
+                <span className="reel text-xl ">Reel</span>
+              </div>
             </div>
           </div>
           {/* End of Reel button  */}

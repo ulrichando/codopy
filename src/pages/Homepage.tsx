@@ -73,16 +73,16 @@ function Homepage() {
             {/* End of Text Hello */}
 
             {/* Circle */}
-            <div className="Circle w-160 h-160 rounded-full border-4  flex justify-center items-center overflow-auto">
-              {/* <div className="Mini flex justify-center  w-60 h-60 rounded-full bg-gray-500"> */}
+
+            {/* <div className="Circle w-160 h-160 rounded-full border-4  flex justify-center items-center overflow-auto">
+              <img src={profile} alt="mini" className="profile " />
+            </div> */}
+            <div className="Circle w-80 h-80 md:w-120 md:h-120 lg:w-120 lg:h-120 xl:w-160 xl:h-160 rounded-full border-4 flex justify-center items-center overflow-auto md:shrink-0">
               <img
                 src={profile}
                 alt="mini"
-                width={600}
-                height={600}
-                className="profile"
+                className="w-60 h-70 md:w-100 md:h-120 lg:w-100 lg:h-120 xl:w-120 xl:h-140 object-cover "
               />
-              {/* </div> */}
             </div>
 
             {/* Circle menu */}

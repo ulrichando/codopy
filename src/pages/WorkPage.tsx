@@ -174,8 +174,8 @@ function WorkPage() {
               className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2 overflow-auto"
             >
               {/* beginning of container  */}
-              <div className="table ">
-                <div className="item">
+              <div className="table pr-5">
+                <div className="item text-red border-2 items-center">
                   {/* Increased row height */}
                   <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
                     <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4 px-4">

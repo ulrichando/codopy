@@ -21,9 +21,9 @@ import "../App.scss";
 
 function logo() {
   return (
-    <div className="relative z-50">
+    <div className=" relative z-50 ">
       <Link to="/">
-        <div className="logo absolute h-20 w-20 left-1/2 top-2 p-4 transform -translate-x-1/2">
+        <div className="logo absolute h-20 w-20 left-1/2 p-4 transform -translate-x-1/2">
           {" "}
           <svg
             id="Layer_1"

@@ -96,7 +96,7 @@ export default function Example() {
                     <div key={item.name} className="flex flex-col">
                       <Link
                         to={item.to}
-                        className="-mx-0 block rounded-lg px-3 py-10 text-6xl font-semibold leading-7 text-white tracking-wide"
+                        className="-mx-0 block rounded-lg px-3 py-10 text-6xl font-semibold leading-11 text-white tracking-wide "
                         onClick={() =>
                           item.name === "Work" && setSubmenuOpen(!submenuOpen)
                         } // Toggle submenu on click

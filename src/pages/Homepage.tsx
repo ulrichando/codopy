@@ -57,7 +57,7 @@ function Homepage() {
         <div className="relative w-screen h-screen ">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
             {/* Text Hello */}
-            <div className="absolute top-1/3 right-full transform  translate-x-6">
+            <div className="absolute top-1/3 right-full transform  translate-x-6 hidden md:block">
               <div className=" top-20 left-10">
                 <h1 className="text-8xl font-bold ">Hello.</h1>
                 <div className="flex">
@@ -86,7 +86,7 @@ function Homepage() {
             </div>
 
             {/* Circle menu */}
-            <div className="absolute flex flex-col space-y-2 top-1/3 left-full transform  translate-x-2 ">
+            <div className="absolute space-y-2 top-1/3 left-full transform  translate-x-2 hidden md:block">
               {menu.map((item) => (
                 <div key={item.href} className="flex flex-col">
                   <a
@@ -102,7 +102,7 @@ function Homepage() {
             {/* End of Circle  */}
 
             {/* Reel button  */}
-            <div className="absolute bottom-1/4 left-full  transform  translate-x-5 translate-y-20 ">
+            <div className="absolute bottom-1/4 left-full  transform  translate-x-5 translate-y-20  hidden md:block">
               <div>
                 {videos.map((video) => (
                   <PlayButton key={video.id} videoId={video.id} />
@@ -117,7 +117,7 @@ function Homepage() {
 
           {/* Container two  */}
 
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 hidden md:block">
             {navAbout.map((item) => (
               <NavLink key={item.to} to={item.to}>
                 <Circle
@@ -136,7 +136,7 @@ function Homepage() {
 
           {/* Container Three */}
 
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2">
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 hidden md:block">
             {navWork.map((item) => (
               <NavLink key={item.to} to={item.to}>
                 <Circle

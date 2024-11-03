@@ -30,7 +30,7 @@ function Footer() {
               </NavLink>
             ))}
           </div>
-          <div className="absolute flex gap-2 right-0 py-2 px-10 font-medium">
+          <div className="absolute gap-2 right-0 py-2 px-10 font-medium hidden md:block">
             <Instagram className="inline-block mx-1" />
             <Github className="inline-block mx-1" />
             <Linkedin className="inline-block mx-1" />
@@ -38,7 +38,9 @@ function Footer() {
           </div>
           <div className="absolute flex left-0 gap-4 py-2 px-10">
             <a>
-              <p className="font-medium text-xl">Ulrich Ando</p>
+              <p className="font-medium text-xl hidden md:block ">
+                Ulrich Ando
+              </p>
             </a>
           </div>
         </div>

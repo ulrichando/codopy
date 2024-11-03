@@ -23,7 +23,7 @@ function logo() {
   return (
     <div className=" relative z-50 ">
       <Link to="/">
-        <div className="logo absolute h-20 w-20 left-1/2 p-4 transform -translate-x-1/2">
+        <div className="logo absolute h-20 w-20 left-1/2 p-6 transform -translate-x-1/2 md:p-4">
           {" "}
           <svg
             id="Layer_1"

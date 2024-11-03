@@ -19,7 +19,7 @@ function Footer() {
                 key={item.name}
                 to={item.to}
                 className={({ isActive }) =>
-                  `px-4 py-2 font-medium text-xl -mx-2 ${
+                  `px-4 py-2 font-medium text-sm -mx-2 md:text-xl ${
                     isActive
                       ? "menuUnderline active-underline"
                       : "menuUnderline hover-underline"

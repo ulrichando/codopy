@@ -80,7 +80,7 @@ function AboutPage() {
   ];
   const navHome = [{ name: "Hello", to: "/" }];
   return (
-    <section
+    <div
       className="page-wrapper"
       style={{
         height: "100vh",
@@ -261,7 +261,7 @@ function AboutPage() {
           {/* Project menu End */}
         </div>
       </motion.div>
-    </section>
+    </div>
   );
 }
 

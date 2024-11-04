@@ -37,7 +37,7 @@ function Homepage() {
   const navAbout = [{ name: "About", to: "/about" }];
   const navWork = [{ name: "Work", to: "/work" }];
   return (
-    <section
+    <div
       className="page-wrapper"
       style={{
         height: "100vh",
@@ -155,7 +155,7 @@ function Homepage() {
         </div>
         {/* End of container  */}
       </motion.div>
-    </section>
+    </div>
   );
 }
 

@@ -62,7 +62,7 @@ export default function Example() {
             >
               <span className="sr-only">Open main menu</span>
               <Bars3BottomRightIcon
-                className="menu h-8 w-8"
+                className="menu h-9 w-9"
                 aria-hidden="true"
               />
             </button>

@@ -95,8 +95,8 @@ body {
 
 
 #theme-switch {
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     padding: 0;
     border-radius: 50%;
     background-color: var(--base-variant);
@@ -272,4 +272,18 @@ iframe {
 
 .reel{
     color: var(--text-color);
+}
+
+#logo {
+    height: 45px;
+    width: 45px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }

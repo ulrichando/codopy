@@ -6,30 +6,12 @@ import { Circle } from "../components/ui/CircleComponent";
 import { NavLink } from "react-router-dom";
 
 const menu = [
-  {
-    name: "Frontend",
-    href: "#frontend",
-  },
-  {
-    name: "Backend",
-    href: "#backend",
-  },
-  {
-    name: "Database",
-    href: "#database",
-  },
-  {
-    name: "Cloud",
-    href: "#cloud",
-  },
-  {
-    name: "Server",
-    href: "#server",
-  },
-  {
-    name: "Security",
-    hred: "#server",
-  },
+  { name: "Frontend", href: "#frontend" },
+  { name: "Backend", href: "#backend" },
+  { name: "Database", href: "#database" },
+  { name: "Cloud", href: "#cloud" },
+  { name: "Server", href: "#server" },
+  { name: "Security", href: "#security" },
 ];
 
 const videos = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];

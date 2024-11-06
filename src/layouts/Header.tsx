@@ -238,7 +238,7 @@ export default function Header() {
                     <Link
                       key={item.name}
                       to={item.to}
-                      className="-mx-0 block rounded-lg px-3 py-10 text-6xl font-semibold leading-11 text-white tracking-wide"
+                      className="-mx-0 block rounded-lg px-3 py-8 text-6xl font-semibold leading-11 text-white tracking-wide"
                     >
                       {item.name}
                     </Link>

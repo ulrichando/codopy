@@ -228,7 +228,7 @@ export default function Header() {
                 onClick={closeMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="h-8 w-8" aria-hidden="true" />
               </button>
             </div>
             <div className="mt-6 flow-root">
@@ -247,7 +247,7 @@ export default function Header() {
 
                 {/* Social media links only visible on mobile */}
                 <div className="py-6">
-                  <div className="flex justify-center items-center gap-4 font-medium md:hidden">
+                  <div className="flex justify-center items-center gap-4 font-medium md:hidden ">
                     <a
                       href="https://www.instagram.com/co.dopy/"
                       target="_blank"

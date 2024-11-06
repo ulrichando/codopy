@@ -42,10 +42,6 @@ function AboutPage() {
     setMouseMoved(currentMousePositionInsideContainer - startY);
   }
 
-  function handleMouseUp() {
-    setIsDown(false);
-  }
-
   useEffect(() => {
     if (itemsContainer.current && scrollTopState !== null) {
       itemsContainer.current.scrollTop = scrollTopState - mouseMoved;
@@ -69,144 +65,137 @@ function AboutPage() {
   ];
 
   return (
-    <div
-      className="relative h-screen w-screen overflow-hidden"
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
-      onTouchEnd={handleMouseUp}
-    >
-      <div className="relative w-full h-full">
-        <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-          <div className="absolute flex flex-col space-y-2 top-1/3 right-full translate-x-0">
-            {menu.map((item) => (
-              <div key={item.id} className="flex flex-col">
-                <a
-                  href={item.href}
-                  className="text-sm md:text-1xl font-medium px-4 py-2"
-                  onClick={() => scrollToSection(item.id)}
-                >
-                  {item.name}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="absolute right-1/3 top-1/4 transform -translate-y-full translate-x-1/2">
-          <div className="top-20 left-10">
-            <h1 className="text-4xl md:text-8xl font-bold">About.</h1>
-            <div className="flex">
-              <div className="line h-2 w-10 m-6"></div>
-              <p className="mt-4 text-sm md:text-1xl font-medium">
-                All about me <br />
-                and geek stuff <br />
-                explore and discover
-              </p>
+    <div className="relative w-full h-full">
+      <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
+        <div className="absolute flex flex-col space-y-2 top-1/3 right-full translate-x-0">
+          {menu.map((item) => (
+            <div key={item.id} className="flex flex-col">
+              <a
+                href={item.href}
+                className="text-sm md:text-1xl font-medium px-4 py-2"
+                onClick={() => scrollToSection(item.id)}
+              >
+                {item.name}
+              </a>
             </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="absolute right-1/3 top-1/4 transform -translate-y-full translate-x-1/2">
+        <div className="top-20 left-10">
+          <h1 className="text-4xl md:text-8xl font-bold">About.</h1>
+          <div className="flex">
+            <div className="line h-2 w-10 m-6"></div>
+            <p className="mt-4 text-sm md:text-1xl font-medium">
+              All about me <br />
+              and geek stuff <br />
+              explore and discover
+            </p>
           </div>
         </div>
+      </div>
 
+      <div
+        className={`MainContainer absolute ${
+          isMobile ? "bottom-4 left-1/2 -translate-x-1/2" : "right-[25%]"
+        } `}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onTouchStart={handleMouseDown}
+        onTouchMove={handleMouseMove}
+      >
         <div
-          className={`MainContainer absolute ${
-            isMobile ? "bottom-4 left-1/2 -translate-x-1/2" : "right-[25%]"
+          ref={itemsContainer}
+          className={`ItemsContainer ${
+            isMobile
+              ? "relative max-h-[40vh] overflow-y-auto"
+              : "fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
           } `}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onTouchStart={handleMouseDown}
-          onTouchMove={handleMouseMove}
         >
-          <div
-            ref={itemsContainer}
-            className={`ItemsContainer ${
-              isMobile
-                ? "relative max-h-[40vh] overflow-y-auto"
-                : "fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-            } `}
-          >
-            <div className="table">
-              <div className="item">
-                {[
-                  {
-                    img: img6,
-                    title: "Frontend",
-                    num: "1",
-                    id: "section-frontend",
-                  },
-                  {
-                    img: img7,
-                    title: "Backend",
-                    num: "2",
-                    id: "section-backend",
-                  },
-                  {
-                    img: img8,
-                    title: "Database",
-                    num: "3",
-                    id: "section-database",
-                  },
-                  {
-                    img: img9,
-                    title: "Tools",
-                    num: "4",
-                    id: "section-tools",
-                  },
-                  { img: img10, title: "Test", num: "5", id: "section-test" },
-                  {
-                    img: img11,
-                    title: "Test",
-                    num: "6",
-                    id: "section-test2",
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    id={item.id}
-                    className="flex h-[100px] md:h-[200px] w-[150px] md:w-[600px] border overflow-hidden shadow-md"
-                  >
-                    {index % 2 === 0 ? (
-                      <>
-                        <div className="scroller w-[75px] md:w-[300px] h-full flex items-end pb-4 px-4">
-                          <div className="flex justify-between items-baseline w-full">
-                            <p className="scroller-1 text-left text-xs md:text-lg">
-                              {item.title}
-                            </p>
-                            <p className="scroller-1 text-right text-2xl md:text-8xl ml-2">
-                              {item.num}
-                            </p>
-                          </div>
+          <div className="table">
+            <div className="item">
+              {[
+                {
+                  img: img6,
+                  title: "Frontend",
+                  num: "1",
+                  id: "section-frontend",
+                },
+                {
+                  img: img7,
+                  title: "Backend",
+                  num: "2",
+                  id: "section-backend",
+                },
+                {
+                  img: img8,
+                  title: "Database",
+                  num: "3",
+                  id: "section-database",
+                },
+                {
+                  img: img9,
+                  title: "Tools",
+                  num: "4",
+                  id: "section-tools",
+                },
+                { img: img10, title: "Test", num: "5", id: "section-test" },
+                {
+                  img: img11,
+                  title: "Test",
+                  num: "6",
+                  id: "section-test2",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  id={item.id}
+                  className="flex h-[100px] md:h-[200px] w-[150px] md:w-[600px] border overflow-hidden shadow-md"
+                >
+                  {index % 2 === 0 ? (
+                    <>
+                      <div className="scroller w-[75px] md:w-[300px] h-full flex items-end pb-4 px-4">
+                        <div className="flex justify-between items-baseline w-full">
+                          <p className="scroller-1 text-left text-xs md:text-lg">
+                            {item.title}
+                          </p>
+                          <p className="scroller-1 text-right text-2xl md:text-8xl ml-2">
+                            {item.num}
+                          </p>
                         </div>
-                        <div className="w-[75px] md:w-[300px] h-full">
-                          <img
-                            src={item.img}
-                            alt="Card Image"
-                            className="h-full w-full object-cover"
-                          />
+                      </div>
+                      <div className="w-[75px] md:w-[300px] h-full">
+                        <img
+                          src={item.img}
+                          alt="Card Image"
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-[75px] md:w-[300px] h-full">
+                        <img
+                          src={item.img}
+                          alt="Card Image"
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                      <div className="scroller w-[75px] md:w-[300px] h-full flex items-end pb-4 px-4">
+                        <div className="flex justify-between items-baseline w-full">
+                          <p className="scroller-1 text-left text-xs md:text-lg">
+                            {item.title}
+                          </p>
+                          <p className="scroller-1 text-right text-2xl md:text-8xl ml-2">
+                            {item.num}
+                          </p>
                         </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="w-[75px] md:w-[300px] h-full">
-                          <img
-                            src={item.img}
-                            alt="Card Image"
-                            className="h-full w-full object-cover"
-                          />
-                        </div>
-                        <div className="scroller w-[75px] md:w-[300px] h-full flex items-end pb-4 px-4">
-                          <div className="flex justify-between items-baseline w-full">
-                            <p className="scroller-1 text-left text-xs md:text-lg">
-                              {item.title}
-                            </p>
-                            <p className="scroller-1 text-right text-2xl md:text-8xl ml-2">
-                              {item.num}
-                            </p>
-                          </div>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                ))}
-              </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>

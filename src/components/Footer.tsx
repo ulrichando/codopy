@@ -1,13 +1,12 @@
 // src/components/Footer.tsx
 import { Instagram, Github, Linkedin, X } from "lucide-react";
 import "../App.scss";
-import { FooterProps } from "../types/types";
 
-const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
+const Footer: React.FC = () => {
   const navFooter = [
-    { name: "About", index: 0 },
-    { name: "Hello", index: 1 },
-    { name: "Work", index: 2 },
+    { name: "About", to: "/about" },
+    { name: "Hello", to: "/" },
+    { name: "Work", to: "/work" },
   ];
 
   return (
@@ -18,12 +17,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
             {navFooter.map((item) => (
               <button
                 key={item.name}
-                onClick={() => onNavigate(item.index)}
-                className={`px-4 py-2 font-medium text-sm -mx-2 md:text-xl ${
-                  currentPage === item.index
-                    ? "menuUnderline active-underline"
-                    : "menuUnderline hover-underline"
-                }`}
+                className="px-4 py-2 font-medium text-sm -mx-2 md:text-xl menuUnderline hover-underline"
               >
                 {item.name}
               </button>

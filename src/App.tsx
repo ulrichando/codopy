@@ -1,4 +1,3 @@
-import AnimatedRoutes from "./utils/AnimatedRoutes";
 import AnimatedCursor from "react-animated-cursor";
 import SweepNavigation from "./pages/SweepNavigation";
 import Header from "./layouts/Header";
@@ -11,7 +10,6 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Router>
-        <AnimatedRoutes />
         <DarkModeButton />
         <Logo />
         <Header />

@@ -1,9 +1,14 @@
+// src/pages/SweepNavigation.tsx
+// src/pages/SweepNavigation.tsx
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Homepage from "./Homepage";
 import AboutPage from "./AboutPage";
 import WorkPage from "./WorkPage";
-import { PageProps } from "../types/types";
+import Footer from "../components/Footer"; // Adjusted path
+import { PageProps } from "../types/types"; // Adjusted import
+
+// Rest of SweepNavigation code remains the same
 
 const Page: React.FC<PageProps> = ({ content }) => (
   <div className="w-full h-full p-8">{content}</div>
@@ -14,15 +19,12 @@ const SweepNavigation: React.FC = () => {
 
   const pages = [
     {
-      title: "Page 1",
       content: <AboutPage />,
     },
     {
-      title: "Page 2",
       content: <Homepage />,
     },
     {
-      title: "Page 3",
       content: <WorkPage />,
     },
   ];
@@ -37,6 +39,10 @@ const SweepNavigation: React.FC = () => {
     if (currentPage < pages.length - 1) {
       setCurrentPage(currentPage + 1);
     }
+  };
+
+  const handleNavigate = (pageIndex: number) => {
+    setCurrentPage(pageIndex);
   };
 
   return (
@@ -68,10 +74,13 @@ const SweepNavigation: React.FC = () => {
       >
         {pages.map((page, index) => (
           <div key={index} className="min-w-full h-full bg-gray-50">
-            <Page title={page.title} content={page.content} />
+            <Page content={page.content} />
           </div>
         ))}
       </div>
+
+      {/* Footer */}
+      <Footer currentPage={currentPage} onNavigate={handleNavigate} />
     </div>
   );
 };

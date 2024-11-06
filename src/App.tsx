@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import "./App.scss";
 import AnimatedRoutes from "./utils/AnimatedRoutes";
 import { BrowserRouter as Router } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         />
         <Footer />
       </Router>
+      <SpeedInsights />
     </div>
   );
 }

@@ -290,3 +290,30 @@ iframe {
     left: 50%;
     transform: translateX(-50%);
 }
+
+
+
+
+
+// Add these new styles
+.smooth-transform {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+}
+
+// Optional: Add these for even smoother animations
+.page-transition {
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+}

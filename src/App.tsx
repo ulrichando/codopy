@@ -12,6 +12,7 @@ function App() {
     <div className="App ">
       <Router>
         <Header />
+
         <DarkmodeButton />
         <Logo />
         <AnimatedRoutes />

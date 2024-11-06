@@ -13,5 +13,12 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script setup lang="ts">
+      import { SpeedInsights } from '@vercel/speed-insights/vue';
+    </script>
+    
+    <template>
+      <SpeedInsights />
+    </template>
   </body>
 </html>

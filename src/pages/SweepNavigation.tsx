@@ -323,5 +323,5 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
   );
 };
 
-export { PageProps, NavigationCircle };
+export { NavigationCircle };
 export default SweepNavigation;

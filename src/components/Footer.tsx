@@ -1,8 +1,10 @@
+// src/components/Footer.tsx
+import { Instagram, Github, Linkedin, X } from "lucide-react";
 import SweepNavigation from "../pages/SweepNavigation";
-import { PageProps } from "../pages/SweepNavigation";
 import Homepage from "../pages/Homepage";
 import WorkPage from "../pages/WorkPage";
 import AboutPage from "../pages/AboutPage";
+
 import "../App.scss";
 
 const Footer: React.FC = () => {
@@ -17,7 +19,6 @@ const Footer: React.FC = () => {
     { content: <Homepage /> },
     { content: <WorkPage /> },
   ];
-
   return (
     <section>
       <footer className="fixed flex justify-between items-center bottom-0 w-full py-10 z-50">
@@ -33,7 +34,38 @@ const Footer: React.FC = () => {
             ))}
           </div>
           <div className="absolute gap-2 right-0 py-2 px-10 font-medium hidden md:block">
-            {/* Social media links */}
+            <a
+              href="https://www.instagram.com/co.dopy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <Instagram className="inline-block mx-1" />
+            </a>
+            <a
+              href="https://github.com/ulrichando/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <Github className="inline-block mx-1" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ulrichando/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <Linkedin className="inline-block mx-1" />
+            </a>
+            <a
+              href="https://x.com/ando_ulrich"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <X className="inline-block mx-1" />
+            </a>
           </div>
           <div className="absolute flex left-0 gap-4 py-2 px-10">
             <span className="font-medium text-xl hidden md:block">

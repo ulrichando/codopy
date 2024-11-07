@@ -53,21 +53,21 @@ function WorkPage() {
     }
   }, [mouseMoved, scrollTopState]);
 
-  function scrollToSection(id: string) {
-    const element = document.getElementById(id);
-    if (element && itemsContainer.current) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }
+  // function scrollToSection(id: string) {
+  //   const element = document.getElementById(id);
+  //   if (element && itemsContainer.current) {
+  //     element.scrollIntoView({ behavior: "smooth", block: "center" });
+  //   }
+  // }
 
-  const menu = [
-    { name: "Frontend", href: "#frontend", id: "section-frontend" },
-    { name: "Backend", href: "#backend", id: "section-backend" },
-    { name: "Database", href: "#database", id: "section-database" },
-    { name: "Cloud", href: "#cloud", id: "section-cloud" },
-    { name: "Server", href: "#server", id: "section-server" },
-    { name: "Security", href: "#security", id: "section-security" },
-  ];
+  // const menu = [
+  //   { name: "Frontend", href: "#frontend", id: "section-frontend" },
+  //   { name: "Backend", href: "#backend", id: "section-backend" },
+  //   { name: "Database", href: "#database", id: "section-database" },
+  //   { name: "Cloud", href: "#cloud", id: "section-cloud" },
+  //   { name: "Server", href: "#server", id: "section-server" },
+  //   { name: "Security", href: "#security", id: "section-security" },
+  // ];
 
   return (
     <div
@@ -77,22 +77,6 @@ function WorkPage() {
       onTouchEnd={handleMouseUp}
     >
       <div className="relative w-full h-full">
-        <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="absolute flex flex-col space-y-2 top-1/3 left-full translate-x-0">
-            {menu.map((item) => (
-              <div key={item.id} className="flex flex-col">
-                <a
-                  href={item.href}
-                  className="text-sm md:text-1xl font-medium px-4 py-2"
-                  onClick={() => scrollToSection(item.id)}
-                >
-                  {item.name}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-
         <div className="absolute left-1/3 top-1/4 transform -translate-y-full -translate-x-1/2">
           <div className="top-20 left-10">
             <h1 className="text-4xl md:text-8xl font-bold">Work.</h1>

@@ -1,21 +1,12 @@
 import AnimatedCursor from "react-animated-cursor";
-import SweepNavigation from "./pages/SweepNavigation";
-import Homepage from "./pages/Homepage";
-import AboutPage from "./pages/AboutPage";
-import WorkPage from "./pages/WorkPage";
 import Header from "./layouts/Header";
 import Logo from "./layouts/logo";
 import "./App.scss";
 import { BrowserRouter as Router } from "react-router-dom";
 import DarkModeButton from "./components/ui/DarkmodeButton";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
-  const pages = [
-    { content: <AboutPage /> },
-    { content: <Homepage /> },
-    { content: <WorkPage /> }
-
-  ]
   return (
     <div className="min-h-screen">
       <Router>
@@ -35,8 +26,7 @@ const App: React.FC = () => {
             border: "3px solid var(--cursor-color)",
           }}
         />
-        
-        <SweepNavigation  pages= {pages} />
+        <Footer />
       </Router>
     </div>
   );

@@ -16,6 +16,10 @@ interface PageProps {
 }
 
 interface SweepNavigationProps {
+  pages?: Array<PageProps>;
+}
+
+interface SweepNavigationProps {
   pages?: Array<{ content: React.ReactNode }>;
 }
 
@@ -33,7 +37,7 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
   onNavigate,
   direction,
   className = "",
-  size = 600,
+  size = 400,
   activeColor = "rgb(96, 165, 250)",
   inactiveColor = "rgb(156, 163, 175)",
   showMenu = false,
@@ -51,21 +55,27 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
   const menuItems =
     textPosition === "left"
       ? [
-          { label: "Work", active: true },
-          { label: "Projects", active: false },
-          { label: "Contact", active: false },
+          { label: "Frontend", active: true },
+          { label: "Backend", active: false },
+          { label: "Database", active: false },
+          { label: "Tools", active: false },
+          { label: "Test", active: false },
+          { label: "Test", active: false },
         ]
       : [
-          { label: "About", active: true },
-          { label: "Profile", active: false },
-          { label: "Skills", active: false },
+          { label: "Codopy", active: true },
+          { label: "VS-Theme", active: false },
+          { label: "Tracker", active: false },
+          { label: "Cloud", active: false },
+          { label: "Server", active: false },
+          { label: "Security", active: false },
         ];
 
   const getPosition = (index: number, total: number) => {
     const angleStep = 180 / (total + 1);
     const angle = (index + 1) * angleStep;
     const radian = (angle * Math.PI) / 180;
-    const radius = 285;
+    const radius = 190;
     const x =
       textPosition === "left"
         ? 250 - Math.sin(radian) * radius
@@ -99,14 +109,14 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
       : "fixed right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2";
 
   return (
-    <div className={`${positionClass} ${className} z-40`}>
+    <div className={`${positionClass} ${className} z-40 hidden md:block`}>
       <div
         className={`relative transition-all duration-700 ease-in-out
           ${isMinimized ? "scale-50" : "scale-100"}`}
         style={{ width: size, height: size }}
       >
         <svg
-          className="w-full h-full transition-transform duration-700 ease-in-out"
+          className="w-full h-full transition-transform duration-1000 ease-in-out"
           viewBox="0 0 500 500"
           style={{ transform: `rotate(${menuRotation}deg)` }}
         >
@@ -114,19 +124,19 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
             <circle
               cx="250"
               cy="250"
-              r="360"
+              r="240"
               fill="white"
               className="opacity-5"
             />
 
-            <circle cx="250" cy="250" r="210" fill="black" />
+            <circle cx="250" cy="250" r="140" fill="black" />
 
-            <circle cx="250" cy="250" r="187" fill="white" />
+            <circle cx="250" cy="250" r="125" fill="white" />
 
             <circle
               cx="250"
               cy="250"
-              r="135"
+              r="90"
               fill="black"
               className=""
               onClick={handleInnerCircleClick}
@@ -135,7 +145,7 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
             <circle
               cx="250"
               cy="250"
-              r="360"
+              r="240"
               fill="none"
               stroke="rgba(0, 0, 0, 0.2)"
               strokeWidth="2"
@@ -144,7 +154,7 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
             <circle
               cx="250"
               cy="250"
-              r="210"
+              r="140"
               fill="none"
               stroke="rgba(75, 85, 99, 0.4)"
               strokeWidth="2"
@@ -153,7 +163,7 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
             <circle
               cx="250"
               cy="250"
-              r="187"
+              r="125"
               fill="none"
               stroke="rgba(75, 85, 99, 0.5)"
               strokeWidth="2"
@@ -162,19 +172,19 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
             <circle
               cx="250"
               cy="250"
-              r="135"
+              r="90"
               fill="none"
               stroke="rgba(75, 85, 99, 0.6)"
               strokeWidth="2"
             />
 
             <path
-              d={`M 250 10 A 360 360 0 0 1 250 490`}
+              d={`M 250 10 A 240 240 0 0 1 250 490`}
               fill="none"
               stroke={activeColor}
               strokeWidth="3"
               className="transition-all duration-300 opacity-30"
-              strokeDasharray={`${(activeIndex + 1) * (1130 / 4)}, 1130`}
+              strokeDasharray={`${(activeIndex + 1) * (752 / 4)}, 752`}
             />
           </g>
 
@@ -195,7 +205,7 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
                     x={pos.x}
                     y={pos.y}
                     fill={index === activeIndex ? activeColor : inactiveColor}
-                    fontSize="16"
+                    fontSize="14"
                     textAnchor="middle"
                     alignmentBaseline="middle"
                     className="transition-opacity duration-300 hover:fill-gray-300"
@@ -222,7 +232,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
     if (currentPage > 0 && !isAnimating) {
       setIsAnimating(true);
       setCurrentPage(currentPage - 1);
-      setTimeout(() => setIsAnimating(false), 800);
+      setTimeout(() => setIsAnimating(false), 1000);
     }
   };
 
@@ -230,7 +240,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
     if (currentPage < pages.length - 1 && !isAnimating) {
       setIsAnimating(true);
       setCurrentPage(currentPage + 1);
-      setTimeout(() => setIsAnimating(false), 800);
+      setTimeout(() => setIsAnimating(false), 1000);
     }
   };
 
@@ -245,7 +255,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
           <NavigationCircle
             direction="left"
             onNavigate={navigateLeft}
-            size={600}
+            size={400}
             activeColor="#3B82F6"
             inactiveColor="#9CA3AF"
             showMenu={false}
@@ -254,7 +264,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
           <NavigationCircle
             direction="right"
             onNavigate={navigateRight}
-            size={600}
+            size={400}
             activeColor="#3B82F6"
             inactiveColor="#9CA3AF"
             showMenu={false}
@@ -267,7 +277,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
         <NavigationCircle
           direction="right"
           onNavigate={navigateRight}
-          size={600}
+          size={400}
           activeColor="#3B82F6"
           inactiveColor="#9CA3AF"
           showMenu={true}
@@ -280,7 +290,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
         <NavigationCircle
           direction="left"
           onNavigate={navigateLeft}
-          size={600}
+          size={400}
           activeColor="#3B82F6"
           inactiveColor="#9CA3AF"
           showMenu={true}
@@ -309,19 +319,9 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
           </div>
         ))}
       </div>
-
-      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-        {pages.map((_, index) => (
-          <div
-            key={index}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              currentPage === index ? "bg-black/70 w-4" : "bg-black/30"
-            }`}
-          />
-        ))}
-      </div>
     </div>
   );
 };
 
+export { PageProps, NavigationCircle };
 export default SweepNavigation;

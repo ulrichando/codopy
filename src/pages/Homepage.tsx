@@ -6,30 +6,12 @@ import { Circle } from "../components/ui/CircleComponent";
 import { NavLink } from "react-router-dom";
 
 const menu = [
-  {
-    name: "Frontend",
-    href: "#frontend",
-  },
-  {
-    name: "Backend",
-    href: "#backend",
-  },
-  {
-    name: "Database",
-    href: "#database",
-  },
-  {
-    name: "Cloud",
-    href: "#cloud",
-  },
-  {
-    name: "Server",
-    href: "#server",
-  },
-  {
-    name: "Security",
-    hred: "#server",
-  },
+  { name: "Frontend" },
+  { name: "Backend" },
+  { name: "Database" },
+  { name: "Cloud" },
+  { name: "Server" },
+  { name: "Security" },
 ];
 
 const videos = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];
@@ -73,10 +55,6 @@ function Homepage() {
             {/* End of Text Hello */}
 
             {/* Circle */}
-
-            {/* <div className="Circle w-160 h-160 rounded-full border-4  flex justify-center items-center overflow-auto">
-              <img src={profile} alt="mini" className="profile " />
-            </div> */}
             <div className="Circle w-80 h-80 md:w-120 md:h-120 lg:w-120 lg:h-120 xl:w-160 xl:h-160 rounded-full border-4 flex justify-center items-center overflow-auto md:shrink-0">
               <img
                 src={profile}
@@ -88,13 +66,8 @@ function Homepage() {
             {/* Circle menu */}
             <div className="absolute space-y-2 top-1/3 left-full transform  translate-x-2 hidden md:block">
               {menu.map((item) => (
-                <div key={item.href} className="flex flex-col">
-                  <a
-                    href={`#${item.name}`}
-                    className="text-1xl font-medium px-4 py-2"
-                  >
-                    {item.name}
-                  </a>
+                <div key={item.name} className="flex flex-col">
+                  <a className="text-1xl font-medium px-4 py-2">{item.name}</a>
                 </div>
               ))}
             </div>

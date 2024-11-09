@@ -3,7 +3,7 @@ import "../App.scss";
 
 function logo() {
   return (
-    <div className="relative z-50">
+    <div className=" relative z-50 ">
       <Link to="/">
         <div id="logo">
           {" "}

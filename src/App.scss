@@ -35,7 +35,8 @@ html .darkmode {
 
 body {
     background-color: var(--base-color);
-    color: var(--text-color)
+    color: var(--text-color);
+    overscroll-behavior: none;
 }
 
 .menu-transition {
@@ -135,6 +136,7 @@ body {
 .menu {
     color: var(--text-color);
 }
+
 .Circle {
     background-color: var(--accent-color);
 }
@@ -143,9 +145,7 @@ body {
     background-color: var(--text-color);
 }
 
-// .menuUnderline  {
-//     text-decoration-color: var(--text-color);
-// }
+
 
 
 .scroller{

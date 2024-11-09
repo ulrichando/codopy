@@ -7,7 +7,7 @@ const DarkModeButton = () => {
   return (
     <button
       id="theme-switch"
-      className="flex h-12 w-12 p-0 rounded-full z-50 justify-center items-center fixed top-5 left-5"
+      className="flex h-10 w-10 p-5 rounded-full z-50 justify-center items-center fixed top-5 left-5 "
       onClick={toggleDarkMode}
     >
       {darkMode ? (

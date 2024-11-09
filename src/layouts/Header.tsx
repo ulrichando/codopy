@@ -247,7 +247,7 @@ export default function Header() {
 
                 {/* Social media links only visible on mobile */}
                 <div className="py-6">
-                  <div className="flex justify-center items-center gap-4 font-medium md:hidden ">
+                  <div className="text-white flex justify-center items-center gap-4 font-medium md:hidden ">
                     <a
                       href="https://www.instagram.com/co.dopy/"
                       target="_blank"

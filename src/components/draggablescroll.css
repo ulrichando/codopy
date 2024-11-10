@@ -1,4 +1,4 @@
-
+/* 
 
 .MainContainer {
     position: relative;
@@ -82,4 +82,193 @@
 .card-title {
     height: 200px;
     width: 300px;
+} */
+
+/* src/components/draggablescroll.css */
+.MainContainer {
+    position: relative;
+    height: 100vh;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    padding: 60px;
+}
+
+.ItemsContainer {
+    position: fixed;
+    width: 600px;
+    height: 900px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    user-select: none;
+}
+
+.item {
+    display: table-row;
+    flex-direction: column;
+    height: 200px;
+    width: 300px;
+    user-select: none;
+    gap: 20px;
+}
+
+.item2 {
+    display: table-cell;
+    flex-direction: column;
+    height: 200px;
+    width: 300px;
+    background-color: rgb(231, 230, 230);
+    position: relative;
+    overflow: hidden;
+}
+
+.item .item2 {
+    height: 100%;
+    width: 100%;
+}
+
+.activeClass {
+    background-color: lightblue;
+    cursor: grabbing;
+}
+
+.card .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.5s ease;
+}
+
+.img {
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.5s ease;
+}
+
+.item2:hover .img {
+    transform: scale(1.05);
+}
+
+.number {
+    position: absolute;
+    display: block;
+    padding: 10px;
+    bottom: 10px;
+    font-size: 24px;
+    color: white;
+    user-select: none;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.card-title {
+    height: 200px;
+    width: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
+}
+
+/* Project card enhancements */
+.project-card {
+    transition: all 0.3s ease;
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+}
+
+.project-link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.project-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    pointer-events: none;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .card-title {
+        background: linear-gradient(to right, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.95));
+        color: white;
+    }
+
+    .item2 {
+        background-color: rgb(55, 65, 81);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .MainContainer {
+        width: 100%;
+        padding: 20px;
+        float: none;
+    }
+
+    .ItemsContainer {
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+    }
+
+    .item,
+    .item2,
+    .card-title {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+/* Smooth scrolling */
+.ItemsContainer {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar - hidden but functional */
+.ItemsContainer::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+/* Optional: Show scrollbar on hover */
+.ItemsContainer:hover::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ItemsContainer:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+/* Prevent text selection during drag */
+.ItemsContainer * {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }

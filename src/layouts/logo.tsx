@@ -1,29 +1,11 @@
-// import { Link } from "react-router-dom";
-// import image from "../assets/images/mylogo.svg";
-
-// function Logo() {
-//   return (
-//     <div className="relative z-50">
-//       <Link to="/">
-//         <img
-//           className="logo absolute h-20 w-20 left-1/2 top-2 p-4 transform -translate-x-1/2"
-//           src={image}
-//           alt="logo"
-//         />
-//       </Link>
-//     </div>
-//   );
-// }
-
-// export default Logo;
 import { Link } from "react-router-dom";
 import "../App.scss";
 
 function logo() {
   return (
-    <div className="relative z-50">
+    <div className=" relative z-50 ">
       <Link to="/">
-        <div className="logo absolute h-20 w-20 left-1/2 top-2 p-4 transform -translate-x-1/2">
+        <div id="logo">
           {" "}
           <svg
             id="Layer_1"

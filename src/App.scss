@@ -35,7 +35,8 @@ html .darkmode {
 
 body {
     background-color: var(--base-color);
-    color: var(--text-color)
+    color: var(--text-color);
+    overscroll-behavior: none;
 }
 
 .menu-transition {
@@ -90,13 +91,18 @@ body {
                  0 0 160px #fff;
 }
 
+.box {
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
 /* DarkMode*/
 
 
 
 #theme-switch {
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     padding: 0;
     border-radius: 50%;
     background-color: var(--base-variant);
@@ -135,6 +141,7 @@ body {
 .menu {
     color: var(--text-color);
 }
+
 .Circle {
     background-color: var(--accent-color);
 }
@@ -143,9 +150,7 @@ body {
     background-color: var(--text-color);
 }
 
-// .menuUnderline  {
-//     text-decoration-color: var(--text-color);
-// }
+
 
 
 .scroller{
@@ -242,4 +247,48 @@ iframe {
 
 .play-button-container+.play-button-container {
     left: 80%;
+}
+
+.right-circle {
+ background-color: var(--text-color);
+}
+
+
+
+/* styles.css */
+.circle-outer {
+   background-color: var(--text-color);
+    /* Black */
+}
+
+.circle-middle {
+    background-color: #4d5562;
+    /* Slate gray */
+}
+
+.circle-inner {
+    background-color: #E5E7EB;
+    /* Light gray */
+}
+
+.circle-inner-1 {
+    background-color: #080808;
+}
+
+.reel{
+    color: var(--text-color);
+}
+
+#logo {
+    height: 45px;
+    width: 45px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }

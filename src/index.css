@@ -10,8 +10,9 @@
 }
 
 ::-webkit-scrollbar {
-    height: 1px;
-    width: 1px;
+    /* height: 1px;
+    width: 1px; */
+    display: none;
 }
 
 /* responsiveness */

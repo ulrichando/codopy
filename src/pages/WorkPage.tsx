@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
-import { scrollToSection } from "../utils/scrollTosection";
+import { NavLink } from "react-router-dom";
+import { Circle } from "../components/ui/CircleComponent";
 
 import img1 from "../assets/images/img1.jpg";
 import img2 from "../assets/images/img2.jpg";
@@ -11,38 +12,97 @@ import img5 from "../assets/images/img5.jpg";
 import img6 from "../assets/images/img6.jpg";
 
 function WorkPage() {
-  // Draggable scroll
-  const [isDown, setIsDown] = useState(false); // Set isDown to false
-  const [startY, setStartY] = useState(0); // Set startY to 0
-  const [scrollTopState, setScrollTopState] = useState<number | null>(0); // Set scrollTopState to 0
-  const [mouseMoved, setStateMouseMoved] = useState(0); // Set mouseMoved to false
+  const [isDown, setIsDown] = useState(false);
+  const [startY, setStartY] = useState(0);
+  const [scrollTopState, setScrollTopState] = useState<number | null>(0);
+  const [mouseMoved, setMouseMoved] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const itemsContainer = useRef<HTMLDivElement | null>(null);
 
-  const itemsContainer = useRef<HTMLDivElement | null>(null); // Select the ItemsContainer
+  const projects = [
+    {
+      img: img1,
+      title: "Codopy",
+      num: "1",
+      id: "section-frontend",
+      link: "https://github.com/ulrichando/codopy",
+    },
+    {
+      img: img2,
+      title: "Vs-Theme",
+      num: "2",
+      id: "section-backend",
+      link: "https://vscodethemes.com/?q=teckpenguin",
+    },
+    {
+      img: img3,
+      title: "ExcelTracker",
+      num: "3",
+      id: "section-database",
+      link: "https://github.com/ulrichando/excel-employee-tracker",
+    },
+    {
+      img: img4,
+      title: "ComingSoon",
+      num: "4",
+      id: "section-cloud",
+      link: "#",
+    },
+    {
+      img: img5,
+      title: "ComingSoon",
+      num: "5",
+      id: "section-server",
+      link: "#",
+    },
+    {
+      img: img6,
+      title: "ComingSoon",
+      num: "6",
+      id: "section-security",
+      link: "#",
+    },
+  ];
+
+  const menu = [
+    { name: "Codopy", href: "#frontend", id: "section-frontend" },
+    { name: "VsTheme", href: "#backend", id: "section-backend" },
+    { name: "ExcelTracker", href: "#database", id: "section-database" },
+    { name: "ComingSoon", href: "#cloud", id: "section-cloud" },
+    { name: "ComingSoon", href: "#server", id: "section-server" },
+    { name: "ComingSoon", href: "#security", id: "section-security" },
+  ];
+
+  const navHome = [{ name: "Hello", to: "/" }];
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 768);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   function handleMouseDown(e: React.MouseEvent | React.TouchEvent) {
     setIsDown(true);
     if (itemsContainer.current) {
-      if ("touches" in e) {
-        setStartY(e.touches[0].pageY - itemsContainer.current.offsetTop);
-      } else {
-        setStartY(e.pageY - itemsContainer.current.offsetTop);
-      }
+      const pageY = "touches" in e ? e.touches[0].pageY : e.pageY;
+      setStartY(pageY - itemsContainer.current.offsetTop);
       setScrollTopState(itemsContainer.current.scrollTop);
-      setStateMouseMoved(0);
+      setMouseMoved(0);
     }
   }
 
   function handleMouseMove(e: React.MouseEvent | React.TouchEvent) {
-    if (!isDown || !itemsContainer.current) {
-      return;
-    }
-
+    if (!isDown || !itemsContainer.current) return;
+    const currentY = "touches" in e ? e.touches[0].pageY : e.pageY;
     const currentMousePositionInsideContainer =
-      "touches" in e
-        ? e.touches[0].pageY - itemsContainer.current.offsetTop
-        : e.pageY - itemsContainer.current.offsetTop;
+      currentY - itemsContainer.current.offsetTop;
+    setMouseMoved(currentMousePositionInsideContainer - startY);
+  }
 
-    setStateMouseMoved(currentMousePositionInsideContainer - startY);
+  function handleMouseUp() {
+    setIsDown(false);
   }
 
   useEffect(() => {
@@ -51,220 +111,183 @@ function WorkPage() {
     }
   }, [mouseMoved, scrollTopState]);
 
-  const menu = [
-    {
-      name: "Frontend",
-      img: "images/img1.jpg",
-      id: 1,
-    },
-    {
-      name: "Backend",
-      img: "images/img2.jpg",
-      id: 2,
-    },
-    {
-      name: "Database",
-      img: "images/img3.jpg",
-      id: 3,
-    },
-    {
-      name: "Cloud",
-      img: "images/img4.jpg",
-      id: 4,
-    },
-    {
-      name: "Server",
-      img: "images/img5.jpg",
-      id: 5,
-    },
-    {
-      name: "Security",
-      img: "images/img6.jpg",
-      id: 6,
-    },
-  ];
+  function scrollToSection(id: string) {
+    const element = document.getElementById(id);
+    if (element && itemsContainer.current) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
 
   return (
     <div
-      className="page-wrapper"
-      style={{
-        height: "100vh",
-        width: "100vw",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        overflow: "hidden",
-      }}
+      className="relative h-screen w-screen overflow-hidden"
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      onTouchEnd={handleMouseUp}
     >
       <motion.div
-        className="home"
-        initial={{ x: window.innerWidth, width: "100vw" }} // Initial state with position set to off-screen right
-        animate={{ x: 0, width: "100vw" }} // Final state with position set to on-screen
-        exit={{ x: window.innerWidth, transition: { duration: 1 } }} // Exit state with position set to off-screen left
-        transition={{ duration: 1 }} // Transition time set to 1 second
+        className="work"
+        initial={{ x: window.innerWidth, width: "100vw" }}
+        animate={{ x: 0, width: "100vw" }}
+        exit={{ x: window.innerWidth, transition: { duration: 1 } }}
+        transition={{ duration: 1 }}
       >
-        {/* Container */}
-
-        {/* bg-dot-pattern bg-dot-pattern-size add dotes to the home page */}
-        <div className="relative w-screen h-screen  ">
-          <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 p-2">
-            {/* Circle */}
-            <div className="Circle w-160 h-160 rounded-full border-4 bg-black flex justify-center items-center">
-              <div className=" flex justify-center items-center Mini w-60 h-60 rounded-full bg-gray-500">
-                <div className="rounded-full bg-gray-200 h-40 w-40"></div>
-              </div>
-            </div>
-            {/* End Circle */}
-
-            {/* Circle menu */}
-            <div className="absolute flex flex-col space-y-2 top-1/3 left-full transform translate-x-0 ">
+        <div className="relative w-screen h-screen">
+          {/* Left Navigation Circle */}
+          <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2">
+            {navHome.map((item) => (
+              <NavLink key={item.to} to={item.to}>
+                <Circle
+                  radius={isMobile ? 150 : 350}
+                  className="circle-outer transition-all duration-300"
+                >
+                  <Circle
+                    radius={isMobile ? 80 : 200}
+                    className="circle-middle"
+                  >
+                    <Circle
+                      radius={isMobile ? 70 : 180}
+                      className="circle-inner"
+                    >
+                      <Circle
+                        radius={isMobile ? 40 : 100}
+                        className="circle-inner-1"
+                      ></Circle>
+                    </Circle>
+                  </Circle>
+                </Circle>
+              </NavLink>
+            ))}
+            {/* Side Menu */}
+            <div className="absolute flex flex-col space-y-2 top-1/3 left-full translate-x-0">
               {menu.map((item) => (
                 <div key={item.id} className="flex flex-col">
                   <a
-                    href={`#${item.name}`}
-                    className=" text-1xl font-medium px-4 py-2 "
+                    href={item.href}
+                    className="text-sm md:text-1xl font-medium px-4 py-2 hover:text-blue-500 transition-colors duration-300"
+                    onClick={() => scrollToSection(item.id)}
                   >
                     {item.name}
                   </a>
                 </div>
               ))}
             </div>
-            {/* End of Circle menu */}
           </div>
-          {/* Text Hello */}
+
+          {/* Title Section */}
           <div className="absolute left-1/3 top-1/4 transform -translate-y-full -translate-x-1/2">
             <div className="top-20 left-10">
-              <h1 className="text-8xl font-bold">Work.</h1>
+              <h1 className="text-4xl md:text-8xl font-bold">Work.</h1>
               <div className="flex">
                 <div className="line h-2 w-10 m-6"></div>
-                <p className="mt-4 text-1xl font-medium">
-                  Here are some <br />
-                  of my projects <br />
-                  explore and discover
+                <p className="mt-4 text-sm md:text-1xl font-medium">
+                  My projects and <br />
+                  experience Explore and <br />
+                  discover
                 </p>
               </div>
             </div>
           </div>
-          {/* End of Text Hello */}
-          {/* /* Project menu */}
 
+          {/* Projects Container */}
           <div
-            className="MainContainer absolute right-[25%]"
+            className={`MainContainer absolute ${
+              isMobile ? "bottom-4 left-1/2 -translate-x-1/2" : "left-[25%]"
+            } `}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
-            onMouseUp={() => setIsDown(false)}
-            onMouseLeave={() => setIsDown(false)}
             onTouchStart={handleMouseDown}
             onTouchMove={handleMouseMove}
-            onTouchEnd={() => setIsDown(false)}
           >
             <div
               ref={itemsContainer}
-              className="ItemsContainer fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2 overflow-auto"
+              className={`ItemsContainer ${
+                isMobile
+                  ? "relative max-h-[40vh] overflow-y-auto"
+                  : "fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2"
+              } `}
             >
-              {/* beginning of container  */}
-              <div className="table ">
+              <div className="table">
                 <div className="item">
-                  {/* Increased row height */}
-                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4 px-4">
-                      <p className="scroller-1 text-left text-lg">Frontend</p>
-                      <p className="scroller-1 text-right text-8xl">1</p>
+                  {projects.map((item, index) => (
+                    <div
+                      key={index}
+                      id={item.id}
+                      className="flex h-[100px] md:h-[200px] w-[150px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
+                    >
+                      {index % 2 === 0 ? (
+                        <>
+                          <div className="scroller w-[75px] md:w-[300px] h-full flex items-end pb-4 px-4">
+                            <div className="flex justify-between items-baseline w-full">
+                              <div className="flex flex-col">
+                                <p className="scroller-1 text-left text-xs md:text-lg font-semibold">
+                                  {item.title}
+                                </p>
+                                <p className="text-xs text-gray-500 hidden md:block"></p>
+                              </div>
+                              <p className="scroller-1 text-right text-2xl md:text-8xl ml-2 opacity-30">
+                                {item.num}
+                              </p>
+                            </div>
+                          </div>
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-[75px] md:w-[300px] h-full group relative overflow-hidden"
+                          >
+                            <img
+                              src={item.img}
+                              alt={`${item.title} Project`}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                                View Project →
+                              </span>
+                            </div>
+                          </a>
+                        </>
+                      ) : (
+                        <>
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-[75px] md:w-[300px] h-full group relative overflow-hidden"
+                          >
+                            <img
+                              src={item.img}
+                              alt={`${item.title} Project`}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                                View Project →
+                              </span>
+                            </div>
+                          </a>
+                          <div className="scroller w-[75px] md:w-[300px] h-full flex items-end pb-4 px-4">
+                            <div className="flex justify-between items-baseline w-full">
+                              <div className="flex flex-col">
+                                <p className="scroller-1 text-left text-xs md:text-lg font-semibold">
+                                  {item.title}
+                                </p>
+                                <p className="text-xs text-gray-500 hidden md:block"></p>
+                              </div>
+                              <p className="scroller-1 text-right text-2xl md:text-8xl ml-2 opacity-30">
+                                {item.num}
+                              </p>
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
-                    <div className="w-[300px] h-[200px]">
-                      <img
-                        src={img1}
-                        alt="Card Image"
-                        className="h-full w-full object-cover"
-                        id="frontend"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px]">
-                      <img
-                        src={img2}
-                        alt="Card Image"
-                        className="h-full w-full object-cover"
-                        id="backend"
-                      />
-                    </div>
-                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4  px-4">
-                      <p className="scroller-1 text-left text-lg">Backend</p>
-                      <p className="scroller-1 text-right text-8xl">2</p>
-                    </div>
-                  </div>
-
-                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4  px-4">
-                      <p className="scroller-1 text-left text-lg">Database</p>
-                      <p className="scroller-1 text-right text-8xl">3</p>
-                    </div>
-                    <div className="w-[300px] h-[200px]">
-                      <img
-                        src={img3}
-                        alt="Card Image"
-                        className="h-full w-full object-cover"
-                        id="cloud"
-                        onClick={() => scrollToSection("cloud")}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px]">
-                      <img
-                        src={img4}
-                        alt="Card Image"
-                        className="h-full w-full object-cover"
-                        id="database"
-                        onClick={() => scrollToSection("database")}
-                      />
-                    </div>
-                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4 px-4">
-                      <p className="scroller-1 text-left text-lg">Cloud</p>
-                      <p className="scroller-1 text-right text-8xl">4</p>
-                    </div>
-                  </div>
-
-                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4  px-4">
-                      <p className="scroller-1 text-left text-lg">Server</p>
-                      <p className="scroller-1 text-right text-8xl">5</p>
-                    </div>
-                    <div className="w-[300px] h-[200px]">
-                      <img
-                        src={img5}
-                        alt="Card Image"
-                        className="h-full w-full object-cover"
-                        id="frontend"
-                        onClick={() => scrollToSection("frontend")}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex h-[200px] w-[600px] border  overflow-hidden shadow-md">
-                    <div className="w-[300px] h-[200px]">
-                      <img
-                        src={img6}
-                        alt="Card Image"
-                        className="h-full w-full object-cover"
-                        id="frontend"
-                        onClick={() => scrollToSection("frontend")}
-                      />
-                    </div>
-                    <div className="scroller w-[300px] h-[200px] flex items-end justify-between pb-4  px-4">
-                      <p className="scroller-1 text-left text-lg">Security</p>
-                      <p className="scroller-1 text-right text-8xl">6</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
-              {/* End of container */}
             </div>
           </div>
-          {/* Project menu End */}
         </div>
       </motion.div>
     </div>

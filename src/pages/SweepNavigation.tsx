@@ -42,7 +42,7 @@ const defaultPages = [
   { content: <AboutPage /> },
   { content: <Homepage /> },
   { content: <WorkPage /> },
-  // { content: <ContactPage /> },
+  { content: <ContactPage /> },
 ];
 
 // Extended menu items organized by sides
@@ -309,18 +309,14 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
   };
 
   // In SweepNavigation.tsx, add this to the navigateToPage function:
-  // const navigateToPage = (pageIndex: number) => {
-  //   console.log("Navigating to page:", pageIndex);
-  //   if (!isAnimating && pageIndex !== currentPage) {
-  //     setIsAnimating(true);
-  //     setCurrentPage(pageIndex);
-  //     onPageChange?.(pageIndex);
-  //     setTimeout(() => setIsAnimating(false), 800);
-  //   }
-  // };
-
-  const handleNavigate = (pageIndex: number) => {
-    setCurrentPage(pageIndex);
+  const navigateToPage = (pageIndex: number) => {
+    console.log("Navigating to page:", pageIndex);
+    if (!isAnimating && pageIndex !== currentPage) {
+      setIsAnimating(true);
+      setCurrentPage(pageIndex);
+      onPageChange?.(pageIndex);
+      setTimeout(() => setIsAnimating(false), 800);
+    }
   };
 
   if (!pages || pages.length === 0) {
@@ -333,14 +329,8 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
         darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
       }`}
     >
-      {/* <Header currentPage={currentPage} onNavigate={navigateToPage} /> */}
-      <div>
-        <Header currentPage={currentPage} onNavigate={handleNavigate} />
-        {currentPage === 0 && <AboutPage />}
-        {currentPage === 1 && <Homepage />}
-        {currentPage === 2 && <WorkPage />}
-        {currentPage === 3 && <ContactPage />}
-      </div>
+      <Header currentPage={currentPage} onNavigate={navigateToPage} />
+
       <DarkModeButton />
       <Logo />
       {currentPage === 1 && (

@@ -1,3 +1,54 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "useDefineForClassFields": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "lib": [
+//       "ES2020",
+//       "DOM",
+//       "DOM.Iterable"
+//     ],
+//     "typeRoots": [
+//       "./node_modules/@types",
+//       "./src/types"
+//     ],
+//     "module": "ESNext",
+//     "skipLibCheck": true,
+//     "moduleResolution": "node",
+//     "allowImportingTsExtensions": true,
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "noEmit": true,
+//     "jsx": "react-jsx",
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "noFallthroughCasesInSwitch": true,
+//     "allowSyntheticDefaultImports": true, // Add this line
+//     "esModuleInterop": true // Ensure this is included as well
+//   },
+//   "include": [
+//     "src/**/*",
+//     "src/**/*.ts",
+//     "src/**/*.tsx",
+//     "src/**/*.jsx",
+//     "src/**/*.json",
+//     "src/**/*.css",
+//     "src/**/*.scss",
+//     "src/**/*.svg",
+//     "src/components/common/CustomCursor.tsx",
+//     "src/components/common/Footer copy",
+//     "src/components/common/DraggableSroll.js",
+//     "src/components/common/CircularMenu.js",
+//     "src/utils/DarkMode.tsx",
+//     "src/utils/videoPlayer.tsx"
+//   ],
+//   "references": [
+//     {
+//       "path": "./tsconfig.node.json"
+//     }
+//   ]
+// }
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -24,23 +75,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true, // Add this line
-    "esModuleInterop": true // Ensure this is included as well
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.jsx",
-    "src/**/*.json",
-    "src/**/*.css",
-    "src/**/*.scss",
-    "src/**/*.svg",
-    "src/components/common/CustomCursor.tsx",
-    "src/components/common/Footer copy",
-    "src/components/common/DraggableSroll.js",
-    "src/components/common/CircularMenu.js",
-    "src/utils/DarkMode.tsx",
-    "src/utils/videoPlayer.tsx"
+    "src/**/*"
   ],
   "references": [
     {

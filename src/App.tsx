@@ -7,12 +7,19 @@ import "./App.scss";
 import AnimatedRoutes from "./utils/AnimatedRoutes";
 import { BrowserRouter as Router } from "react-router-dom";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { useState } from "react";
 
-function App() {
+const App: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState<string>("home");
+
+  const handleNavigate = (page: string) => {
+    setCurrentPage(page);
+  };
+
   return (
-    <div className="App ">
+    <div className="App">
       <Router>
-        <Header />
+        <Header currentPage={currentPage} onNavigate={handleNavigate} />
         <DarkmodeButton />
         <Logo />
         <AnimatedRoutes />
@@ -34,6 +41,6 @@ function App() {
       <SpeedInsights />
     </div>
   );
-}
+};
 
 export default App;

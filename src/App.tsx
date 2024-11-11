@@ -7,6 +7,7 @@ import "./App.scss";
 import AnimatedRoutes from "./utils/AnimatedRoutes";
 import { BrowserRouter as Router } from "react-router-dom";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 import { useState } from "react";
 
 const App: React.FC = () => {
@@ -39,6 +40,7 @@ const App: React.FC = () => {
         <Footer />
       </Router>
       <SpeedInsights />
+      <Analytics />
     </>
   );
 };

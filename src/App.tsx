@@ -1,6 +1,4 @@
 import AnimatedCursor from "react-animated-cursor";
-import Header from "./layouts/Header";
-import Logo from "./layouts/logo";
 import "./App.scss";
 import { BrowserRouter as Router } from "react-router-dom";
 import DarkModeButton from "./components/ui/DarkmodeButton";
@@ -11,8 +9,7 @@ const App: React.FC = () => {
     <div className="min-h-screen">
       <Router>
         <DarkModeButton />
-        <Logo />
-        <Header />
+
         <AnimatedCursor
           innerSize={10}
           outerSize={40}

@@ -295,7 +295,7 @@
 
 // export default ContactPage;
 
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Send } from "lucide-react";
 import { motion } from "framer-motion";
 

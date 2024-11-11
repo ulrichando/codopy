@@ -22,55 +22,55 @@ function WorkPage() {
   const projects = [
     {
       img: img1,
-      title: "Frontend",
+      title: "Codopy",
       num: "1",
       id: "section-frontend",
-      link: "https://github.com/yourusername/frontend-project",
+      link: "https://github.com/ulrichando/codopy",
     },
     {
       img: img2,
-      title: "Backend",
+      title: "Vs-Theme",
       num: "2",
       id: "section-backend",
-      link: "https://github.com/yourusername/backend-project",
+      link: "https://vscodethemes.com/?q=teckpenguin",
     },
     {
       img: img3,
-      title: "Database",
+      title: "ExcelTracker",
       num: "3",
       id: "section-database",
-      link: "https://github.com/yourusername/database-project",
+      link: "https://github.com/ulrichando/excel-employee-tracker",
     },
     {
       img: img4,
-      title: "Cloud",
+      title: "ComingSoon",
       num: "4",
       id: "section-cloud",
-      link: "https://github.com/yourusername/cloud-project",
+      link: "#",
     },
     {
       img: img5,
-      title: "Server",
+      title: "ComingSoon",
       num: "5",
       id: "section-server",
-      link: "https://github.com/yourusername/server-project",
+      link: "#",
     },
     {
       img: img6,
-      title: "Security",
+      title: "ComingSoon",
       num: "6",
       id: "section-security",
-      link: "https://github.com/yourusername/security-project",
+      link: "#",
     },
   ];
 
   const menu = [
-    { name: "Frontend", href: "#frontend", id: "section-frontend" },
-    { name: "Backend", href: "#backend", id: "section-backend" },
-    { name: "Database", href: "#database", id: "section-database" },
-    { name: "Cloud", href: "#cloud", id: "section-cloud" },
-    { name: "Server", href: "#server", id: "section-server" },
-    { name: "Security", href: "#security", id: "section-security" },
+    { name: "Codopy", href: "#frontend", id: "section-frontend" },
+    { name: "VsTheme", href: "#backend", id: "section-backend" },
+    { name: "ExcelTracker", href: "#database", id: "section-database" },
+    { name: "ComingSoon", href: "#cloud", id: "section-cloud" },
+    { name: "ComingSoon", href: "#server", id: "section-server" },
+    { name: "ComingSoon", href: "#security", id: "section-security" },
   ];
 
   const navHome = [{ name: "Hello", to: "/" }];

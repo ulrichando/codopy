@@ -306,6 +306,17 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
     }
   };
 
+  // In SweepNavigation.tsx, add this to the navigateToPage function:
+  const navigateToPage = (pageIndex: number) => {
+    console.log("Navigating to page:", pageIndex);
+    if (!isAnimating && pageIndex !== currentPage) {
+      setIsAnimating(true);
+      setCurrentPage(pageIndex);
+      onPageChange?.(pageIndex);
+      setTimeout(() => setIsAnimating(false), 800);
+    }
+  };
+
   if (!pages || pages.length === 0) {
     return null;
   }
@@ -316,17 +327,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
         darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
       }`}
     >
-      <Header
-        currentPage={currentPage}
-        onNavigate={(index) => {
-          if (!isAnimating) {
-            setIsAnimating(true);
-            setCurrentPage(index);
-            onPageChange?.(index);
-            setTimeout(() => setIsAnimating(false), 800);
-          }
-        }}
-      />
+      <Header currentPage={currentPage} onNavigate={navigateToPage} />
       <DarkModeButton />
       {currentPage === 1 && (
         <>

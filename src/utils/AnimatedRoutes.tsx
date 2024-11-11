@@ -10,7 +10,7 @@ const AnimatedRoutes: React.FC = () => (
     <Route path="/work" element={<WorkPage />} />
     <Route path="/about" element={<AboutPage />} />
     <Route path="/contact" element={<ContactPage />} />
-    <Route path="*" element={<Navigate to="/" />} />{" "}
+    <Route path="*" element={<Navigate to="/" />} />
     {/* Redirect unknown paths */}
   </Routes>
 );

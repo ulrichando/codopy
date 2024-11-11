@@ -1,24 +1,4 @@
-// declare namespace YT {
-//   class Player {
-//     constructor(elementId: string, options: PlayerOptions);
-//     playVideo(): void;
-//     stopVideo(): void;
-//     destroy(): void;
-//   }
 
-//   interface PlayerOptions {
-//     videoId: string;
-//     events?: {
-//       onReady?: () => void;
-//       onStateChange?: (event: any) => void;
-//     };
-//   }
-// }
-
-// interface Window {
-//   YT: typeof YT;
-//   onYouTubeIframeAPIReady: () => void;
-// }
 
 declare namespace YT {
   class Player {

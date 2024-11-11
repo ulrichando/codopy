@@ -15,7 +15,7 @@ const menu = [
 ];
 
 const videos = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];
-function Homepage() {
+function HomePage() {
   const navAbout = [{ name: "About", to: "/about" }];
   const navWork = [{ name: "Work", to: "/work" }];
   return (
@@ -132,4 +132,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default HomePage;

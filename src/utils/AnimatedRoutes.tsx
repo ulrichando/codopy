@@ -1,7 +1,7 @@
 import Homepage from "../pages/Homepage";
 import AboutPage from "../pages/AboutPage";
-import WorkPage from "../pages/WorkPage";
 import ContactPage from "../pages/ContactPage";
+import WorkPage from "../pages/WorkPage";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 

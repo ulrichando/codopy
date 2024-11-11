@@ -9,7 +9,6 @@ const App: React.FC = () => {
     <div className="min-h-screen">
       <Router>
         <DarkModeButton />
-
         <AnimatedCursor
           innerSize={10}
           outerSize={40}

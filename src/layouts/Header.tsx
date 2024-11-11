@@ -1,4 +1,3 @@
-// Header.tsx
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -26,7 +25,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
   const handleNavigation = (pageIndex: number) => {
     closeMobileMenu();
-    onNavigate(pageIndex);
+    // If it's the contact page (index 3), handle navigation
+    if (pageIndex === 3) {
+      onNavigate(3); // Navigate to contact page
+    } else {
+      onNavigate(pageIndex);
+    }
   };
 
   return (

@@ -57,8 +57,6 @@ function Homepage() {
               </div>
             ))}
           </div>
-          {/* End of Circle menu */}
-          {/* End of Circle  */}
 
           {/* Reel button  */}
           <div className="absolute bottom-1/4 left-full  transform  translate-x-5 translate-y-20  hidden md:block">
@@ -73,46 +71,7 @@ function Homepage() {
           </div>
         </div>
         {/* End of Reel button  */}
-
-        {/* Container two  */}
-
-        {/* <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 hidden md:block">
-          {navAbout.map((item) => (
-            <NavLink key={item.to} to={item.to}>
-              <Circle
-                radius={200}
-                className="circle-outer transition-all duration-300"
-              >
-                <Circle radius={70} className="circle-middle">
-                  <Circle radius={30} className="circle-inner"></Circle>
-                </Circle>
-              </Circle>
-            </NavLink>
-          ))}
-        </div> */}
-
-        {/* End of Contianer two  */}
-
-        {/* Container Three */}
-        {/* 
-        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 hidden md:block">
-          {navWork.map((item) => (
-            <NavLink key={item.to} to={item.to}>
-              <Circle
-                radius={200}
-                className="circle-outer transition-all duration-300"
-              >
-                <Circle radius={70} className="circle-middle">
-                  <Circle radius={30} className="circle-inner"></Circle>
-                </Circle>
-              </Circle>
-            </NavLink>
-          ))}
-        </div> */}
-
-        {/*End of Container Three */}
       </div>
-      {/* End of container  */}
     </div>
   );
 }

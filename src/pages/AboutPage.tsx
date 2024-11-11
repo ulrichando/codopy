@@ -96,7 +96,6 @@ function AboutPage() {
         exit={{ x: -window.innerWidth, transition: { duration: 1 } }}
         transition={{ duration: 1 }} // Transition time set to 1 second
       >
-        {/* Container */}
         <div className="relative w-screen h-screen">
           <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
             {/* Circle */}

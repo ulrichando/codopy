@@ -75,7 +75,7 @@ const aboutItems: AboutItem[] = [
   },
   {
     img: img10,
-    title: "Test",
+    title: "Testing",
     num: "5",
     id: "section-test",
     link: "https://github.com/yourusername/testing",
@@ -100,8 +100,8 @@ const MENU_ITEMS = [
   { name: "Backend", href: "#backend", id: "section-backend" },
   { name: "Database", href: "#database", id: "section-database" },
   { name: "Tools", href: "#tools", id: "section-tools" },
-  { name: "Test", href: "#test", id: "section-test" },
-  { name: "Test 2", href: "#test2", id: "section-test2" },
+  { name: "Testing", href: "#test", id: "section-test" },
+  { name: "DevSetup", href: "#test2", id: "section-test2" },
 ] as const;
 
 // Component Props Types

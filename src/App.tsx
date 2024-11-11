@@ -17,7 +17,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <>
       <Router>
         <Header currentPage={currentPage} onNavigate={handleNavigate} />
         <DarkmodeButton />
@@ -39,7 +39,7 @@ const App: React.FC = () => {
         <Footer />
       </Router>
       <SpeedInsights />
-    </div>
+    </>
   );
 };
 

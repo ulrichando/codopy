@@ -15,7 +15,7 @@ const menu = [
 ];
 
 const videos = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];
-function HomePage() {
+const HomePage = () => {
   const navAbout = [{ name: "About", to: "/about" }];
   const navWork = [{ name: "Work", to: "/work" }];
   return (
@@ -130,6 +130,6 @@ function HomePage() {
       </motion.div>
     </div>
   );
-}
+};
 
 export default HomePage;

@@ -11,7 +11,7 @@ import img4 from "../assets/images/img4.jpg";
 import img5 from "../assets/images/img5.jpg";
 import img6 from "../assets/images/img6.jpg";
 
-function WorkPage() {
+const WorkPage = () => {
   const [isDown, setIsDown] = useState(false);
   const [startY, setStartY] = useState(0);
   const [scrollTopState, setScrollTopState] = useState<number | null>(0);
@@ -292,6 +292,6 @@ function WorkPage() {
       </motion.div>
     </div>
   );
-}
+};
 
 export default WorkPage;

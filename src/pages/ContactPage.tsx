@@ -36,9 +36,9 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full box">
+    <div className="min-h-screen w-full box  flex p-20">
       {/* Get In Touch Section - Absolutely positioned */}
-      <div className="absolute top-20 left-20 z-10 box ">
+      <div className="absolute  top-20 left-20 z-10 box bg-transparent ">
         <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold ">
           Get In Touch.
         </h1>

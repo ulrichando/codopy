@@ -1,10 +1,10 @@
 // import { Link } from "react-router-dom";
 // import "../App.scss";
 
-// function logo() {
+// const Logo: React.FC = () => {
 //   return (
-//     <div className=" relative z-50 ">
-//       <Link to="/">
+//     <div className="relative top-10 justify-center  ">
+//       <Link to="/" aria-label="Go to homepage">
 //         <div id="logo">
 //           <svg
 //             id="Layer_1"
@@ -26,17 +26,17 @@
 //       </Link>
 //     </div>
 //   );
-// }
+// };
 
-// export default logo;
+// export default Logo;
 
 import { Link } from "react-router-dom";
 import "../App.scss";
 
-function Logo() {
+const Logo: React.FC = () => {
   return (
-    <div className="relative z-50">
-      <Link to="/" aria-label="Go to homepage">
+    <div className="absolute flex justify-center pt-10 z-50">
+      <Link to="/">
         <div id="logo">
           <svg
             id="Layer_1"
@@ -58,6 +58,6 @@ function Logo() {
       </Link>
     </div>
   );
-}
+};
 
 export default Logo;

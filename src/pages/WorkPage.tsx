@@ -98,12 +98,12 @@ function WorkPage() {
     }
   }, [mouseMoved, scrollTopState]);
 
-  function scrollToSection(id: string) {
-    const element = document.getElementById(id);
-    if (element && itemsContainer.current) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }
+  // function scrollToSection(id: string) {
+  //   const element = document.getElementById(id);
+  //   if (element && itemsContainer.current) {
+  //     element.scrollIntoView({ behavior: "smooth", block: "center" });
+  //   }
+  // }
 
   return (
     <div
@@ -158,7 +158,6 @@ function WorkPage() {
                       key={index}
                       id={item.id}
                       className="flex h-[100px] md:h-[200px] w-[150px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
-                      onClick={() => scrollToSection(item.id)}
                     >
                       {index % 2 === 0 ? (
                         <>

@@ -3,12 +3,12 @@ import "../App.scss";
 import PlayButton from "../components/ui/PlayButton";
 
 const menu = [
-  { name: "Frontend", href: "#frontend" },
-  { name: "Backend", href: "#backend" },
-  { name: "Database", href: "#database" },
-  { name: "Cloud", href: "#cloud" },
-  { name: "Server", href: "#server" },
-  { name: "Security", href: "#security" },
+  { name: "Frontend" },
+  { name: "Backend" },
+  { name: "Database" },
+  { name: "Cloud" },
+  { name: "Server" },
+  { name: "Security" },
 ];
 
 const videos = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];
@@ -47,7 +47,7 @@ function Homepage() {
           {/* Circle menu */}
           <div className="absolute space-y-2 top-1/3 left-full transform  translate-x-2 hidden md:block">
             {menu.map((item) => (
-              <div key={item.href} className="flex flex-col">
+              <div key={item.name} className="flex flex-col">
                 <a
                   href={`#${item.name}`}
                   className="text-1xl font-medium px-4 py-2"

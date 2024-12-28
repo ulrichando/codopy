@@ -12,7 +12,7 @@ const menu = [
 ];
 
 const videos = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];
-function Homepage() {
+const HomePage = () => {
   return (
     <div className="Relative w-full h-full">
       {/* container */}
@@ -74,6 +74,6 @@ function Homepage() {
       </div>
     </div>
   );
-}
+};
 
-export default Homepage;
+export default HomePage;

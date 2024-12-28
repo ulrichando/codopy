@@ -12,7 +12,7 @@ const ContactPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/api/contact", {
+      const response = await fetch("http://localhost:5173/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-#ffffff-50">
+    <div className="min-h-screen w-full bg-white">
       {/* Get In Touch Section - Absolutely positioned */}
       <div className="absolute top-20 left-20 z-10">
         <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900">

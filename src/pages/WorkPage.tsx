@@ -54,7 +54,7 @@ const projects = [
   },
 ];
 
-function WorkPage() {
+const WorkPage = () => {
   const [isDown, setIsDown] = useState(false);
   const [startY, setStartY] = useState(0);
   const [scrollTopState, setScrollTopState] = useState<number | null>(0);
@@ -234,6 +234,6 @@ function WorkPage() {
       </motion.div>
     </div>
   );
-}
+};
 
 export default WorkPage;

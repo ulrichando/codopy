@@ -48,12 +48,12 @@ function Homepage() {
           <div className="absolute space-y-2 top-1/3 left-full transform  translate-x-2 hidden md:block">
             {menu.map((item) => (
               <div key={item.name} className="flex flex-col">
-                <a
-                  href={`#${item.name}`}
+                <p
+                  // href={`#${item.name}`}
                   className="text-1xl font-medium px-4 py-2"
                 >
                   {item.name}
-                </a>
+                </p>
               </div>
             ))}
           </div>

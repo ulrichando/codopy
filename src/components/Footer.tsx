@@ -5,6 +5,7 @@ import Homepage from "../pages/Homepage";
 import WorkPage from "../pages/WorkPage";
 import AboutPage from "../pages/AboutPage";
 import "../App.scss";
+import ContactPage from "../pages/ContactPage";
 
 interface PageProps {
   content: React.ReactNode;
@@ -23,6 +24,7 @@ const Footer: React.FC = () => {
     { content: <AboutPage /> },
     { content: <Homepage /> },
     { content: <WorkPage /> },
+    { content: <ContactPage /> },
   ];
 
   // Function to handle page navigation

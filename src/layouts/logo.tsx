@@ -1,13 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../App.scss";
 
-interface LogoProps {
-  onNavigate: () => void;
-}
+const Logo: React.FC = () => {
+  const navigate = useNavigate();
 
-const Logo: React.FC<LogoProps> = ({ onNavigate }) => {
   const handleLogoClick = () => {
-    onNavigate();
+    navigate("/");
   };
 
   return (

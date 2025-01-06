@@ -7,8 +7,8 @@ import Homepage from "./Homepage";
 import WorkPage from "./WorkPage";
 import Header from "../layouts/Header";
 import ContactPage from "./ContactPage";
-import Logo from "../layouts/logo";
 import "../App.scss";
+import Logo from "../layouts/logo";
 
 interface NavigationCircleProps {
   onNavigate?: () => void;
@@ -328,9 +328,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
       }`}
     >
       <Header currentPage={currentPage} onNavigate={navigateToPage} />
-
-      <Logo onNavigate={() => navigateToPage(1)} />
-
+      <Logo />
       <DarkModeButton />
 
       {currentPage === 1 && (

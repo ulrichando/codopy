@@ -1,7 +1,7 @@
 import React from "react";
 import { Instagram, Github, Linkedin, X, Youtube } from "lucide-react";
 import SweepNavigation from "../pages/SweepNavigation";
-import Homepage from "../pages/Homepage";
+import Homepage from "../pages/HomePage";
 import WorkPage from "../pages/WorkPage";
 import AboutPage from "../pages/AboutPage";
 import "../App.scss";

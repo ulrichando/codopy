@@ -147,7 +147,7 @@ const WorkPage = () => {
               ref={itemsContainer}
               className={`ItemsContainer ${
                 isMobile
-                  ? "relative max-h-[50vh] top-20 overflow-y-auto right-1/2 max-w-fit transform translate-x-1/2"
+                  ? "relative max-h-[40vh] top-20 overflow-y-auto right-1/2 max-w-fit transform translate-x-1/2"
                   : "fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2"
               } `}
             >

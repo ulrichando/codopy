@@ -236,10 +236,10 @@ function AboutPage() {
         transition={{ duration: 1 }}
       >
         <div className="relative w-screen h-screen">
-          <div className="absolute right-1/3 top-1/4 transform -translate-y-full translate-x-1/2">
-            <div className="top-20 left-10">
+          <div className="absolute inset-x-0 top-1/4 transform -translate-y-full text-center">
+            <div className="top-20">
               <h1 className="text-4xl md:text-8xl font-bold">About.</h1>
-              <div className="flex">
+              <div className="flex justify-center">
                 <div className="line h-2 w-10 m-6"></div>
                 <p className="mt-4 text-sm md:text-1xl font-medium">
                   All about me <br />
@@ -249,10 +249,9 @@ function AboutPage() {
               </div>
             </div>
           </div>
-
           <div
             className={`MainContainer absolute ${
-              isMobile ? "bottom-4 left-1/2 -translate-x-1/2" : "right-[25%]"
+              isMobile ? "bottom-1 left-1/2 -translate-x-1/2" : "right-[25%]"
             }`}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -263,7 +262,7 @@ function AboutPage() {
               ref={itemsContainer}
               className={`ItemsContainer ${
                 isMobile
-                  ? "relative max-h-[40vh] overflow-y-auto"
+                  ? "relative max-h-[60vh] top-20 overflow-y-auto left-1/2 max-w-fit transform -translate-x-1/2"
                   : "fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               }`}
             >
@@ -273,11 +272,11 @@ function AboutPage() {
                     <div
                       key={index}
                       id={item.id}
-                      className="flex h-[100px] md:h-[200px] w-[150px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
+                      className="flex h-[150px] md:h-[200px] w-[300px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
                     >
                       {index % 2 === 0 ? (
                         <>
-                          <div className="scroller w-[75px] md:w-[300px] h-full flex items-end pb-4 px-4">
+                          <div className="scroller w-[150px] md:w-[300px] h-full flex items-end pb-4 px-4">
                             <div className="flex justify-between items-baseline w-full">
                               <div className="flex flex-col">
                                 <p className="scroller-1 text-left text-xs md:text-lg font-semibold">
@@ -291,7 +290,7 @@ function AboutPage() {
                           </div>
                           <button
                             onClick={() => setSelectedItem(item)}
-                            className="w-[75px] md:w-[300px] h-full group relative overflow-hidden"
+                            className="w-[150px] md:w-[300px] h-full group relative overflow-hidden"
                           >
                             <img
                               src={item.img}
@@ -309,7 +308,7 @@ function AboutPage() {
                         <>
                           <button
                             onClick={() => setSelectedItem(item)}
-                            className="w-[75px] md:w-[300px] h-full group relative overflow-hidden"
+                            className="w-[150px] md:w-[300px] h-full group relative overflow-hidden"
                           >
                             <img
                               src={item.img}
@@ -322,7 +321,7 @@ function AboutPage() {
                               </span>
                             </div>
                           </button>
-                          <div className="scroller w-[75px] md:w-[300px] h-full flex items-end pb-4 px-4">
+                          <div className="scroller w-[150px] md:w-[300px] h-full flex items-end pb-4 px-4">
                             <div className="flex justify-between items-baseline w-full">
                               <div className="flex flex-col">
                                 <p className="scroller-1 text-left text-xs md:text-lg font-semibold">

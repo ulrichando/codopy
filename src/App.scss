@@ -303,9 +303,24 @@ iframe {
     transform: translateX(-50%);
 }
 
+.logo-container {
+  position: absolute;
+  top: 20px; /* Adjust the value as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Ensure it is above other elements */
+}
 
+.logo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-
+.logo-image {
+  width: 50px; /* Adjust the size as needed */
+  height: auto;
+}
 
 // Add these new styles
 .smooth-transform {

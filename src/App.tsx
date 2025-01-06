@@ -22,6 +22,7 @@ const App: React.FC = () => {
             border: "3px solid var(--cursor-color)",
           }}
         />
+
         <Footer />
       </Router>
     </div>

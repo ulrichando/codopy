@@ -38,11 +38,11 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen w-full bg-white">
       {/* Get In Touch Section - Absolutely positioned */}
-      <div className="absolute top-20 left-20 z-10">
-        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900">
+      <div className="absolute inset-x-0 top-20 md:top-32 z-10 text-center">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900">
           Get In Touch.
         </h1>
-        <p className="mt-4 text-xl text-gray-600">
+        <p className="mt-2 md:mt-4 text-lg md:text-xl text-gray-600">
           Send your feedback
           <br />
           ulrichando007@gmail.com
@@ -55,10 +55,10 @@ const ContactPage = () => {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side - SVG Illustration */}
-              <div className="lg:w-1/2 p-8 flex justify-center">
+              <div className="w-full lg:w-1/2 p-4 md:p-8 flex justify-center">
                 <svg
                   viewBox="0 0 800 600"
-                  className="w-full max-w-lg"
+                  className="w-full max-w-xs md:max-w-lg"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {/* Background Elements */}
@@ -215,16 +215,19 @@ const ContactPage = () => {
               </div>
 
               {/* Right side - Form */}
-              <div className="lg:w-1/2 p-8">
+              <div className="w-full lg:w-1/2 p-4 md:p-8">
                 <div className="max-w-md mx-auto">
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 md:space-y-6"
+                  >
                     <div>
                       <input
                         type="text"
                         placeholder="Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-3 rounded-lg bg-gray-50 border-0 focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 md:px-4 md:py-3 rounded-lg bg-gray-50 border-0 focus:ring-2 focus:ring-blue-500"
                         required
                       />
                     </div>
@@ -235,7 +238,7 @@ const ContactPage = () => {
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-3 rounded-lg bg-gray-50 border-0 focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 md:px-4 md:py-3 rounded-lg bg-gray-50 border-0 focus:ring-2 focus:ring-blue-500"
                         required
                       />
                     </div>
@@ -246,7 +249,7 @@ const ContactPage = () => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         rows={4}
-                        className="w-full px-4 py-3 rounded-lg bg-gray-50 border-0 focus:ring-2 focus:ring-blue-500 resize-none"
+                        className="w-full px-4 py-2 md:px-4 md:py-3 rounded-lg bg-gray-50 border-0 focus:ring-2 focus:ring-blue-500 resize-none"
                         required
                       />
                     </div>
@@ -254,7 +257,7 @@ const ContactPage = () => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full bg-black hover:bg-gray-800 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+                      className="w-full bg-black hover:bg-gray-800 text-white px-4 py-2 md:px-4 md:py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
                     >
                       {loading ? (
                         <svg

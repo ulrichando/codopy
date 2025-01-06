@@ -5,7 +5,7 @@ import WorkPage from "../pages/WorkPage";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-function AnimatedRoutes() {
+const AnimatedRoutes: React.FC = () => {
   const location = useLocation();
   return (
     <AnimatePresence>
@@ -17,6 +17,6 @@ function AnimatedRoutes() {
       </Routes>
     </AnimatePresence>
   );
-}
+};
 
 export default AnimatedRoutes;

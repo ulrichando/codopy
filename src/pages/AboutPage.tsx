@@ -158,7 +158,7 @@ function InfoPanel({
               <p className="text-gray-600">{item.experience}</p>
             </div>
 
-            <div className="mt-6">
+            {/* <div className="mt-6">
               <a
                 href={item.link}
                 target="_blank"
@@ -168,7 +168,7 @@ function InfoPanel({
                 View Repository
                 <span className="ml-2">→</span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -262,7 +262,7 @@ function AboutPage() {
               ref={itemsContainer}
               className={`ItemsContainer ${
                 isMobile
-                  ? "relative max-h-[50vh] top-20 overflow-y-auto left-1/2 max-w-fit transform -translate-x-1/2"
+                  ? "relative top-20 overflow-y-auto flex justify-center items-center"
                   : "fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               }`}
             >
@@ -272,7 +272,7 @@ function AboutPage() {
                     <div
                       key={index}
                       id={item.id}
-                      className="flex h-[150px] md:h-[200px] w-[300px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
+                      className="flex h-[100px] md:h-[200px] w-[200px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
                     >
                       {index % 2 === 0 ? (
                         <>

@@ -133,7 +133,7 @@ function InfoPanel({
             />
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-2">
             <div>
               <h3 className="text-lg font-semibold mb-2">Description</h3>
               <p className="text-gray-600">{item.description}</p>

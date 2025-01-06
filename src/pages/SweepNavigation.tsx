@@ -1,5 +1,5 @@
 // src/pages/SweepNavigation.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import DarkModeButton from "../components/ui/DarkmodeButton";
 import useDarkMode from "../hooks/useDarkMode";
 import AboutPage from "./AboutPage";
@@ -8,6 +8,7 @@ import WorkPage from "./WorkPage";
 import Header from "../layouts/Header";
 import ContactPage from "./ContactPage";
 import "../App.scss";
+import Logo from "../layouts/logo";
 
 interface NavigationCircleProps {
   onNavigate?: () => void;
@@ -272,8 +273,6 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
   );
 };
 
-// Continuation of SweepNavigation.tsx
-
 const SweepNavigation: React.FC<SweepNavigationProps> = ({
   pages = defaultPages,
   currentPageIndex = 1,
@@ -329,7 +328,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
       }`}
     >
       <Header currentPage={currentPage} onNavigate={navigateToPage} />
-
+      <Logo />
       <DarkModeButton />
 
       {currentPage === 1 && (

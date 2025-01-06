@@ -1,14 +1,12 @@
 import AnimatedCursor from "react-animated-cursor";
 import "./App.scss";
 import { BrowserRouter as Router } from "react-router-dom";
-import Logo from "./layouts/logo";
 import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Router>
-        <Logo />
         <AnimatedCursor
           innerSize={10}
           outerSize={40}

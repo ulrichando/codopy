@@ -1,9 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
 import { X } from "lucide-react";
-import { NavLink } from "react-router-dom";
-import { Circle } from "../components/ui/CircleComponent";
 
 // Direct imports for images
 import img6 from "../assets/images/img6.jpg";
@@ -13,7 +11,7 @@ import img9 from "../assets/images/img9.jpg";
 import img10 from "../assets/images/img10.jpg";
 import img11 from "../assets/images/img11.jpg";
 
-// Types
+// Extended type for items to include detailed information
 interface AboutItem {
   img: string;
   title: string;
@@ -25,10 +23,6 @@ interface AboutItem {
   experience: string;
 }
 
-// Constants
-const MOBILE_BREAKPOINT = 768;
-
-// Data
 const aboutItems: AboutItem[] = [
   {
     img: img6,
@@ -53,6 +47,7 @@ const aboutItems: AboutItem[] = [
     experience:
       "4 years of backend development experience across multiple frameworks.",
   },
+  // Add similar detailed information for other items
   {
     img: img8,
     title: "Database",
@@ -75,7 +70,7 @@ const aboutItems: AboutItem[] = [
   },
   {
     img: img10,
-    title: "Testing",
+    title: "Test",
     num: "5",
     id: "section-test",
     link: "https://github.com/yourusername/testing",
@@ -85,39 +80,28 @@ const aboutItems: AboutItem[] = [
   },
   {
     img: img11,
-    title: "DevSetup",
+    title: "Test",
     num: "6",
     id: "section-test2",
     link: "https://github.com/yourusername/more-tests",
     description: "Specialized in performance testing and optimization.",
-    skills: ["Linux", "Windows", "Postman", "Slack", "VS Code", "Chrome"],
+    skills: [
+      "Lighthouse",
+      "WebPageTest",
+      "Performance Testing",
+      "Load Testing",
+    ],
     experience: "2 years focused on web performance optimization.",
   },
 ];
 
-const MENU_ITEMS = [
-  { name: "Frontend", href: "#frontend", id: "section-frontend" },
-  { name: "Backend", href: "#backend", id: "section-backend" },
-  { name: "Database", href: "#database", id: "section-database" },
-  { name: "Tools", href: "#tools", id: "section-tools" },
-  { name: "Testing", href: "#test", id: "section-test" },
-  { name: "DevSetup", href: "#test2", id: "section-test2" },
-] as const;
-
-// Component Props Types
-interface InfoPanelProps {
+function InfoPanel({
+  item,
+  onClose,
+}: {
   item: AboutItem | null;
   onClose: () => void;
-}
-
-interface ItemCardProps {
-  item: AboutItem;
-  index: number;
-  onSelect: (item: AboutItem) => void;
-}
-
-// InfoPanel Component
-const InfoPanel: React.FC<InfoPanelProps> = ({ item, onClose }) => {
+}) {
   if (!item) return null;
 
   return (
@@ -125,138 +109,82 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ item, onClose }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
-      onClick={(e) => e.target === e.currentTarget && onClose()}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
     >
-      <div className="box rounded-lg w-full max-w-2xl overflow-hidden shadow-xl">
+      <div className="bg-white rounded-lg w-full max-w-2xl overflow-hidden shadow-xl">
         <div className="flex justify-between items-center p-6 border-b">
-          <h2 className=" text-2xl  font-bold">{item.title}</h2>
+          <h2 className="text-2xl font-bold">{item.title}</h2>
           <button
             onClick={onClose}
             className="p-1 hover:bg-gray-100 rounded-full transition-colors"
-            aria-label="Close panel"
           >
-            <X className="box w-6 h-6" />
+            <X className="w-6 h-6" />
           </button>
         </div>
 
-        <div className="p-6 space-y-6">
-          <img
-            src={item.img}
-            alt={item.title}
-            className="w-full h-48 object-cover rounded-lg"
-            loading="lazy"
-          />
+        <div className="p-6">
+          <div className="mb-6">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-48 object-cover rounded-lg"
+            />
+          </div>
 
-          <section>
-            <h3 className="text-lg  font-semibold mb-2">Description</h3>
-            <p className="box text-gray-600">{item.description}</p>
-          </section>
-
-          <section>
-            <h3 className="box text-lg  font-semibold mb-2">Skills</h3>
-            <div className="flex flex-wrap gap-2">
-              {item.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
-                >
-                  {skill}
-                </span>
-              ))}
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Description</h3>
+              <p className="text-gray-600">{item.description}</p>
             </div>
-          </section>
 
-          <section>
-            <h3 className="text-lg font-semibold mb-2">Experience</h3>
-            <p className="text-gray-600">{item.experience}</p>
-          </section>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Skills</h3>
+              <div className="flex flex-wrap gap-2">
+                {item.skills.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
 
-          {/* <a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            View Repository
-            <span className="ml-2" aria-hidden="true">
-              →
-            </span>
-          </a> */}
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Experience</h3>
+              <p className="text-gray-600">{item.experience}</p>
+            </div>
+
+            <div className="mt-6">
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                View Repository
+                <span className="ml-2">→</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>
   );
-};
+}
 
-// ItemCard Component
-const ItemCard: React.FC<ItemCardProps> = ({ item, index, onSelect }) => {
-  const imageSection = (
-    <button
-      onClick={() => onSelect(item)}
-      className="w-[75px] md:w-[300px] h-full group relative overflow-hidden"
-      aria-label={`View details for ${item.title}`}
-    >
-      <img
-        src={item.img}
-        alt={`${item.title} Skills`}
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-        loading="lazy"
-      />
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-        <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 text-sm md:text-base">
-          View Details →
-        </span>
-      </div>
-    </button>
-  );
-
-  const textSection = (
-    <div className="scroller w-[75px] md:w-[300px] h-full flex items-end pb-4 px-4">
-      <div className="flex justify-between items-baseline w-full">
-        <div className="flex flex-col">
-          <p className="scroller-1 text-left text-xs md:text-lg font-semibold">
-            {item.title}
-          </p>
-        </div>
-        <p className="scroller-1 text-right text-2xl md:text-8xl ml-2 opacity-30">
-          {item.num}
-        </p>
-      </div>
-    </div>
-  );
-
-  return (
-    <div
-      id={item.id}
-      className="flex h-[100px] md:h-[200px] w-[150px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
-    >
-      {index % 2 === 0 ? (
-        <>
-          {textSection}
-          {imageSection}
-        </>
-      ) : (
-        <>
-          {imageSection}
-          {textSection}
-        </>
-      )}
-    </div>
-  );
-};
-
-// Main AboutPage Component
-const AboutPage: React.FC = () => {
+function AboutPage() {
   const [isDown, setIsDown] = useState(false);
   const [startY, setStartY] = useState(0);
   const [scrollTopState, setScrollTopState] = useState<number>(0);
   const [mouseMoved, setMouseMoved] = useState(0);
-  const [isMobile, setIsMobile] = useState(
-    window.innerWidth < MOBILE_BREAKPOINT
-  );
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [selectedItem, setSelectedItem] = useState<AboutItem | null>(null);
-  const itemsContainer = useRef<HTMLDivElement>(null);
+  const itemsContainer = useRef<HTMLDivElement | null>(null);
 
   const handleResize = useCallback(() => {
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -275,31 +203,20 @@ const AboutPage: React.FC = () => {
     []
   );
 
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent | React.TouchEvent) => {
-      if (!isDown || !itemsContainer.current) return;
-      const currentY = "touches" in e ? e.touches[0].pageY : e.pageY;
-      const currentMousePositionInsideContainer =
-        currentY - itemsContainer.current.offsetTop;
-      setMouseMoved(currentMousePositionInsideContainer - startY);
-    },
-    [isDown, startY]
-  );
+  function handleMouseMove(e: React.MouseEvent | React.TouchEvent) {
+    if (!isDown || !itemsContainer.current) return;
+    const currentY = "touches" in e ? e.touches[0].pageY : e.pageY;
+    const currentMousePositionInsideContainer =
+      currentY - itemsContainer.current.offsetTop;
+    setMouseMoved(currentMousePositionInsideContainer - startY);
+  }
 
-  const scrollToSection = useCallback((id: string) => {
-    const element = document.getElementById(id);
-    if (element && itemsContainer.current) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }, []);
+  function handleMouseUp() {
+    setIsDown(false);
+  }
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]);
-
-  useEffect(() => {
-    if (itemsContainer.current) {
+    if (itemsContainer.current && scrollTopState !== null) {
       itemsContainer.current.scrollTop = scrollTopState - mouseMoved;
     }
   }, [mouseMoved, scrollTopState]);
@@ -319,59 +236,22 @@ const AboutPage: React.FC = () => {
         transition={{ duration: 1 }}
       >
         <div className="relative w-screen h-screen">
-          {/* Navigation Circle */}
-          <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-            <NavLink to="/">
-              <Circle
-                radius={isMobile ? 150 : 350}
-                className="circle-outer transition-all duration-300"
-              >
-                <Circle radius={isMobile ? 80 : 200} className="circle-middle">
-                  <Circle radius={isMobile ? 70 : 180} className="circle-inner">
-                    <Circle
-                      radius={isMobile ? 40 : 100}
-                      className="circle-inner-1"
-                    />
-                  </Circle>
-                </Circle>
-              </Circle>
-            </NavLink>
-
-            {/* Side Navigation */}
-            <nav className="absolute flex flex-col space-y-2 top-1/3 right-full translate-x-0">
-              {MENU_ITEMS.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.href}
-                  className="text-sm md:text-1xl font-medium px-4 py-2 hover:text-blue-500 transition-colors duration-300"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.id);
-                  }}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          {/* Header */}
-          <header className="absolute right-1/3 top-1/4 transform -translate-y-full translate-x-1/2">
-            <h1 className="text-4xl md:text-8xl font-bold">About.</h1>
-            <div className="flex">
-              <div className="line h-2 w-10 m-6" />
-              <p className="mt-4 text-sm md:text-1xl font-medium">
-                All about me <br />
-                and geek stuff <br />
-                explore and discover
-              </p>
+          <div className="absolute inset-x-0 top-1/4 transform -translate-y-full text-center">
+            <div className="top-20">
+              <h1 className="text-4xl md:text-8xl font-bold">About.</h1>
+              <div className="flex justify-center">
+                <div className="line h-2 w-10 m-6"></div>
+                <p className="mt-4 text-sm md:text-1xl font-medium">
+                  All about me <br />
+                  and geek stuff <br />
+                  explore and discover
+                </p>
+              </div>
             </div>
-          </header>
-
-          {/* Main Content */}
-          <main
+          </div>
+          <div
             className={`MainContainer absolute ${
-              isMobile ? "bottom-4 left-1/2 -translate-x-1/2" : "right-[25%]"
+              isMobile ? "bottom-1 left-1/2 -translate-x-1/2" : "right-[25%]"
             }`}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -382,24 +262,85 @@ const AboutPage: React.FC = () => {
               ref={itemsContainer}
               className={`ItemsContainer ${
                 isMobile
-                  ? "relative max-h-[40vh] overflow-y-auto"
+                  ? "relative max-h-[60vh] top-20 overflow-y-auto left-1/2 max-w-fit transform -translate-x-1/2"
                   : "fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               }`}
             >
               <div className="table">
                 <div className="item">
                   {aboutItems.map((item, index) => (
-                    <ItemCard
-                      key={item.id}
-                      item={item}
-                      index={index}
-                      onSelect={setSelectedItem}
-                    />
+                    <div
+                      key={index}
+                      id={item.id}
+                      className="flex h-[150px] md:h-[200px] w-[300px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
+                    >
+                      {index % 2 === 0 ? (
+                        <>
+                          <div className="scroller w-[150px] md:w-[300px] h-full flex items-end pb-4 px-4">
+                            <div className="flex justify-between items-baseline w-full">
+                              <div className="flex flex-col">
+                                <p className="scroller-1 text-left text-xs md:text-lg font-semibold">
+                                  {item.title}
+                                </p>
+                              </div>
+                              <p className="scroller-1 text-right text-2xl md:text-8xl ml-2 opacity-30">
+                                {item.num}
+                              </p>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => setSelectedItem(item)}
+                            className="w-[150px] md:w-[300px] h-full group relative overflow-hidden"
+                          >
+                            <img
+                              src={item.img}
+                              alt={`${item.title} Skills`}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 text-sm md:text-base">
+                                View Details →
+                              </span>
+                            </div>
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            onClick={() => setSelectedItem(item)}
+                            className="w-[150px] md:w-[300px] h-full group relative overflow-hidden"
+                          >
+                            <img
+                              src={item.img}
+                              alt={`${item.title} Skills`}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 text-sm md:text-base">
+                                View Details →
+                              </span>
+                            </div>
+                          </button>
+                          <div className="scroller w-[150px] md:w-[300px] h-full flex items-end pb-4 px-4">
+                            <div className="flex justify-between items-baseline w-full">
+                              <div className="flex flex-col">
+                                <p className="scroller-1 text-left text-xs md:text-lg font-semibold">
+                                  {item.title}
+                                </p>
+                              </div>
+                              <p className="scroller-1 text-right text-2xl md:text-8xl ml-2 opacity-30">
+                                {item.num}
+                              </p>
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>
             </div>
-          </main>
+          </div>
 
           <AnimatePresence>
             {selectedItem && (
@@ -413,6 +354,6 @@ const AboutPage: React.FC = () => {
       </motion.div>
     </div>
   );
-};
+}
 
 export default AboutPage;

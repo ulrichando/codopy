@@ -25,6 +25,7 @@
     flex-direction: column;
     height: 200px;
     width: 300px;
+    background-color: none;
     user-select: none;
     gap: 20px;
 }

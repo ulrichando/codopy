@@ -10,10 +10,23 @@
 .darkmode {
     --base-color: #000000;
     --base-variant: #fdfdfd;
-    --text-color: #ffffff;
+    --text-color: #ffff;
     --secondary-text: #a4a5b8;
     --primary-color: #090909;
     --accent-color: #000000;
+}
+
+.smooth-transform {
+    transition: transform 800ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.transition-colors {
+    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+// For dark mode (in your globals.css or equivalent):
+.dark {
+    --text-color: #fff;
 }
 
 * {
@@ -291,4 +304,46 @@ iframe {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.logo-container {
+  position: absolute;
+  top: 20px; /* Adjust the value as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Ensure it is above other elements */
+}
+
+.logo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logo-image {
+  width: 50px; /* Adjust the size as needed */
+  height: auto;
+}
+
+// Add these new styles
+.smooth-transform {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+}
+
+// Optional: Add these for even smoother animations
+.page-transition {
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
 }

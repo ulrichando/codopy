@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
 import { X } from "lucide-react";
 
-// Direct imports for images
 import img6 from "../assets/images/img6.jpg";
 import img7 from "../assets/images/img7.jpg";
 import img8 from "../assets/images/img8.jpg";
@@ -180,28 +179,29 @@ function InfoPanel({
 function AboutPage() {
   const [isDown, setIsDown] = useState(false);
   const [startY, setStartY] = useState(0);
-  const [scrollTopState, setScrollTopState] = useState<number>(0);
+  const [scrollTopState, setScrollTopState] = useState<number | null>(0);
   const [mouseMoved, setMouseMoved] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [selectedItem, setSelectedItem] = useState<AboutItem | null>(null);
   const itemsContainer = useRef<HTMLDivElement | null>(null);
 
-  const handleResize = useCallback(() => {
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 768);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleMouseDown = useCallback(
-    (e: React.MouseEvent | React.TouchEvent) => {
-      setIsDown(true);
-      if (itemsContainer.current) {
-        const pageY = "touches" in e ? e.touches[0].pageY : e.pageY;
-        setStartY(pageY - itemsContainer.current.offsetTop);
-        setScrollTopState(itemsContainer.current.scrollTop);
-        setMouseMoved(0);
-      }
-    },
-    []
-  );
+  function handleMouseDown(e: React.MouseEvent | React.TouchEvent) {
+    setIsDown(true);
+    if (itemsContainer.current) {
+      const pageY = "touches" in e ? e.touches[0].pageY : e.pageY;
+      setStartY(pageY - itemsContainer.current.offsetTop);
+      setScrollTopState(itemsContainer.current.scrollTop);
+      setMouseMoved(0);
+    }
+  }
 
   function handleMouseMove(e: React.MouseEvent | React.TouchEvent) {
     if (!isDown || !itemsContainer.current) return;
@@ -224,15 +224,15 @@ function AboutPage() {
   return (
     <div
       className="relative h-screen w-screen overflow-hidden"
-      onMouseUp={() => setIsDown(false)}
-      onMouseLeave={() => setIsDown(false)}
-      onTouchEnd={() => setIsDown(false)}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      onTouchEnd={handleMouseUp}
     >
       <motion.div
         className="home"
-        initial={{ x: -window.innerWidth }}
-        animate={{ x: 0 }}
-        exit={{ x: -window.innerWidth }}
+        initial={{ x: -window.innerWidth, width: "100vw" }}
+        animate={{ x: 0, width: "100vw" }}
+        exit={{ x: -window.innerWidth, transition: { duration: 1 } }}
         transition={{ duration: 1 }}
       >
         <div className="relative w-screen h-screen">

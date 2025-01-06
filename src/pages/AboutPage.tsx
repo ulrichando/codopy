@@ -251,7 +251,9 @@ function AboutPage() {
           </div>
           <div
             className={`MainContainer absolute ${
-              isMobile ? "bottom-1 left-1/2 -translate-x-1/2" : "right-[25%]"
+              isMobile
+                ? "bottom-1 top-1 left-1/2 -translate-x-1/2"
+                : "right-[25%]"
             }`}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}

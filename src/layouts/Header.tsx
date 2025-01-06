@@ -57,14 +57,21 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
-              <Menu className="menu h-9 w-9" aria-hidden="true" />
+              <Bars3BottomRightIcon
+                className="menu h-9 w-9"
+                aria-hidden="true"
+              />
             </button>
           </div>
         </nav>
-
-        {/* Mobile Menu Panel */}
-        {mobileMenuOpen && (
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#000000e2] px-6 py-6 sm:max-w-2xl sm:ring-1 sm:ring-gray-900/10 backdrop-blur-md backdrop-filter">
+        <Dialog
+          as="div"
+          className="lg"
+          open={mobileMenuOpen}
+          onClose={closeMobileMenu}
+        >
+          <div className="fixed inset-0 z-50" />
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#000000e2] px-6 py-6 sm:max-w-2xl sm:ring-1 sm:ring-gray-900/10 backdrop-blur-md backdrop-filter">
             <div className="flex items-center justify-between">
               <button
                 onClick={() => handleNavigation(1)}
@@ -72,11 +79,11 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               ></button>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-white"
+                className="menu -m-2.5 rounded-md p-2.5 text-white"
                 onClick={closeMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
-                <X className="h-8 w-8" aria-hidden="true" />
+                <XMarkIcon className="h-8 w-8" aria-hidden="true" />
               </button>
             </div>
             <div className="mt-6 flow-root">
@@ -133,8 +140,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          </Dialog.Panel>
+        </Dialog>
       </header>
     </div>
   );

@@ -262,7 +262,7 @@ function AboutPage() {
               ref={itemsContainer}
               className={`ItemsContainer ${
                 isMobile
-                  ? "relative max-h-[50vh] top-20 right-[50%] overflow-y-auto max-w-full flex transform translate-x-1/2 pl-20"
+                  ? "relative max-h-[50vh] top-20  overflow-y-auto max-w-full flex items-center justify-center"
                   : "fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               }`}
             >

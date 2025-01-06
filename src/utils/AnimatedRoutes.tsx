@@ -1,5 +1,4 @@
 import HomePage from "../pages/HomePage";
-import WorkPage from "../pages/WorkPage";
 import AboutPage from "../pages/AboutPage";
 import ContactPage from "../pages/ContactPage";
 import WorkPage from "../pages/WorkPage";

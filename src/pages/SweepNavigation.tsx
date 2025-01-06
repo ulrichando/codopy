@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import DarkModeButton from "../components/ui/DarkmodeButton";
 import useDarkMode from "../hooks/useDarkMode";
 import AboutPage from "./AboutPage";
-import Homepage from "./Homepage";
+import Homepage from "./HomePage";
 import WorkPage from "./WorkPage";
 import Header from "../layouts/Header";
 import ContactPage from "./ContactPage";

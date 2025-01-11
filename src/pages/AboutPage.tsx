@@ -236,17 +236,15 @@ function AboutPage() {
         transition={{ duration: 1 }}
       >
         <div className="relative w-screen h-screen">
-          <div className="absolute inset-x-0 top-1/4 transform -translate-y-full text-center">
-            <div className="top-20">
-              <h1 className="text-4xl md:text-8xl font-bold">About.</h1>
-              <div className="flex justify-center">
-                <div className="line h-2 w-10 m-6"></div>
-                <p className="mt-4 text-sm md:text-1xl font-medium">
-                  All about me <br />
-                  and geek stuff <br />
-                  explore and discover
-                </p>
-              </div>
+          <div className="absolute inset-x-0 top-1/4 transform -translate-y-full text-center left-[25%]  md:max-lg:flex">
+            <h1 className=" md:text-8xl font-bold">About.</h1>
+            <div className="flex justify-center">
+              <div className="line h-2 w-10 m-6"></div>
+              <p className="mt-4 text-sm md:text-1xl font-medium">
+                All about me <br />
+                and geek stuff <br />
+                explore and discover
+              </p>
             </div>
           </div>
           <div
@@ -264,7 +262,7 @@ function AboutPage() {
               ref={itemsContainer}
               className={`ItemsContainer ${
                 isMobile
-                  ? "relative max-h-[50vh] top-20  overflow-y-auto max-w-full flex items-center justify-center"
+                  ? "relative max-h-[50vh] top-20  overflow-y-auto max-w-full flex  items-center justify-center"
                   : "fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               }`}
             >

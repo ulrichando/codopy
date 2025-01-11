@@ -120,17 +120,15 @@ const WorkPage = () => {
         transition={{ duration: 1 }}
       >
         <div className="relative w-screen h-screen">
-          <div className="absolute inset-x-0 top-1/4 transform -translate-y-full text-center">
-            <div className="top-20">
-              <h1 className="text-4xl md:text-8xl font-bold">Work.</h1>
-              <div className="flex justify-center">
-                <div className="line h-2 w-10 m-6"></div>
-                <p className="mt-4 text-sm md:text-1xl font-medium">
-                  My projects and <br />
-                  experience Explore and <br />
-                  discover
-                </p>
-              </div>
+          <div className="absolute inset-x-0 top-1/4 transform -translate-y-full text-center right-[25%] ">
+            <h1 className="text-4xl md:text-8xl font-bold">Work.</h1>
+            <div className="flex justify-center">
+              <div className="line h-2 w-10 m-6"></div>
+              <p className="mt-4 text-sm md:text-1xl font-medium">
+                My projects and <br />
+                experience Explore and <br />
+                discover
+              </p>
             </div>
           </div>
 
@@ -147,7 +145,7 @@ const WorkPage = () => {
               ref={itemsContainer}
               className={`ItemsContainer ${
                 isMobile
-                  ? "relative max-h-[50vh] top-20  overflow-y-auto max-w-full flex items-center justify-center"
+                  ? "relative max-h-[50vh] top-20  overflow-y-auto max-w-full flex  items-center justify-center"
                   : "fixed right-[25%] top-1/2 transform translate-x-1/2 -translate-y-1/2"
               } `}
             >

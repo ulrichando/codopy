@@ -84,9 +84,9 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
   const [menuRotation, setMenuRotation] = useState(-180);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const outerRadius = 360;
-  const arcCircumference = 2 * Math.PI * outerRadius;
-  const halfCircumference = arcCircumference / 2;
+  // const outerRadius = 360;
+  // const arcCircumference = 2 * Math.PI * outerRadius;
+  // const halfCircumference = arcCircumference / 2;
 
   // Get menu items based on direction
   const menuItems = allMenuItems[direction];
@@ -134,13 +134,13 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
       ? "fixed left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2"
       : "fixed right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2";
 
-  const createArcPath = () => {
-    const startX = 250;
-    const startY = 250 - outerRadius;
-    const endX = 250;
-    const endY = 250 + outerRadius;
-    return `M ${startX} ${startY} A ${outerRadius} ${outerRadius} 0 0 1 ${endX} ${endY}`;
-  };
+  // const createArcPath = () => {
+  //   const startX = 250;
+  //   const startY = 250 - outerRadius;
+  //   const endX = 250;
+  //   const endY = 250 + outerRadius;
+  //   return `M ${startX} ${startY} A ${outerRadius} ${outerRadius} 0 0 1 ${endX} ${endY}`;
+  // };
 
   return (
     <div className="hidden md:block">
@@ -190,7 +190,7 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
               <circle
                 cx="250"
                 cy="250"
-                r="360"
+                r="340"
                 fill="none"
                 className={darkMode ? "stroke-white/20" : "stroke-black/20"}
                 strokeWidth="2"
@@ -222,7 +222,7 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
                 className={darkMode ? "stroke-white/60" : "stroke-gray-500/60"}
                 strokeWidth="2"
               />
-
+              {/* 
               <path
                 d={createArcPath()}
                 fill="none"
@@ -232,7 +232,7 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
                 strokeDasharray={`${
                   ((activeIndex + 1) * halfCircumference) / 6
                 }, ${halfCircumference}`}
-              />
+              /> */}
             </g>
 
             <g

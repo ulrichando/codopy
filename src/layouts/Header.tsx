@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Instagram, Github, Linkedin, X } from "lucide-react";
+import { Instagram, Github, Linkedin, Youtube } from "lucide-react";
 import "../App.scss";
 
 interface HeaderProps {
@@ -129,12 +129,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                       <Linkedin className="inline-block mx-1 w-6 h-6" />
                     </a>
                     <a
-                      href="https://x.com/ando_ulrich"
+                      href="https://www.youtube.com/@codopy"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-gray-300 transition-colors"
+                      className="hover:opacity-70 transition-opacity"
                     >
-                      <X className="inline-block mx-1 w-6 h-6" />
+                      <Youtube className="inline-block mx-1" />
                     </a>
                   </div>
                 </div>

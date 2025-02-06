@@ -236,8 +236,8 @@ function AboutPage() {
             <div className="flex justify-center">
               <div className="line h-2 w-10 m-6"></div>
               <p className="mt-4 text-sm md:text-1xl font-medium">
-                All about me <br />
-                and geek stuff <br />
+                All about my <br />
+                skill and more <br />
                 explore and discover
               </p>
             </div>

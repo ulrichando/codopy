@@ -56,9 +56,31 @@ body {
     transition: transform 6.5s ease-in-out;
     
 }  
+
+// hide cursor on mobile
 @media (max-width: 768px) {
     .animated-cursor {
         display: none !important;
+    }
+}
+
+// pull to refresh
+html,
+body {
+    overscroll-behavior-y: contain;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
 

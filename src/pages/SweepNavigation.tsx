@@ -329,7 +329,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
     >
       <Header currentPage={currentPage} onNavigate={navigateToPage} />
       <Logo onNavigate={() => navigateToPage(1)} />
-      <DarkModeButton />
+      {/* <DarkModeButton /> */}
 
       {currentPage === 1 && (
         <>

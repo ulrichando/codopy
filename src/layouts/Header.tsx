@@ -10,7 +10,7 @@ interface HeaderProps {
 }
 
 const navigation = [
-  { name: "About", index: 0 },
+  { name: "Skills", index: 0 },
   { name: "Hello", index: 1 },
   { name: "Work", index: 2 },
   { name: "Get In Touch", index: 3 },

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import DarkModeButton from "../components/ui/DarkmodeButton";
 import useDarkMode from "../hooks/useDarkMode";
-import AboutPage from "./AboutPage";
+import AboutPage from "./SkillPage";
 import Homepage from "./HomePage";
 import WorkPage from "./WorkPage";
 import Header from "../layouts/Header";
@@ -50,16 +50,16 @@ const allMenuItems: Record<string, MenuItem[]> = {
   left: [
     { label: "Frontend", active: false, section: 0 },
     { label: "Backend", active: false, section: 0 },
-    { label: "Database", active: false, section: 0 },
-    { label: "DevOps", active: false, section: 0 },
+    { label: "AI", active: false, section: 0 },
+    { label: "Cloud", active: false, section: 0 },
     { label: "Mobile", active: false, section: 0 },
-    { label: "Testing", active: false, section: 0 },
+    { label: "Desktop", active: false, section: 0 },
   ],
   right: [
-    { label: "Web App", active: false, section: 1 },
-    { label: "VS Theme", active: false, section: 1 },
+    { label: "Frontend", active: false, section: 1 },
+    { label: "Backend", active: false, section: 1 },
     { label: "Analytics", active: false, section: 1 },
-    { label: "Cloud App", active: false, section: 1 },
+    { label: "Database", active: false, section: 1 },
     { label: "Security", active: false, section: 1 },
     { label: "AI Tools", active: false, section: 1 },
   ],

@@ -3,7 +3,7 @@ import { Instagram, Github, Linkedin, X, Youtube } from "lucide-react";
 import SweepNavigation from "../pages/SweepNavigation";
 import Homepage from "../pages/HomePage";
 import WorkPage from "../pages/WorkPage";
-import AboutPage from "../pages/AboutPage";
+import SkillPage from "../pages/SkillPage";
 import "../App.scss";
 import ContactPage from "../pages/ContactPage";
 
@@ -15,13 +15,13 @@ const Footer: React.FC = () => {
   const [currentPage, setCurrentPage] = React.useState(1); // Default to Homepage (middle)
 
   const navFooter = [
-    { name: "About", index: 0 },
+    { name: "Skills", index: 0 },
     { name: "Hello", index: 1 },
     { name: "Work", index: 2 },
   ];
 
   const pages: Array<PageProps> = [
-    { content: <AboutPage /> },
+    { content: <SkillPage /> },
     { content: <Homepage /> },
     { content: <WorkPage /> },
     { content: <ContactPage /> },

@@ -69,7 +69,7 @@ const aboutItems: AboutItem[] = [
   },
   {
     img: img10,
-    title: "Test",
+    title: "Testing",
     num: "5",
     id: "section-test",
     link: "https://github.com/yourusername/testing",
@@ -79,17 +79,12 @@ const aboutItems: AboutItem[] = [
   },
   {
     img: img11,
-    title: "Test",
+    title: "Security",
     num: "6",
     id: "section-test2",
     link: "https://github.com/yourusername/more-tests",
     description: "Specialized in performance testing and optimization.",
-    skills: [
-      "Lighthouse",
-      "WebPageTest",
-      "Performance Testing",
-      "Load Testing",
-    ],
+    skills: ["Fortify", "npm audit", "ESLint", "GtiGuardian"],
     experience: "2 years focused on web performance optimization.",
   },
 ];
@@ -237,7 +232,7 @@ function AboutPage() {
       >
         <div className="relative w-screen h-screen">
           <div className="absolute inset-x-0 top-1/4 transform -translate-y-full text-center left-[25%]  md:max-lg:flex">
-            <h1 className=" md:text-8xl font-bold">About.</h1>
+            <h1 className=" md:text-8xl font-bold">Skills.</h1>
             <div className="flex justify-center">
               <div className="line h-2 w-10 m-6"></div>
               <p className="mt-4 text-sm md:text-1xl font-medium">

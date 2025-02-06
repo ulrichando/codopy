@@ -11,7 +11,7 @@ const menu = [
   { name: "Security" },
 ];
 
-const videos = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];
+const videos = [{ id: "drA7m3iKpuko", name: "Video 1" }];
 const HomePage = () => {
   return (
     <div className="Relative w-full h-full">
@@ -66,7 +66,7 @@ const HomePage = () => {
               ))}
             </div>
             <div className="absolute justify-center items-center left-12 -top-4">
-              <span className="reel text-xl ">Reel</span>
+              <span className="reel text-base ">MyPath</span>
             </div>
           </div>
         </div>

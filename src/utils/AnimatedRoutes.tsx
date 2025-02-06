@@ -1,5 +1,5 @@
 import HomePage from "../pages/HomePage";
-import AboutPage from "../pages/AboutPage";
+import AboutPage from "../pages/SkillPage";
 import ContactPage from "../pages/ContactPage";
 import WorkPage from "../pages/WorkPage";
 import { Route, Routes, useLocation } from "react-router-dom";

@@ -29,19 +29,21 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Router>
-        <AnimatedCursor
-          innerSize={10}
-          outerSize={40}
-          innerScale={1}
-          outerScale={2}
-          outerAlpha={0}
-          innerStyle={{
-            backgroundColor: "var(--cursor-color)",
-          }}
-          outerStyle={{
-            border: "3px solid var(--cursor-color)",
-          }}
-        />
+        <div className="hidden md:block">
+          <AnimatedCursor
+            innerSize={10}
+            outerSize={40}
+            innerScale={1}
+            outerScale={2}
+            outerAlpha={0}
+            innerStyle={{
+              backgroundColor: "var(--cursor-color)",
+            }}
+            outerStyle={{
+              border: "3px solid var(--cursor-color)",
+            }}
+          />
+        </div>
 
         <Footer />
       </Router>

@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
               <X className="inline-block mx-1" />
             </a>
             <a
-              href="https://www.youtube.com/@YourChannelName"
+              href="https://www.youtube.com/@codopy"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-70 transition-opacity"

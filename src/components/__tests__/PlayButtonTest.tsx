@@ -1,123 +1,227 @@
-TweenMax.set(".play-circle-01", {
-  rotation: 90,
-  transformOrigin: "center",
-});
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import "./PlayButton.css";
 
-TweenMax.set(".play-circle-02", {
-  rotation: -90,
-  transformOrigin: "center",
-});
+interface PlayButtonTestProps {
+  videoId: string;
+}
 
-TweenMax.set(".play-perspective", {
-  xPercent: 6.5,
-  scale: 0.175,
-  transformOrigin: "center",
-  perspective: 1,
-});
+const PlayButtonTest: React.FC<PlayButtonTestProps> = ({ videoId }) => {
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
-TweenMax.set(".play-video", {
-  visibility: "hidden",
-  opacity: 0,
-});
+  // Refs
+  const playButtonRef = useRef<HTMLDivElement>(null);
+  const playCircle1Ref = useRef<SVGCircleElement>(null);
+  const playCircle2Ref = useRef<SVGCircleElement>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
+  const playPerspectiveRef = useRef<HTMLDivElement>(null);
+  const playTriangleRef = useRef<HTMLDivElement>(null);
+  const playVideoRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-TweenMax.set(".play-triangle", {
-  transformOrigin: "left center",
-  transformStyle: "preserve-3d",
-  rotationY: 10,
-  scaleX: 2,
-});
+  // Initialize animations
+  useEffect(() => {
+    // Play button animations
+    gsap.set(playCircle1Ref.current, {
+      rotation: 90,
+      transformOrigin: "center",
+    });
+    gsap.set(playCircle2Ref.current, {
+      rotation: -90,
+      transformOrigin: "center",
+    });
 
-const rotateTL = new TimelineMax({ paused: true })
-  .to(
-    ".play-circle-01",
-    0.7,
-    {
-      opacity: 0.1,
-      rotation: "+=360",
-      strokeDasharray: "456 456",
-      ease: Power1.easeInOut,
-    },
-    0
-  )
-  .to(
-    ".play-circle-02",
-    0.7,
-    {
-      opacity: 0.1,
-      rotation: "-=360",
-      strokeDasharray: "411 411",
-      ease: Power1.easeInOut,
-    },
-    0
+    // Rotate animation
+    const rotateTL = gsap
+      .timeline({ paused: true })
+      .to(
+        playCircle1Ref.current,
+        {
+          duration: 0.7,
+          rotation: "+=360",
+          opacity: 0.1,
+          strokeDasharray: "456 456",
+          ease: "power1.inOut",
+        },
+        0
+      )
+      .to(
+        playCircle2Ref.current,
+        {
+          duration: 0.7,
+          rotation: "-=360",
+          opacity: 0.1,
+          strokeDasharray: "411 411",
+          ease: "power1.inOut",
+        },
+        0
+      );
+
+    playButtonRef.current?.addEventListener("mouseover", () => rotateTL.play());
+    playButtonRef.current?.addEventListener("mouseleave", () =>
+      rotateTL.reverse()
+    );
+
+    // Cleanup
+    return () => {
+      rotateTL.kill();
+    };
+  }, []);
+
+  // Open animation
+  useEffect(() => {
+    if (isPlaying) {
+      // Wait for the DOM to update
+      setTimeout(() => {
+        // Video modal animations
+        gsap.set(playPerspectiveRef.current, {
+          xPercent: 6.5,
+          scale: 0.175,
+          transformOrigin: "center",
+          perspective: 1,
+        });
+        gsap.set(playVideoRef.current, {
+          visibility: "hidden",
+          opacity: 0,
+        });
+        gsap.set(playTriangleRef.current, {
+          transformOrigin: "left center",
+          transformStyle: "preserve-3d",
+          rotationY: 10,
+          scaleX: 2,
+        });
+
+        const openTL = gsap
+          .timeline()
+          .to(
+            backdropRef.current,
+            {
+              duration: 1,
+              opacity: 0.95,
+              visibility: "visible",
+              ease: "power2.inOut",
+            },
+            0
+          )
+          .to(
+            closeButtonRef.current,
+            {
+              duration: 1,
+              opacity: 1,
+              ease: "power2.inOut",
+            },
+            0
+          )
+          .to(
+            playPerspectiveRef.current,
+            {
+              duration: 1,
+              xPercent: 0,
+              scale: 1,
+              ease: "power2.inOut",
+            },
+            0
+          )
+          .to(
+            playTriangleRef.current,
+            {
+              duration: 1,
+              scaleX: 1,
+              rotationY: 0,
+              ease: "power2.inOut",
+            },
+            0
+          )
+          .to(
+            playVideoRef.current,
+            {
+              duration: 1,
+              visibility: "visible",
+              opacity: 1,
+              ease: "power2.inOut",
+            },
+            0.5
+          );
+
+        openTL.play();
+      }, 0);
+    }
+  }, [isPlaying]);
+
+  const handlePlayClick = () => {
+    setIsPlaying(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const handleClose = () => {
+    setIsPlaying(false);
+    document.body.style.overflow = "";
+  };
+
+  return (
+    <>
+      {/* Play Button */}
+      <div
+        className="play-button"
+        ref={playButtonRef}
+        onClick={handlePlayClick}
+      >
+        <svg className="play-circles" viewBox="0 0 152 152">
+          <circle
+            className="play-circle-01"
+            ref={playCircle1Ref}
+            fill="none"
+            stroke="#fff"
+            strokeWidth="3"
+            strokeDasharray="343 343"
+            cx="76"
+            cy="76"
+            r="72.7"
+          />
+          <circle
+            className="play-circle-02"
+            ref={playCircle2Ref}
+            fill="none"
+            stroke="#fff"
+            strokeWidth="3"
+            strokeDasharray="309 309"
+            cx="76"
+            cy="76"
+            r="65.5"
+          />
+        </svg>
+      </div>
+
+      {/* Video Modal */}
+      {isPlaying && (
+        <>
+          <div
+            className="play-backdrop"
+            ref={backdropRef}
+            onClick={handleClose}
+          ></div>
+          <div className="play-perspective" ref={playPerspectiveRef}>
+            <button
+              className="play-close"
+              ref={closeButtonRef}
+              onClick={handleClose}
+            ></button>
+            <div className="play-triangle" ref={playTriangleRef}>
+              <div className="play-video" ref={playVideoRef}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  title="Video Player"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </>
   );
+};
 
-const openTL = new TimelineMax({ paused: true })
-  .to(
-    ".play-backdrop",
-    1,
-    {
-      opacity: 0.95,
-      visibility: "visible",
-      ease: Power2.easeInOut,
-    },
-    0
-  )
-  .to(
-    ".play-close",
-    1,
-    {
-      opacity: 1,
-      ease: Power2.easeInOut,
-    },
-    0
-  )
-  .to(
-    ".play-perspective",
-    1,
-    {
-      xPercent: 0,
-      scale: 1,
-      ease: Power2.easeInOut,
-    },
-    0
-  )
-  .to(
-    ".play-triangle",
-    1,
-    {
-      scaleX: 1,
-      ease: ExpoScaleEase.config(2, 1, Power2.easeInOut),
-    },
-    0
-  )
-  .to(
-    ".play-triangle",
-    1,
-    {
-      rotationY: 0,
-      ease: ExpoScaleEase.config(10, 0.01, Power2.easeInOut),
-    },
-    0
-  )
-  .to(
-    ".play-video",
-    1,
-    {
-      visibility: "visible",
-      opacity: 1,
-    },
-    0.5
-  );
-
-const button = document.querySelector(".play-button");
-const backdrop = document.querySelector(".play-backdrop");
-const close = document.querySelector(".play-close");
-
-button.addEventListener("mouseover", () => rotateTL.play());
-button.addEventListener("mouseleave", () => rotateTL.reverse());
-button.addEventListener("click", () => openTL.play());
-backdrop.addEventListener("click", () => openTL.reverse());
-close.addEventListener("click", (e) => {
-  e.stopPropagation();
-  openTL.reverse();
-});
+export default PlayButtonTest;

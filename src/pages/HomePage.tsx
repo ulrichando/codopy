@@ -66,7 +66,7 @@ const HomePage = () => {
               ))}
             </div>
             <div className="absolute justify-center items-center left-12 -top-4">
-              <span className="text-xl ">Reel</span>
+              <span className="reel text-xl ">Reel</span>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Instagram, Github, Linkedin, X, Youtube } from "lucide-react";
+import { Instagram, Github, Linkedin, Youtube } from "lucide-react";
 import SweepNavigation from "../pages/SweepNavigation";
 import Homepage from "../pages/HomePage";
 import WorkPage from "../pages/WorkPage";
@@ -74,14 +74,7 @@ const Footer: React.FC = () => {
             >
               <Linkedin className="inline-block mx-1" />
             </a>
-            <a
-              href="https://x.com/ando_ulrich"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-70 transition-opacity"
-            >
-              <X className="inline-block mx-1" />
-            </a>
+
             <a
               href="https://www.youtube.com/@codopy"
               target="_blank"

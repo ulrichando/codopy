@@ -232,7 +232,7 @@ function AboutPage() {
       >
         <div className="relative w-screen h-screen">
           <div className="absolute inset-x-0 top-1/4 transform -translate-y-full text-center left-[25%]  md:max-lg:flex">
-            <h1 className=" md:text-8xl font-bold">Skills.</h1>
+            <h1 className="text-4xl md:text-8xl font-bold">Skills.</h1>
             <div className="flex justify-center">
               <div className="line h-2 w-10 m-6"></div>
               <p className="mt-4 text-sm md:text-1xl font-medium">

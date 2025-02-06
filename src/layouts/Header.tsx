@@ -132,7 +132,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                       href="https://www.youtube.com/@codopy"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:opacity-70 transition-opacity"
+                      className="text-white hover:text-gray-300 transition-colors"
                     >
                       <Youtube className="inline-block mx-1" />
                     </a>

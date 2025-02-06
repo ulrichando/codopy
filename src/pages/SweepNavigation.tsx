@@ -1,6 +1,6 @@
 // src/pages/SweepNavigation.tsx
 import { useState, useEffect } from "react";
-import DarkModeButton from "../components/ui/DarkmodeButton";
+// import DarkModeButton from "../components/ui/DarkmodeButton";
 import useDarkMode from "../hooks/useDarkMode";
 import AboutPage from "./SkillPage";
 import Homepage from "./HomePage";

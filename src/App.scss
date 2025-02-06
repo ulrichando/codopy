@@ -56,7 +56,19 @@ body {
     transition: transform 6.5s ease-in-out;
     
 }  
+/* Hide cursor on mobile devices */
+@media only screen and (max-width: 768px) {
+    body {
+        cursor: none;
+    }
+}
 
+/* Show cursor on larger devices (PCs) */
+@media only screen and (min-width: 769px) {
+    body {
+        cursor: auto;
+    }
+}
 
 /* real button */
 

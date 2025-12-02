@@ -28,7 +28,7 @@ const ContactPage = () => {
       } else {
         alert("Failed to send message");
       }
-    } catch (error) {
+    } catch {
       alert("An error occurred");
     }
 

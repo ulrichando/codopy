@@ -18,6 +18,10 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.es2020,
+        React: 'readonly',
+        JSX: 'readonly',
+        YT: 'readonly',
+        EventListener: 'readonly',
       },
     },
     plugins: {
@@ -34,6 +38,7 @@ export default [
         { allowConstantExport: true },
       ],
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-undef': 'off',
     },
   },
   {

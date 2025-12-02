@@ -28,19 +28,7 @@
     "esModuleInterop": true // Ensure this is included as well
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.jsx",
-    "src/**/*.json",
-    "src/**/*.css",
-    "src/**/*.scss",
-    "src/**/*.svg",
-    "src/components/common/CustomCursor.tsx",
-    "src/components/common/Footer copy",
-    "src/components/common/DraggableSroll.js",
-    "src/components/common/CircularMenu.js",
-    "src/utils/DarkMode.tsx",
-    "src/utils/videoPlayer.tsx"
+    "src"
   ],
   "references": [
     {

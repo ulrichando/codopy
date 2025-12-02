@@ -152,18 +152,6 @@ function InfoPanel({
               <h3 className="text-lg font-semibold mb-2">Experience</h3>
               <p className="text-gray-600">{item.experience}</p>
             </div>
-
-            {/* <div className="mt-6">
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                View Repository
-                <span className="ml-2">→</span>
-              </a>
-            </div> */}
           </div>
         </div>
       </div>

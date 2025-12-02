@@ -98,13 +98,6 @@ const WorkPage = () => {
     }
   }, [mouseMoved, scrollTopState]);
 
-  // function scrollToSection(id: string) {
-  //   const element = document.getElementById(id);
-  //   if (element && itemsContainer.current) {
-  //     element.scrollIntoView({ behavior: "smooth", block: "center" });
-  //   }
-  // }
-
   return (
     <div
       className="relative h-screen w-screen overflow-hidden"

@@ -3,11 +3,7 @@ import { Send, CheckCircle } from "lucide-react";
 import { useForm, ValidationError } from "@formspree/react";
 import useDarkMode from "../hooks/useDarkMode";
 
-// IMPORTANT: Replace this with your Formspree form ID
-// 1. Go to https://formspree.io and create a free account
-// 2. Create a new form and set the email to ulrichando007@gmail.com
-// 3. Copy the form ID (looks like "xyzabcde") and paste it below
-const FORMSPREE_FORM_ID = "xyzabcde"; // Replace with your actual form ID
+const FORMSPREE_FORM_ID = "xeoyllon";
 
 const ContactPage = () => {
   const [darkMode] = useDarkMode();

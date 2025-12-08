@@ -1,41 +1,17 @@
-import React, { useState } from "react";
-import { Send } from "lucide-react";
+// React is imported for JSX support
+import { Send, CheckCircle } from "lucide-react";
+import { useForm, ValidationError } from "@formspree/react";
 import useDarkMode from "../hooks/useDarkMode";
+
+// IMPORTANT: Replace this with your Formspree form ID
+// 1. Go to https://formspree.io and create a free account
+// 2. Create a new form and set the email to ulrichando007@gmail.com
+// 3. Copy the form ID (looks like "xyzabcde") and paste it below
+const FORMSPREE_FORM_ID = "xyzabcde"; // Replace with your actual form ID
 
 const ContactPage = () => {
   const [darkMode] = useDarkMode();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
-      });
-
-      if (response.ok) {
-        alert("Message sent successfully!");
-        setName("");
-        setEmail("");
-        setMessage("");
-      } else {
-        alert("Failed to send message");
-      }
-    } catch {
-      alert("An error occurred");
-    }
-
-    setLoading(false);
-  };
+  const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
 
   return (
     <div
@@ -231,79 +207,113 @@ const ContactPage = () => {
               {/* Right side - Form */}
               <div className="w-full lg:w-1/2 p-4 md:p-8">
                 <div className="max-w-md mx-auto">
-                  <form
-                    onSubmit={handleSubmit}
-                    className="space-y-4 md:space-y-6"
-                  >
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 focus:outline-none ${!darkMode ? "bg-gray-50 text-gray-900" : ""}`}
-                        style={darkMode ? { backgroundColor: "#1A1A1A", color: "#FAFAFA", border: "1px solid #333333" } : undefined}
-                        required
+                  {state.succeeded ? (
+                    <div className="text-center py-12">
+                      <CheckCircle
+                        className="w-16 h-16 mx-auto mb-4"
+                        style={{ color: darkMode ? "#4ADE80" : "#22C55E" }}
                       />
+                      <h3
+                        className="text-2xl font-bold mb-2"
+                        style={{ color: darkMode ? "#FAFAFA" : "#111827" }}
+                      >
+                        Message Sent!
+                      </h3>
+                      <p style={{ color: darkMode ? "#888888" : "#6B7280" }}>
+                        Thank you for reaching out. I'll get back to you soon.
+                      </p>
                     </div>
-
-                    <div>
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 focus:outline-none ${!darkMode ? "bg-gray-50 text-gray-900" : ""}`}
-                        style={darkMode ? { backgroundColor: "#1A1A1A", color: "#FAFAFA", border: "1px solid #333333" } : undefined}
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <textarea
-                        placeholder="Message"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        rows={4}
-                        className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none ${!darkMode ? "bg-gray-50 text-gray-900" : ""}`}
-                        style={darkMode ? { backgroundColor: "#1A1A1A", color: "#FAFAFA", border: "1px solid #333333" } : undefined}
-                        required
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors ${!darkMode ? "bg-black hover:bg-gray-800 text-white" : ""}`}
-                      style={darkMode ? { backgroundColor: "#FAFAFA", color: "#000000" } : undefined}
+                  ) : (
+                    <form
+                      onSubmit={handleSubmit}
+                      className="space-y-4 md:space-y-6"
                     >
-                      {loading ? (
-                        <svg
-                          className="animate-spin h-5 w-5"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          />
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          />
-                        </svg>
-                      ) : (
-                        <>
-                          <span>Send</span>
-                          <Send className="h-5 w-5" />
-                        </>
-                      )}
-                    </button>
-                  </form>
+                      <div>
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="Name"
+                          className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 focus:outline-none ${!darkMode ? "bg-gray-50 text-gray-900" : ""}`}
+                          style={darkMode ? { backgroundColor: "#1A1A1A", color: "#FAFAFA", border: "1px solid #333333" } : undefined}
+                          required
+                        />
+                        <ValidationError
+                          prefix="Name"
+                          field="name"
+                          errors={state.errors}
+                          className="text-red-500 text-sm mt-1"
+                        />
+                      </div>
+
+                      <div>
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="Email"
+                          className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 focus:outline-none ${!darkMode ? "bg-gray-50 text-gray-900" : ""}`}
+                          style={darkMode ? { backgroundColor: "#1A1A1A", color: "#FAFAFA", border: "1px solid #333333" } : undefined}
+                          required
+                        />
+                        <ValidationError
+                          prefix="Email"
+                          field="email"
+                          errors={state.errors}
+                          className="text-red-500 text-sm mt-1"
+                        />
+                      </div>
+
+                      <div>
+                        <textarea
+                          name="message"
+                          placeholder="Message"
+                          rows={4}
+                          className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none ${!darkMode ? "bg-gray-50 text-gray-900" : ""}`}
+                          style={darkMode ? { backgroundColor: "#1A1A1A", color: "#FAFAFA", border: "1px solid #333333" } : undefined}
+                          required
+                        />
+                        <ValidationError
+                          prefix="Message"
+                          field="message"
+                          errors={state.errors}
+                          className="text-red-500 text-sm mt-1"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={state.submitting}
+                        className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors disabled:opacity-70 ${!darkMode ? "bg-black hover:bg-gray-800 text-white" : ""}`}
+                        style={darkMode ? { backgroundColor: "#FAFAFA", color: "#000000" } : undefined}
+                      >
+                        {state.submitting ? (
+                          <svg
+                            className="animate-spin h-5 w-5"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="none"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            />
+                          </svg>
+                        ) : (
+                          <>
+                            <span>Send</span>
+                            <Send className="h-5 w-5" />
+                          </>
+                        )}
+                      </button>
+                    </form>
+                  )}
                 </div>
               </div>
             </div>

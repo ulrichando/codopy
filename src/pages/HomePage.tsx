@@ -22,7 +22,7 @@ const menu: MenuItem[] = [
   { name: "Security" },
 ];
 
-const videos: Video[] = [{ id: "drA7m3iKpuko", name: "Video 1" }];
+const videos: Video[] = [{ id: "dQw4w9WgXcQ", name: "Video 1" }];
 
 const HomePage: React.FC = () => {
   const handleRefresh = async (): Promise<void> => {
@@ -70,15 +70,13 @@ const HomePage: React.FC = () => {
               ))}
             </div>
 
-            {/* Reel button */}
-            <div className="absolute bottom-1/4 left-full transform translate-x-5 translate-y-20 hidden md:block">
-              <div>
+            {/* Reel button - visible on all screens */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-24 md:bottom-1/4 md:left-full md:translate-x-5 md:translate-y-20">
+              <div className="relative flex flex-col items-center">
                 {videos.map((video) => (
                   <PlayButton key={video.id} videoId={video.id} />
                 ))}
-              </div>
-              <div className="absolute justify-center items-center left-12 -top-4">
-                <span className="reel text-base">MyPath</span>
+                <span className="reel text-base mt-3 md:mt-0 md:absolute md:left-full md:top-1/2 md:-translate-y-1/2 md:ml-4 whitespace-nowrap">MyPath</span>
               </div>
             </div>
           </div>

@@ -59,13 +59,14 @@ const WorkPage = () => {
   const [startY, setStartY] = useState(0);
   const [scrollTopState, setScrollTopState] = useState<number | null>(0);
   const [mouseMoved, setMouseMoved] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
   const itemsContainer = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth < 768);
     }
+    handleResize(); // Set initial value on mount
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -107,9 +108,9 @@ const WorkPage = () => {
     >
       <motion.div
         className="work"
-        initial={{ x: window.innerWidth, width: "100vw" }}
+        initial={{ x: "100vw", width: "100vw" }}
         animate={{ x: 0, width: "100vw" }}
-        exit={{ x: window.innerWidth, transition: { duration: 1 } }}
+        exit={{ x: "100vw", transition: { duration: 1 } }}
         transition={{ duration: 1 }}
       >
         <div className="relative w-screen h-screen">

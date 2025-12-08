@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "../components/draggablescroll.css";
 import { X } from "lucide-react";
+import useDarkMode from "../hooks/useDarkMode";
 
 import img6 from "../assets/images/img6.jpg";
 import img7 from "../assets/images/img7.jpg";
@@ -84,7 +85,7 @@ const aboutItems: AboutItem[] = [
     id: "section-test2",
     link: "https://github.com/yourusername/more-tests",
     description: "Specialized in performance testing and optimization.",
-    skills: ["Fortify", "npm audit", "ESLint", "GtiGuardian"],
+    skills: ["Fortify", "npm audit", "ESLint", "GitGuardian"],
     experience: "2 years focused on web performance optimization.",
   },
 ];
@@ -92,9 +93,11 @@ const aboutItems: AboutItem[] = [
 function InfoPanel({
   item,
   onClose,
+  darkMode,
 }: {
   item: AboutItem | null;
   onClose: () => void;
+  darkMode: boolean;
 }) {
   if (!item) return null;
 
@@ -108,12 +111,12 @@ function InfoPanel({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-white rounded-lg w-full max-w-2xl overflow-hidden shadow-xl">
-        <div className="flex justify-between items-center p-6 border-b">
-          <h2 className="text-2xl font-bold">{item.title}</h2>
+      <div className={`rounded-lg w-full max-w-2xl overflow-hidden shadow-xl ${darkMode ? "bg-gray-800" : "bg-white"}`}>
+        <div className={`flex justify-between items-center p-6 border-b ${darkMode ? "border-gray-700" : "border-gray-200"}`}>
+          <h2 className={`text-2xl font-bold ${darkMode ? "text-white" : "text-gray-900"}`}>{item.title}</h2>
           <button
             onClick={onClose}
-            className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+            className={`p-1 rounded-full transition-colors ${darkMode ? "hover:bg-gray-700 text-white" : "hover:bg-gray-100 text-gray-900"}`}
           >
             <X className="w-6 h-6" />
           </button>
@@ -130,17 +133,17 @@ function InfoPanel({
 
           <div className="space-y-2">
             <div>
-              <h3 className="text-lg font-semibold mb-2">Description</h3>
-              <p className="text-gray-600">{item.description}</p>
+              <h3 className={`text-lg font-semibold mb-2 ${darkMode ? "text-white" : "text-gray-900"}`}>Description</h3>
+              <p className={darkMode ? "text-gray-300" : "text-gray-600"}>{item.description}</p>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">Skills</h3>
+              <h3 className={`text-lg font-semibold mb-2 ${darkMode ? "text-white" : "text-gray-900"}`}>Skills</h3>
               <div className="flex flex-wrap gap-2">
                 {item.skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                    className={`px-3 py-1 rounded-full text-sm ${darkMode ? "bg-blue-900 text-blue-200" : "bg-blue-100 text-blue-800"}`}
                   >
                     {skill}
                   </span>
@@ -149,8 +152,8 @@ function InfoPanel({
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">Experience</h3>
-              <p className="text-gray-600">{item.experience}</p>
+              <h3 className={`text-lg font-semibold mb-2 ${darkMode ? "text-white" : "text-gray-900"}`}>Experience</h3>
+              <p className={darkMode ? "text-gray-300" : "text-gray-600"}>{item.experience}</p>
             </div>
           </div>
         </div>
@@ -160,11 +163,12 @@ function InfoPanel({
 }
 
 function AboutPage() {
+  const [darkMode] = useDarkMode();
   const [isDown, setIsDown] = useState(false);
   const [startY, setStartY] = useState(0);
   const [scrollTopState, setScrollTopState] = useState<number | null>(0);
   const [mouseMoved, setMouseMoved] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
   const [selectedItem, setSelectedItem] = useState<AboutItem | null>(null);
   const itemsContainer = useRef<HTMLDivElement | null>(null);
 
@@ -172,6 +176,7 @@ function AboutPage() {
     function handleResize() {
       setIsMobile(window.innerWidth < 768);
     }
+    handleResize(); // Set initial value on mount
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -213,9 +218,9 @@ function AboutPage() {
     >
       <motion.div
         className="home"
-        initial={{ x: -window.innerWidth, width: "100vw" }}
+        initial={{ x: "-100vw", width: "100vw" }}
         animate={{ x: 0, width: "100vw" }}
-        exit={{ x: -window.innerWidth, transition: { duration: 1 } }}
+        exit={{ x: "-100vw", transition: { duration: 1 } }}
         transition={{ duration: 1 }}
       >
         <div className="relative w-screen h-screen">
@@ -330,6 +335,7 @@ function AboutPage() {
               <InfoPanel
                 item={selectedItem}
                 onClose={() => setSelectedItem(null)}
+                darkMode={darkMode}
               />
             )}
           </AnimatePresence>

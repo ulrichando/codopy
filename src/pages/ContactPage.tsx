@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Send } from "lucide-react";
+import useDarkMode from "../hooks/useDarkMode";
 
 const ContactPage = () => {
+  const [darkMode] = useDarkMode();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -36,13 +38,13 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white">
+    <div className={`min-h-screen w-full transition-colors duration-300 ${darkMode ? "bg-gray-900" : "bg-white"}`}>
       {/* Get In Touch Section - Absolutely positioned */}
       <div className="absolute inset-x-0 top-20 md:top-32 z-10 text-center">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900">
+        <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold ${darkMode ? "text-white" : "text-gray-900"}`}>
           Get In Touch.
         </h1>
-        <p className="mt-2 md:mt-4 text-lg md:text-xl text-gray-600">
+        <p className={`mt-2 md:mt-4 text-lg md:text-xl ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
           Send your feedback
           <br />
           ulrichando007@gmail.com
@@ -52,7 +54,7 @@ const ContactPage = () => {
       {/* Main Content */}
       <div className="min-h-screen w-full flex items-center justify-center p-4">
         <div className="w-full max-w-6xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div className={`rounded-2xl shadow-xl overflow-hidden ${darkMode ? "bg-gray-800" : "bg-white"}`}>
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side - SVG Illustration */}
               <div className="w-full lg:w-1/2 p-4 md:p-8 flex justify-center">
@@ -227,7 +229,7 @@ const ContactPage = () => {
                         placeholder="Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-2 md:px-4 md:py-3 rounded-lg bg-gray-50 border-0 focus:ring-2 focus:ring-blue-500"
+                        className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 ${darkMode ? "bg-gray-700 text-white placeholder-gray-400" : "bg-gray-50 text-gray-900"}`}
                         required
                       />
                     </div>
@@ -238,7 +240,7 @@ const ContactPage = () => {
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-2 md:px-4 md:py-3 rounded-lg bg-gray-50 border-0 focus:ring-2 focus:ring-blue-500"
+                        className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 ${darkMode ? "bg-gray-700 text-white placeholder-gray-400" : "bg-gray-50 text-gray-900"}`}
                         required
                       />
                     </div>
@@ -249,7 +251,7 @@ const ContactPage = () => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         rows={4}
-                        className="w-full px-4 py-2 md:px-4 md:py-3 rounded-lg bg-gray-50 border-0 focus:ring-2 focus:ring-blue-500 resize-none"
+                        className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 resize-none ${darkMode ? "bg-gray-700 text-white placeholder-gray-400" : "bg-gray-50 text-gray-900"}`}
                         required
                       />
                     </div>
@@ -257,7 +259,7 @@ const ContactPage = () => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full bg-black hover:bg-gray-800 text-white px-4 py-2 md:px-4 md:py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+                      className={`w-full px-4 py-2 md:px-4 md:py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors ${darkMode ? "bg-white hover:bg-gray-200 text-black" : "bg-black hover:bg-gray-800 text-white"}`}
                     >
                       {loading ? (
                         <svg

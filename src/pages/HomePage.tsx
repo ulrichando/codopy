@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
 
   return (
     <PullToRefresh onRefresh={handleRefresh}>
-      <div className="Relative w-full h-full">
+      <div className="relative w-full h-full">
         <div className="relative w-screen h-screen">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
             {/* Text Hello */}

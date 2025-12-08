@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 
 const useDarkMode = (): [boolean, () => void] => {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("darkmode") === "active"
-  );
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Initialize dark mode from localStorage on mount (client-side only)
+  useEffect(() => {
+    const storedDarkMode = localStorage.getItem("darkmode") === "active";
+    setDarkMode(storedDarkMode);
+  }, []);
 
   useEffect(() => {
     if (darkMode) {

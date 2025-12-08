@@ -8,9 +8,11 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types"
+    "types": [
+      "react",
+      "react-dom",
+      "react-router-dom",
+      "react-scroll"
     ],
     "module": "ESNext",
     "skipLibCheck": true,

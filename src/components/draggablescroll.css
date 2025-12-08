@@ -14,20 +14,23 @@
 .ItemsContainer {
     position: fixed;
     width: 600px;
-    height: 900px;
-    overflow-y: hidden;
+    max-height: 70vh;
+    overflow-y: auto;
     overflow-x: hidden;
     user-select: none;
 }
 
+.table {
+    display: block;
+}
+
 .item {
-    display: table-row;
+    display: flex;
     flex-direction: column;
-    height: 200px;
-    width: 300px;
-    background-color: none;
+    width: 100%;
+    background-color: transparent;
     user-select: none;
-    gap: 20px;
+    gap: 8px;
 }
 
 .item2 {
@@ -145,11 +148,14 @@
 
     .ItemsContainer {
         width: 100%;
-        height: auto;
-        max-height: 80vh;
+        max-height: 50vh;
+        position: relative;
     }
 
-    .item,
+    .item {
+        width: 100%;
+    }
+
     .item2,
     .card-title {
         width: 100%;
@@ -185,4 +191,14 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+}
+
+/* Utility class for hiding scrollbars */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
 } 

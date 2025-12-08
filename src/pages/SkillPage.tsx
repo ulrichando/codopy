@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import "../components/draggablescroll.css";
 import { X } from "lucide-react";
 import useDarkMode from "../hooks/useDarkMode";
@@ -111,12 +111,24 @@ function InfoPanel({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className={`rounded-lg w-full max-w-2xl overflow-hidden shadow-xl ${darkMode ? "bg-gray-800" : "bg-white"}`}>
-        <div className={`flex justify-between items-center p-6 border-b ${darkMode ? "border-gray-700" : "border-gray-200"}`}>
-          <h2 className={`text-2xl font-bold ${darkMode ? "text-white" : "text-gray-900"}`}>{item.title}</h2>
+      <div
+        className={`rounded-lg w-full max-w-2xl overflow-hidden shadow-xl ${!darkMode ? "bg-white" : ""}`}
+        style={darkMode ? { backgroundColor: "#111111" } : undefined}
+      >
+        <div
+          className={`flex justify-between items-center p-6 border-b ${!darkMode ? "border-gray-200" : ""}`}
+          style={darkMode ? { borderColor: "#333333" } : undefined}
+        >
+          <h2
+            className={`text-2xl font-bold ${!darkMode ? "text-gray-900" : ""}`}
+            style={darkMode ? { color: "#FAFAFA" } : undefined}
+          >
+            {item.title}
+          </h2>
           <button
             onClick={onClose}
-            className={`p-1 rounded-full transition-colors ${darkMode ? "hover:bg-gray-700 text-white" : "hover:bg-gray-100 text-gray-900"}`}
+            className={`p-1 rounded-full transition-colors ${!darkMode ? "hover:bg-gray-100 text-gray-900" : ""}`}
+            style={darkMode ? { color: "#FAFAFA" } : undefined}
           >
             <X className="w-6 h-6" />
           </button>
@@ -133,17 +145,28 @@ function InfoPanel({
 
           <div className="space-y-2">
             <div>
-              <h3 className={`text-lg font-semibold mb-2 ${darkMode ? "text-white" : "text-gray-900"}`}>Description</h3>
-              <p className={darkMode ? "text-gray-300" : "text-gray-600"}>{item.description}</p>
+              <h3
+                className={`text-lg font-semibold mb-2 ${!darkMode ? "text-gray-900" : ""}`}
+                style={darkMode ? { color: "#FAFAFA" } : undefined}
+              >
+                Description
+              </h3>
+              <p className={!darkMode ? "text-gray-600" : ""} style={darkMode ? { color: "#888888" } : undefined}>{item.description}</p>
             </div>
 
             <div>
-              <h3 className={`text-lg font-semibold mb-2 ${darkMode ? "text-white" : "text-gray-900"}`}>Skills</h3>
+              <h3
+                className={`text-lg font-semibold mb-2 ${!darkMode ? "text-gray-900" : ""}`}
+                style={darkMode ? { color: "#FAFAFA" } : undefined}
+              >
+                Skills
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {item.skills.map((skill, index) => (
                   <span
                     key={index}
-                    className={`px-3 py-1 rounded-full text-sm ${darkMode ? "bg-blue-900 text-blue-200" : "bg-blue-100 text-blue-800"}`}
+                    className={`px-3 py-1 rounded-full text-sm ${!darkMode ? "bg-blue-100 text-blue-800" : ""}`}
+                    style={darkMode ? { backgroundColor: "#1A1A1A", color: "#FAFAFA", border: "1px solid #333333" } : undefined}
                   >
                     {skill}
                   </span>
@@ -152,8 +175,13 @@ function InfoPanel({
             </div>
 
             <div>
-              <h3 className={`text-lg font-semibold mb-2 ${darkMode ? "text-white" : "text-gray-900"}`}>Experience</h3>
-              <p className={darkMode ? "text-gray-300" : "text-gray-600"}>{item.experience}</p>
+              <h3
+                className={`text-lg font-semibold mb-2 ${!darkMode ? "text-gray-900" : ""}`}
+                style={darkMode ? { color: "#FAFAFA" } : undefined}
+              >
+                Experience
+              </h3>
+              <p className={!darkMode ? "text-gray-600" : ""} style={darkMode ? { color: "#888888" } : undefined}>{item.experience}</p>
             </div>
           </div>
         </div>
@@ -171,6 +199,43 @@ function AboutPage() {
   const [isMobile, setIsMobile] = useState(false);
   const [selectedItem, setSelectedItem] = useState<AboutItem | null>(null);
   const itemsContainer = useRef<HTMLDivElement | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Scroll to a specific item - scroll within container only, not the whole page
+  const scrollToItem = useCallback((index: number) => {
+    // Wait for render then scroll within container only
+    setTimeout(() => {
+      const itemElement = itemRefs.current[index];
+      const container = itemsContainer.current;
+
+      if (itemElement && container) {
+        // Calculate scroll position to center the element within the container
+        const containerHeight = container.clientHeight;
+        const elementTop = itemElement.offsetTop;
+        const elementHeight = itemElement.clientHeight;
+
+        // Scroll to position element in center of container
+        const scrollPosition = elementTop - (containerHeight / 2) + (elementHeight / 2);
+
+        container.scrollTo({
+          top: Math.max(0, scrollPosition),
+          behavior: "smooth"
+        });
+      }
+    }, 150);
+  }, []);
+
+  // Listen for scrollToSkill custom event
+  useEffect(() => {
+    const handleScrollToSkill = (event: CustomEvent<{ index: number }>) => {
+      scrollToItem(event.detail.index);
+    };
+
+    window.addEventListener("scrollToSkill", handleScrollToSkill as EventListener);
+    return () => {
+      window.removeEventListener("scrollToSkill", handleScrollToSkill as EventListener);
+    };
+  }, [scrollToItem]);
 
   useEffect(() => {
     function handleResize() {
@@ -224,7 +289,7 @@ function AboutPage() {
         transition={{ duration: 1 }}
       >
         <div className="relative w-screen h-screen">
-          <div className="absolute inset-x-0 top-1/4 transform -translate-y-full text-center left-[25%]  md:max-lg:flex">
+          <div className="fixed inset-x-0 top-1/4 transform -translate-y-full text-center left-[25%] z-10 pointer-events-none">
             <h1 className="text-4xl md:text-8xl font-bold">Skills.</h1>
             <div className="flex justify-center">
               <div className="line h-2 w-10 m-6"></div>
@@ -237,10 +302,8 @@ function AboutPage() {
           </div>
           <div
             className={`MainContainer absolute ${
-              isMobile
-                ? "bottom-1 top-1 left-1/2 -translate-x-1/2"
-                : "right-[25%]"
-            }`}
+              isMobile ? "bottom-1 left-1/2 -translate-x-1/2" : "right-[25%]"
+            } `}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onTouchStart={handleMouseDown}
@@ -250,17 +313,19 @@ function AboutPage() {
               ref={itemsContainer}
               className={`ItemsContainer ${
                 isMobile
-                  ? "relative max-h-[50vh] top-20  overflow-y-auto max-w-full flex  items-center justify-center"
-                  : "fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              }`}
+                  ? "relative max-h-[50vh] top-20 overflow-y-auto max-w-full flex items-center justify-center"
+                  : "fixed left-[25%] top-1/2 transform -translate-x-1/2 -translate-y-1/2 max-h-[70vh] overflow-y-auto scrollbar-hide"
+              } `}
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               <div className="table">
                 <div className="item">
                   {aboutItems.map((item, index) => (
                     <div
                       key={index}
+                      ref={(el) => (itemRefs.current[index] = el)}
                       id={item.id}
-                      className="flex h-[150px] md:h-[200px] w-[300px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
+                      className="flex h-[150px] md:h-[200px] w-[300px] md:w-[600px] border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 rounded-lg mb-2"
                     >
                       {index % 2 === 0 ? (
                         <>

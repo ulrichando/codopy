@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Instagram, Github, Linkedin, Youtube } from "lucide-react";
+import useDarkMode from "../hooks/useDarkMode";
 import "../App.scss";
 
 interface HeaderProps {
@@ -18,6 +19,7 @@ const navigation = [
 
 const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [darkMode] = useDarkMode();
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -48,7 +50,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
           <div className="flex lg">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black dark:text-white"
+              className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 ${!darkMode ? "text-black" : ""}`}
+              style={darkMode ? { color: "#E4E4E7" } : undefined}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
@@ -66,7 +69,10 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
           onClose={closeMobileMenu}
         >
           <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#000000e2] px-6 py-6 sm:max-w-2xl sm:ring-1 sm:ring-gray-900/10 backdrop-blur-md backdrop-filter">
+          <Dialog.Panel
+            className={`fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-2xl sm:ring-1 sm:ring-gray-900/10 backdrop-blur-md backdrop-filter ${!darkMode ? "bg-[#000000e2]" : ""}`}
+            style={darkMode ? { backgroundColor: "rgba(0, 0, 0, 0.95)" } : undefined}
+          >
             <div className="flex items-center justify-between">
               <button
                 onClick={() => handleNavigation(1)}
@@ -74,7 +80,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               ></button>
               <button
                 type="button"
-                className="menu -m-2.5 rounded-md p-2.5 text-white"
+                className="menu -m-2.5 rounded-md p-2.5"
+                style={{ color: "#E4E4E7" }}
                 onClick={closeMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
@@ -88,9 +95,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                     <button
                       key={item.name}
                       onClick={() => handleNavigation(item.index)}
-                      className={`-mx-0 block w-full text-left rounded-lg px-3 py-8 text-6xl font-semibold leading-11 text-white tracking-wide hover:text-gray-300 transition-colors ${
-                        currentPage === item.index ? "text-blue-400" : ""
-                      }`}
+                      className={`-mx-0 block w-full text-left rounded-lg px-3 py-8 text-6xl font-semibold leading-11 tracking-wide transition-colors ${!darkMode ? (currentPage === item.index ? "text-blue-400" : "text-white hover:text-gray-300") : ""}`}
+                      style={darkMode ? { color: currentPage === item.index ? "#FAFAFA" : "#888888" } : undefined}
                     >
                       {item.name}
                     </button>
@@ -103,7 +109,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                       href="https://www.instagram.com/co.dopy/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-gray-300 transition-colors"
+                      className={`transition-colors ${!darkMode ? "text-white hover:text-gray-300" : ""}`}
+                      style={darkMode ? { color: "#FAFAFA" } : undefined}
                     >
                       <Instagram className="inline-block mx-1 w-6 h-6" />
                     </a>
@@ -111,7 +118,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                       href="https://github.com/ulrichando/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-gray-300 transition-colors"
+                      className={`transition-colors ${!darkMode ? "text-white hover:text-gray-300" : ""}`}
+                      style={darkMode ? { color: "#FAFAFA" } : undefined}
                     >
                       <Github className="inline-block mx-1 w-6 h-6" />
                     </a>
@@ -119,7 +127,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                       href="https://www.linkedin.com/in/ulrichando/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-gray-300 transition-colors"
+                      className={`transition-colors ${!darkMode ? "text-white hover:text-gray-300" : ""}`}
+                      style={darkMode ? { color: "#FAFAFA" } : undefined}
                     >
                       <Linkedin className="inline-block mx-1 w-6 h-6" />
                     </a>
@@ -127,7 +136,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                       href="https://www.youtube.com/@codopy"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-gray-300 transition-colors"
+                      className={`transition-colors ${!darkMode ? "text-white hover:text-gray-300" : ""}`}
+                      style={darkMode ? { color: "#FAFAFA" } : undefined}
                     >
                       <Youtube className="inline-block mx-1" />
                     </a>

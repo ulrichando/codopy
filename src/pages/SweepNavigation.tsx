@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useDarkMode from "../hooks/useDarkMode";
 import AboutPage from "./SkillPage";
 import Homepage from "./HomePage";
@@ -18,6 +18,8 @@ interface NavigationCircleProps {
   showMenu?: boolean;
   textPosition?: "left" | "right";
   darkMode?: boolean;
+  menuItems?: MenuItem[];
+  onMenuItemClick?: (index: number) => void;
 }
 
 interface MenuItem {
@@ -36,70 +38,90 @@ interface SweepNavigationProps {
   onPageChange?: (index: number) => void;
 }
 
-const defaultPages = [
-  { content: <AboutPage /> },
-  { content: <Homepage /> },
-  { content: <WorkPage /> },
-  { content: <ContactPage /> },
+// Skills menu items (for Skills page - left side)
+const skillsMenuItems: MenuItem[] = [
+  { label: "Frontend", active: false, section: 0 },
+  { label: "Backend", active: false, section: 0 },
+  { label: "Database", active: false, section: 0 },
+  { label: "Tools", active: false, section: 0 },
+  { label: "Testing", active: false, section: 0 },
+  { label: "Security", active: false, section: 0 },
 ];
 
-// Extended menu items organized by sides
-const allMenuItems: Record<string, MenuItem[]> = {
-  left: [
-    { label: "Frontend", active: false, section: 0 },
-    { label: "Backend", active: false, section: 0 },
-    { label: "AI", active: false, section: 0 },
-    { label: "Cloud", active: false, section: 0 },
-    { label: "Mobile", active: false, section: 0 },
-    { label: "Desktop", active: false, section: 0 },
-  ],
-  right: [
-    { label: "Frontend", active: false, section: 1 },
-    { label: "Backend", active: false, section: 1 },
-    { label: "Analytics", active: false, section: 1 },
-    { label: "Database", active: false, section: 1 },
-    { label: "Security", active: false, section: 1 },
-    { label: "AI Tools", active: false, section: 1 },
-  ],
-};
+// Project menu items (for Work page - right side) - all 13 projects with shortened names
+const projectMenuItems: MenuItem[] = [
+  { label: "Codopy", active: false, section: 2 },
+  { label: "CodingKiddos", active: false, section: 2 },
+  { label: "Realestate", active: false, section: 2 },
+  { label: "RealState", active: false, section: 2 },
+  { label: "Matrix Dark", active: false, section: 2 },
+  { label: "Excel Tracker", active: false, section: 2 },
+  { label: "VideoConf", active: false, section: 2 },
+  { label: "Web2", active: false, section: 2 },
+  { label: "Mywebsite", active: false, section: 2 },
+  { label: "Exploit", active: false, section: 2 },
+  { label: "Log Fixer", active: false, section: 2 },
+  { label: "Clark Master", active: false, section: 2 },
+  { label: "Profile README", active: false, section: 2 },
+];
 
 const Page: React.FC<PageProps> = ({ content }) => (
   <div className="w-full h-full">{content}</div>
 );
+
+const VISIBLE_ITEMS = 6; // Number of items visible at once
 
 const NavigationCircle: React.FC<NavigationCircleProps> = ({
   onNavigate,
   direction,
   className = "",
   size = 600,
-  activeColor = "rgb(96, 165, 250)",
   inactiveColor = "rgb(156, 163, 175)",
   showMenu = false,
   textPosition = "right",
   darkMode = false,
+  menuItems = [],
+  onMenuItemClick,
 }) => {
   const [isMinimized, setIsMinimized] = useState(true);
   const [menuRotation, setMenuRotation] = useState(-180);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollOffset, setScrollOffset] = useState(0);
+  const circleRef = useRef<HTMLDivElement>(null);
 
-  // Get menu items based on direction
-  const menuItems = allMenuItems[direction];
+  // Get visible items based on scroll offset (proper slicing, no wrap-around)
+  const getVisibleItems = () => {
+    const totalItems = menuItems.length;
+    if (totalItems <= VISIBLE_ITEMS) {
+      return menuItems.map((item, i) => ({ ...item, originalIndex: i }));
+    }
 
-  const getPosition = (index: number, total: number) => {
-    const startAngle = 20;
-    const endAngle = 160;
-    const angleStep = (endAngle - startAngle) / (total - 1);
+    // Slice the array from scrollOffset, taking VISIBLE_ITEMS
+    const endIndex = Math.min(scrollOffset + VISIBLE_ITEMS, totalItems);
+    const slicedItems = menuItems.slice(scrollOffset, endIndex);
+    return slicedItems.map((item, i) => ({ ...item, originalIndex: scrollOffset + i }));
+  };
+
+  const visibleItems = getVisibleItems();
+  const hasMoreAbove = menuItems.length > VISIBLE_ITEMS && scrollOffset > 0;
+  const hasMoreBelow = menuItems.length > VISIBLE_ITEMS && scrollOffset < menuItems.length - VISIBLE_ITEMS;
+
+  // Calculate position for each menu item - symmetrical around 90° (vertical center)
+  const getPosition = (index: number) => {
+    // Symmetric arc: 30° to 150° (centered around 90°)
+    const startAngle = 30;
+    const endAngle = 150;
+    const angleStep = (endAngle - startAngle) / (VISIBLE_ITEMS - 1);
     const angle = startAngle + index * angleStep;
     const radian = (angle * Math.PI) / 180;
 
-    const radius = 230;
-    const xOffset = textPosition === "left" ? -20 : 20;
+    const radius = 190;
 
     return {
       x:
         textPosition === "left"
-          ? 250 - Math.sin(radian) * radius + xOffset
-          : 250 + Math.sin(radian) * radius + xOffset,
+          ? 250 - Math.sin(radian) * radius
+          : 250 + Math.sin(radian) * radius,
       y: 250 - Math.cos(radian) * radius,
     };
   };
@@ -113,6 +135,50 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
     }
   };
 
+  const handleMenuItemClick = (originalIndex: number, visibleIndex: number) => {
+    setActiveIndex(originalIndex);
+
+    // Auto-scroll logic: if clicking near edges, scroll to reveal more items
+    const totalItems = menuItems.length;
+    const maxOffset = totalItems - VISIBLE_ITEMS;
+
+    if (totalItems > VISIBLE_ITEMS) {
+      // If clicking on last 2 visible items and there are more below, scroll down
+      if (visibleIndex >= VISIBLE_ITEMS - 2 && scrollOffset < maxOffset) {
+        const scrollAmount = Math.min(2, maxOffset - scrollOffset);
+        setScrollOffset(prev => prev + scrollAmount);
+      }
+      // If clicking on first 2 visible items and there are more above, scroll up
+      else if (visibleIndex <= 1 && scrollOffset > 0) {
+        const scrollAmount = Math.min(2, scrollOffset);
+        setScrollOffset(prev => prev - scrollAmount);
+      }
+    }
+
+    if (onMenuItemClick) {
+      onMenuItemClick(originalIndex);
+    }
+  };
+
+  // Scroll wheel handler using native event listener for proper preventDefault
+  useEffect(() => {
+    const element = circleRef.current;
+    if (!element || !showMenu || menuItems.length <= VISIBLE_ITEMS) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? 1 : -1;
+      setScrollOffset(prev => {
+        const newOffset = prev + delta;
+        const maxOffset = menuItems.length - VISIBLE_ITEMS;
+        return Math.max(0, Math.min(maxOffset, newOffset));
+      });
+    };
+
+    element.addEventListener("wheel", handleWheel, { passive: false });
+    return () => element.removeEventListener("wheel", handleWheel);
+  }, [showMenu, menuItems.length]);
+
   useEffect(() => {
     if (showMenu) {
       setIsMinimized(false);
@@ -120,6 +186,7 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
     } else {
       setIsMinimized(true);
       setMenuRotation(-180);
+      setScrollOffset(0);
     }
   }, [showMenu]);
 
@@ -128,10 +195,28 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
       ? "fixed left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2"
       : "fixed right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2";
 
+  // Get indicator position for scroll arrows - evenly spaced with menu items
+  const getIndicatorPosition = (isTop: boolean) => {
+    // Menu items are 24° apart (30° to 150° for 6 items)
+    // Place indicators at same 24° spacing: 6° above first item, 174° below last item
+    const angle = isTop ? 6 : 174;
+    const radian = (angle * Math.PI) / 180;
+    const radius = 190;
+
+    return {
+      x:
+        textPosition === "left"
+          ? 250 - Math.sin(radian) * radius
+          : 250 + Math.sin(radian) * radius,
+      y: 250 - Math.cos(radian) * radius,
+    };
+  };
+
   return (
     <div className="hidden md:block">
       <div className={`${positionClass} ${className} z-40`}>
         <div
+          ref={circleRef}
           className={`relative transition-all duration-700 ease-in-out
             ${isMinimized ? "scale-50" : "scale-100"}`}
           style={{ width: size, height: size }}
@@ -142,70 +227,79 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
             style={{ transform: `rotate(${menuRotation}deg)` }}
           >
             <g className="transition-transform duration-700 ease-in-out">
+              {/* Outer glow circle */}
               <circle
                 cx="250"
                 cy="250"
-                r="360"
-                className={`${
-                  darkMode ? "fill-gray-900" : "fill-white"
-                } opacity-5`}
+                r="320"
+                fill={darkMode ? "#111111" : "#FFFFFF"}
+                opacity="0.3"
               />
 
+              {/* Main ring - white in dark mode for Vercel style */}
               <circle
                 cx="250"
                 cy="250"
-                r="210"
-                className={darkMode ? "fill-white" : "fill-black"}
+                r="170"
+                fill={darkMode ? "#FAFAFA" : "#000000"}
               />
 
+              {/* Middle band - pure black */}
               <circle
                 cx="250"
                 cy="250"
-                r="187"
-                className={darkMode ? "fill-gray-900" : "fill-white"}
+                r="147"
+                fill={darkMode ? "#000000" : "#FFFFFF"}
               />
 
+              {/* Inner clickable circle - white accent */}
               <circle
                 cx="250"
                 cy="250"
-                r="135"
-                className={darkMode ? "fill-white" : "fill-black"}
+                r="95"
+                fill={darkMode ? "#FAFAFA" : "#000000"}
                 onClick={handleInnerCircleClick}
+                style={{ cursor: "pointer" }}
               />
 
+              {/* Stroke rings */}
               <circle
                 cx="250"
                 cy="250"
-                r="340"
+                r="300"
                 fill="none"
-                className={darkMode ? "stroke-white/20" : "stroke-black/20"}
+                stroke={darkMode ? "#333333" : "#000000"}
+                strokeOpacity={darkMode ? 0.5 : 0.2}
                 strokeWidth="2"
               />
 
               <circle
                 cx="250"
                 cy="250"
-                r="210"
+                r="170"
                 fill="none"
-                className={darkMode ? "stroke-white/40" : "stroke-gray-500/40"}
+                stroke={darkMode ? "#444444" : "#6B7280"}
+                strokeOpacity={darkMode ? 0.6 : 0.4}
                 strokeWidth="2"
               />
 
               <circle
                 cx="250"
                 cy="250"
-                r="187"
+                r="147"
                 fill="none"
-                className={darkMode ? "stroke-white/50" : "stroke-gray-500/50"}
+                stroke={darkMode ? "#333333" : "#6B7280"}
+                strokeOpacity={darkMode ? 0.5 : 0.5}
                 strokeWidth="2"
               />
 
               <circle
                 cx="250"
                 cy="250"
-                r="135"
+                r="95"
                 fill="none"
-                className={darkMode ? "stroke-white/60" : "stroke-gray-500/60"}
+                stroke={darkMode ? "#444444" : "#6B7280"}
+                strokeOpacity={darkMode ? 0.6 : 0.6}
                 strokeWidth="2"
               />
             </g>
@@ -215,31 +309,70 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
                 isMinimized ? "opacity-0" : "opacity-100"
               }`}
             >
-              {menuItems.map((item, index) => {
-                const pos = getPosition(index, menuItems.length);
+              {/* Indicator for more items above */}
+              {hasMoreAbove && !isMinimized && (
+                <g>
+                  <text
+                    x={getIndicatorPosition(true).x}
+                    y={getIndicatorPosition(true).y}
+                    fill={darkMode ? "#FFFFFF" : "#000000"}
+                    fontSize="12"
+                    fontWeight="500"
+                    textAnchor={textPosition === "left" ? "end" : "start"}
+                    alignmentBaseline="middle"
+                  >
+                    ▲ +{scrollOffset} more
+                  </text>
+                </g>
+              )}
+
+              {/* Visible menu items */}
+              {visibleItems.map((item, index) => {
+                const pos = getPosition(index);
                 return (
                   <g
-                    key={item.label}
-                    onClick={() => setActiveIndex(index)}
-                    className="cursor-pointer transition-all duration-300"
+                    key={`${item.label}-${item.originalIndex}`}
+                    onClick={() => handleMenuItemClick(item.originalIndex, index)}
+                    className="cursor-pointer"
                     style={{ opacity: isMinimized ? 0 : 1 }}
                   >
                     <text
                       x={pos.x}
                       y={pos.y}
-                      fill={index === activeIndex ? activeColor : inactiveColor}
+                      fill={item.originalIndex === activeIndex
+                        ? (darkMode ? "#FFFFFF" : "#000000")
+                        : inactiveColor}
                       fontSize="16"
+                      fontWeight={item.originalIndex === activeIndex ? "700" : "400"}
                       textAnchor={textPosition === "left" ? "end" : "start"}
                       alignmentBaseline="middle"
-                      className={`transition-all duration-300 hover:${
-                        darkMode ? "fill-gray-300" : "fill-gray-600"
-                      }`}
+                      style={{
+                        cursor: "pointer",
+                        transition: "all 0.3s ease"
+                      }}
                     >
                       {item.label}
                     </text>
                   </g>
                 );
               })}
+
+              {/* Indicator for more items below */}
+              {hasMoreBelow && !isMinimized && (
+                <g>
+                  <text
+                    x={getIndicatorPosition(false).x}
+                    y={getIndicatorPosition(false).y}
+                    fill={darkMode ? "#FFFFFF" : "#000000"}
+                    fontSize="12"
+                    fontWeight="500"
+                    textAnchor={textPosition === "left" ? "end" : "start"}
+                    alignmentBaseline="middle"
+                  >
+                    ▼ +{menuItems.length - scrollOffset - VISIBLE_ITEMS} more
+                  </text>
+                </g>
+              )}
             </g>
           </svg>
         </div>
@@ -249,13 +382,23 @@ const NavigationCircle: React.FC<NavigationCircleProps> = ({
 };
 
 const SweepNavigation: React.FC<SweepNavigationProps> = ({
-  pages = defaultPages,
+  pages = [],
   currentPageIndex = 1,
   onPageChange,
 }) => {
   const [currentPage, setCurrentPage] = useState<number>(currentPageIndex);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [darkMode] = useDarkMode();
+  const [darkMode, toggleDarkMode] = useDarkMode();
+
+  // Default pages if none provided
+  const defaultPages = [
+    { content: <AboutPage /> },
+    { content: <Homepage /> },
+    { content: <WorkPage /> },
+    { content: <ContactPage /> },
+  ];
+
+  const actualPages = pages.length > 0 ? pages : defaultPages;
 
   useEffect(() => {
     setCurrentPage(currentPageIndex);
@@ -272,7 +415,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
   };
 
   const navigateRight = () => {
-    if (currentPage < pages.length - 1 && !isAnimating) {
+    if (currentPage < actualPages.length - 1 && !isAnimating) {
       setIsAnimating(true);
       const newPage = currentPage + 1;
       setCurrentPage(newPage);
@@ -282,7 +425,6 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
   };
 
   const navigateToPage = (pageIndex: number) => {
-    console.log("Navigating to page:", pageIndex);
     if (!isAnimating && pageIndex !== currentPage) {
       setIsAnimating(true);
       setCurrentPage(pageIndex);
@@ -291,18 +433,75 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
     }
   };
 
-  if (!pages || pages.length === 0) {
+  // Handle project click - dispatch custom event to scroll in WorkPage
+  const handleProjectClick = (index: number) => {
+    const event = new CustomEvent("scrollToProject", { detail: { index } });
+    window.dispatchEvent(event);
+  };
+
+  // Handle skill click - dispatch custom event to scroll in SkillPage
+  const handleSkillClick = (index: number) => {
+    const event = new CustomEvent("scrollToSkill", { detail: { index } });
+    window.dispatchEvent(event);
+  };
+
+  if (!actualPages || actualPages.length === 0) {
     return null;
   }
 
   return (
     <div
-      className={`relative w-screen h-screen overflow-hidden transition-colors duration-300 ${
-        darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
-      }`}
+      className={`relative w-screen h-screen overflow-hidden transition-colors duration-300 ${!darkMode ? "bg-white text-black" : ""}`}
+      style={darkMode ? { backgroundColor: "#000000", color: "#FAFAFA" } : undefined}
     >
       <Header currentPage={currentPage} onNavigate={navigateToPage} />
       <Logo onNavigate={() => navigateToPage(1)} />
+
+      {/* Dark Mode Toggle - Top Left */}
+      <button
+        onClick={toggleDarkMode}
+        className={`fixed top-6 left-6 z-50 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg ${!darkMode ? "bg-gray-900 border-2 border-gray-200" : ""}`}
+        style={darkMode ? { backgroundColor: "#111111", border: "2px solid #333333" } : undefined}
+        aria-label="Toggle dark mode"
+      >
+        {darkMode ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#FFD93D"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#E4E4E7"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        )}
+      </button>
 
       {currentPage === 1 && (
         <>
@@ -315,6 +514,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
             showMenu={false}
             textPosition="left"
             darkMode={darkMode}
+            menuItems={skillsMenuItems}
             key="left-circle-page2"
           />
           <NavigationCircle
@@ -326,6 +526,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
             showMenu={false}
             textPosition="right"
             darkMode={darkMode}
+            menuItems={projectMenuItems}
             key="right-circle-page2"
           />
         </>
@@ -340,6 +541,8 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
           showMenu={true}
           textPosition="left"
           darkMode={darkMode}
+          menuItems={skillsMenuItems}
+          onMenuItemClick={handleSkillClick}
           key="right-circle-page1"
         />
       )}
@@ -353,6 +556,8 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
           showMenu={true}
           textPosition="right"
           darkMode={darkMode}
+          menuItems={projectMenuItems}
+          onMenuItemClick={handleProjectClick}
           key="left-circle-page3"
         />
       )}
@@ -363,7 +568,7 @@ const SweepNavigation: React.FC<SweepNavigationProps> = ({
           transition: "all 800ms cubic-bezier(0.65, 0, 0.35, 1)",
         }}
       >
-        {pages.map((page, index) => (
+        {actualPages.map((page, index) => (
           <div
             key={index}
             className="min-w-full h-full flex-shrink-0 smooth-transform"
